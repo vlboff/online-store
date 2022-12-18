@@ -1,0 +1,10 @@
+@import './abstracts/variables.scss';
+
+@import './layout/Header';
+@import './layout/wrapper';
+
+@import './components/search-bar';
+@import './components/shopping-cart';
+@import './components/text-logo';
+
+@import './base/normalize';

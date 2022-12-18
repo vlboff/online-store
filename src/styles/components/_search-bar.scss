@@ -1,0 +1,26 @@
+.search-bar {
+  width: 50%;
+  border: 2px solid black;
+  border-radius: 17px;
+  padding: 5px 15px;
+}
+
+.search-bar label {
+  display: flex;
+}
+
+.search-bar label svg {
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.search-bar label input {
+  border: none;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.search-bar input:focus-visible {
+  outline: none;
+}
