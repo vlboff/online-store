@@ -1,21 +1,22 @@
 import React from 'react';
-import SvgSelector from './UI/SvgSelector';
+import SearchBar from './UI/SearchBar';
+import ShoppingCartIcon from './UI/ShoppingCartIcon';
+import TextLogo from './UI/TextLogo';
 
-function Header() {
+interface Props {
+  isSearchBar: boolean;
+}
+
+function Header({ isSearchBar }: Props) {
   return (
     <header className='header wrapper'>
-      <div className='text-logo'><a href="#">OnlineStore</a></div>
-      <div className='search-bar'>
-        <label >
-          <SvgSelector id='magnifier' />
-          <input type="text" placeholder='Search on OnlineStore' />
-        </label>
-      </div>
-      <div className='shopping-cart'>
-        <a href="#">
-          <SvgSelector id='shopping-cart' />
-        </a>
-      </div>
+      <TextLogo />
+      {
+        isSearchBar
+          ? <SearchBar />
+          : ''
+      }
+      <ShoppingCartIcon />
     </header>
   )
 }
