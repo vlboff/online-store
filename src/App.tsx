@@ -1,9 +1,11 @@
-import React from 'react';
+import ProductCardField from "./components/ProductCardField";
+import "./styles/main.scss";
+import data from "./data/data.json";
+
+const products = data.products;
 
 function App() {
-  return (
-    <h1>Hello React!</h1>
-  );
+  return <ProductCardField products={products} />;
 }
 
 export default App;
