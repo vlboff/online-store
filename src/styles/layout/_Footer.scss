@@ -1,0 +1,16 @@
+.footer {
+  background-color: $additional-color;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 0;
+  font-size: 20px;
+
+  p {
+     margin: 0;
+  }
+}

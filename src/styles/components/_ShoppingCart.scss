@@ -1,0 +1,15 @@
+.shopping-cart {
+  display: flex;
+  align-items: center;
+}
+
+.shopping-cart a svg {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.shopping-cart__amount{
+  font-size: 20px;
+  user-select: none;
+}
