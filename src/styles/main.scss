@@ -3,10 +3,14 @@
 @import './layout/Header';
 @import './layout/Footer';
 @import './layout/wrapper';
+@import './layout/ProductCardField';
+@import './layout/Products';
 
 @import './components/SearchBar';
 @import './components/ShoppingCart';
 @import './components/TextLogo';
 @import './components/link';
+@import './components/ProductCard';
+@import './components/SortProducts';
 
 @import './base/normalize';
