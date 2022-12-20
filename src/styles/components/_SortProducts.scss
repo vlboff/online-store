@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1% 2%;
+  padding: 1%;
 }
 
 .sort-bar {
@@ -21,7 +21,7 @@
 }
 
 .view-mode_big {
-  border: 2px solid black;
+  border: 2px solid $font-color-main;
   height: 3rem;
   width: 3rem;
   display: flex;
@@ -36,12 +36,12 @@
 .view-mode_big-sqare {
   width: 30%;
   height: 30%;
-  background-color: black;
+  background-color: $font-color-main;
   border-radius: 3px;
 }
 
 .view-mode_small {
-  border: 2px solid black;
+  border: 2px solid $font-color-main;
   height: 3rem;
   width: 3rem;
   display: flex;
@@ -56,6 +56,6 @@
 .view-mode_small-sqare {
   width: 22.5%;
   height: 22.5%;
-  background-color: black;
+  background-color: $font-color-main;
   border-radius: 2px;
 }

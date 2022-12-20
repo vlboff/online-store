@@ -1,0 +1,26 @@
+.filters {
+  width: 20%;
+  padding: 2% 2% 0 0;
+}
+
+.filter_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter_buttons button {
+  padding: 2%;
+  box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  border: none;
+  font-family: 'Roboto';
+  cursor: pointer;
+}
+
+.filter_buttons button:hover {
+  background-color:rgba(0, 0, 0, 0.12);
+}
+
+.filter_buttons button:active {
+  transform: scale(0.97);
+}

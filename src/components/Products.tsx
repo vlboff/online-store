@@ -1,3 +1,4 @@
+import React from "react";
 import SortProducts from "./SortProducts";
 import ProductCardField from "./ProductCardField";
 import data from "../data/data.json";
