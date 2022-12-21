@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import data from '../data/data.json';
 import StylizedButton from './UI/StylizedButton';
 import SvgSelector from './UI/SvgSelector';
@@ -9,7 +9,9 @@ interface IProductID {
 
 function Product({ id }: IProductID) {
   const product = data.products.filter(obj => obj.id === id)[0];
-  console.log(product);
+
+  const [thumbnail, setThumbnail] = useState(product.thumbnail);
+
   return (
     <div className='product wrapper'>
       <div className="product__header">
@@ -20,8 +22,8 @@ function Product({ id }: IProductID) {
       <div className='product__container'>
         <div
           className='product__img'
-          style={{ background: `url(${product.thumbnail}) 0% center / cover` }}
-          onClick={() => window.location.assign(product.thumbnail)}
+          style={{ background: `url(${thumbnail}) 0% center / cover` }}
+          onClick={() => window.location.assign(thumbnail)}
         >
           <div className='product__img__blackout'></div>
         </div>
@@ -29,7 +31,7 @@ function Product({ id }: IProductID) {
           <div className="product__gallery">
             {product.images.map(img => {
               return (
-                <div className='product__gallery__img' style={{ background: `url(${img}) 0% center / cover` }}></div>
+                <div className='product__gallery__img' style={{ background: `url(${img}) 0% center / cover`}} onClick={() => setThumbnail(img)}></div>
               )
             })}
           </div>
