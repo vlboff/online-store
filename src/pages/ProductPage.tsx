@@ -6,8 +6,7 @@ import Product from '../components/Product';
 
 
 function ProductPage() {
-  const params = useParams();
-  console.log(params)
+  const params = useParams(); 
   return (
     <>
       <Header isSearchBar={false} />
