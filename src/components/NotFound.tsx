@@ -1,9 +1,12 @@
 import React from "react";
+import SvgSelector from "./UI/SvgSelector";
 
 function NotFound() {
   return (
     <div className="not-found wrapper">
-      <h1>Page not found(404)</h1>
+      <SvgSelector id='sad-face' />
+      <h2>Page not found</h2>
+      <h2>404</h2>
     </div>
   );
 };
