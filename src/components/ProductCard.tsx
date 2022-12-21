@@ -1,24 +1,22 @@
 import React from "react";
 import Button from "./UI/Button";
 import SvgSelector from "./UI/SvgSelector";
+import { useNavigate } from 'react-router-dom';
 
 interface IProductCard {
-  key: number;
-
+  id: number;
   title: string;
-
   category: string;
   brand: string;
   price: number;
   discount: number;
   rating: number;
   stock: number;
-
   background: string;
 }
 
 const ProductCard = ({
-  key,
+  id,
   title,
   category,
   brand,
@@ -28,6 +26,9 @@ const ProductCard = ({
   stock,
   background,
 }: IProductCard) => {
+
+  let navigate = useNavigate();
+
   return (
     <div className="product-card">
       <div
@@ -35,10 +36,11 @@ const ProductCard = ({
         style={{
           background: `url(${background}) 0% center / cover`,
         }}
+        onClick={() => navigate(`products/${id}`)}
       >
         <div className="product-card_blackout"></div>
       </div>
-      <div className="product-card_title">
+      <div className="product-card_title" onClick={() => navigate(`products/${id}`)}>
         <p>{title}</p>
       </div>
       <div className="product-card_dscr">

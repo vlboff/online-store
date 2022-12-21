@@ -26,7 +26,7 @@ const ProductCardField = (products: IData) => {
   const cardField = products.products.map((item) => {
     return (
       <ProductCard
-        key={item.id}
+        id={item.id}
         title={item.title}
         category={item.category}
         brand={item.brand}
@@ -35,6 +35,8 @@ const ProductCardField = (products: IData) => {
         rating={item.rating}
         stock={item.stock}
         background={item.thumbnail}
+
+        key={item.id}
       />
     );
   });

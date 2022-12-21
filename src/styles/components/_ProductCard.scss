@@ -12,6 +12,7 @@
   height: 250px;
   border-radius: 10px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .product-card_blackout {
@@ -24,6 +25,7 @@
 .product-card_title {
   height: 5%;
   padding-top: 1%;
+  cursor: pointer;
 }
 
 .product-card_title p {
