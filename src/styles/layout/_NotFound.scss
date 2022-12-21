@@ -1,0 +1,25 @@
+.not-found {
+  min-height: calc(100vh - 60px);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  > * {
+    margin: 0;
+  }
+}
+
+.not-found svg {
+  width: 400px;
+  height: 400px;
+}
+
+.not-found h2:nth-child(2) {
+  font-size: 50px;
+}
+
+.not-found h2:last-child {
+  font-size: 210px;
+  font-weight: 300;
+}

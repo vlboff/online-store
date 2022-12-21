@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SearchBar from './UI/SearchBar';
 import ShoppingCartIcon from './UI/ShoppingCartIcon';
 import TextLogo from './UI/TextLogo';
@@ -10,13 +11,13 @@ interface Props {
 function Header({ isSearchBar }: Props) {
   return (
     <header className='header wrapper'>
-      <TextLogo />
+      <Link to='/' className='link_unstressed'><TextLogo /></Link>
       {
         isSearchBar
           ? <SearchBar />
           : ''
       }
-      <ShoppingCartIcon />
+      <Link to='/cart' className='link_unstressed'><ShoppingCartIcon /></Link>
     </header>
   )
 }
