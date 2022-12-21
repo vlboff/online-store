@@ -3,11 +3,9 @@ import SvgSelector from './SvgSelector';
 
 function ShoppingCartIcon() {
   return (
-    <div className='shopping-cart'>
-      <a href="#">
-        <SvgSelector id='shopping-cart' />
-      </a>
-      <span className='shopping-cart__amount'>: €0.00</span>
+    <div className='shopping-cart-icon'>
+      <SvgSelector id='shopping-cart-icon' />
+      <span className='shopping-cart-icon__amount'>: €0.00</span>
     </div>
   )
 }

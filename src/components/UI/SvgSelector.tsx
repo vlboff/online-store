@@ -6,7 +6,7 @@ interface Props {
 
 function SvgSelector({ id }: Props) {
   switch (id) {
-    case "shopping-cart":
+    case "shopping-cart-icon":
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"

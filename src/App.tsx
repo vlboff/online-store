@@ -1,16 +1,15 @@
 import React from "react";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Main from "./components/Main";
+import { Route, Routes } from "react-router-dom";
+import ProductsPage from "./pages/ProductsPage";
+import ShoppingCartPage from "./pages/ShoppingCartPage";
 import "./styles/main.scss";
 
 function App() {
   return (
-    <>
-      <Header isSearchBar={true} />
-      <Main />
-      <Footer />
-    </>
+    <Routes>
+    <Route path='/' element={<ProductsPage/>}/>
+    <Route path='/cart' element={<ShoppingCartPage/>}/>
+  </Routes>
   );
 }
 
