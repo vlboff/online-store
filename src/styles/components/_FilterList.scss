@@ -1,0 +1,14 @@
+.filter_block {
+  font-family: 'Roboto';
+  color: $font-color-main;
+}
+
+.filter_block h2 {
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.filter_list {
+  height: 200px;
+  overflow-y: auto;
+}

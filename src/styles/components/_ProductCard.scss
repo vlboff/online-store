@@ -4,7 +4,7 @@
   gap: 2%;
   margin: 1%;
   font-family: 'Roboto';
-  color: black;
+  color: $font-color-main;
 }
 
 .product-card_img {
@@ -26,8 +26,16 @@
   padding-top: 1%;
 }
 
+.product-card_title p {
+  margin: 0;
+}
+
 .product-card_dscr svg {
   fill: $brand-color;
+}
+
+.product-card_dscr p {
+  margin: 0;
 }
 
 .product-card_rating {

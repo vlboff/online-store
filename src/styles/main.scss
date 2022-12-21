@@ -5,6 +5,7 @@
 @import './layout/wrapper';
 @import './layout/ProductCardField';
 @import './layout/Products';
+@import './layout/Main.scss';
 
 @import './components/SearchBar';
 @import './components/ShoppingCart';
@@ -12,5 +13,9 @@
 @import './components/link';
 @import './components/ProductCard';
 @import './components/SortProducts';
+@import './components/FilterBlock';
+@import './components/FilterList';
+@import './components/FilterListPoint';
+@import './components/SliderBlock';
 
 @import './base/normalize';

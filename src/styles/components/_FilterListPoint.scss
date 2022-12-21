@@ -1,0 +1,16 @@
+.filter_list_point {
+  display: flex;
+  align-items: center;
+}
+
+.filter_list_point input:checked {
+  accent-color: $brand-color;
+}
+
+.filter_list_point label {
+  padding: 5px;
+}
+
+.filter_list_point span {
+  margin-left: auto;
+}
