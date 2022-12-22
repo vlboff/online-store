@@ -17,7 +17,7 @@ function Product({ id }: IProductID) {
       <div className="product__header">
         <p><span>{product.category}</span> &gt; <span>{product.brand}</span> &gt; <span>{product.title}</span></p>
         <h2>{product.title}</h2>
-        <div className='product__header__rating'><SvgSelector id={"star"} /> {product.rating}<span className='product__header__stock'>In stock: {product.stock}</span></div>
+        <div className='product__header__rating'><SvgSelector id={"star"} /> {product.rating}</div>
       </div>
       <div className='product__container'>
         <div
@@ -36,6 +36,7 @@ function Product({ id }: IProductID) {
             })}
           </div>
           <h2>{product.description}</h2>
+          <p className='product__header__stock'>In stock: {product.stock}</p>
           <h2 className='product__description__price'>€{product.price}</h2>
           <p className='product__description__discount'>
             <span className='product__description__old-price'>€{((product.price * 100) / (100 - product.discountPercentage)).toFixed(2)}</span>
