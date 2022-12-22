@@ -7,10 +7,16 @@ interface IProductID {
   id: number;
 }
 
+interface IProductInfo{
+  id: number; 
+  count: number; 
+  price: number
+}
+
 function Product({ id }: IProductID) {
   const product = data.products.filter(obj => obj.id === id)[0];
-
   const [thumbnail, setThumbnail] = useState(product.thumbnail);
+  let [cart, setCart] = useState<IProductInfo[]>(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
 
   return (
     <div className='product wrapper'>
@@ -31,7 +37,7 @@ function Product({ id }: IProductID) {
           <div className="product__gallery">
             {product.images.map(img => {
               return (
-                <div className='product__gallery__img' style={{ background: `url(${img}) 0% center / cover`}} onClick={() => setThumbnail(img)}></div>
+                <div className='product__gallery__img' style={{ background: `url(${img}) 0% center / cover` }} onClick={() => setThumbnail(img)}></div>
               )
             })}
           </div>
@@ -43,8 +49,25 @@ function Product({ id }: IProductID) {
             <span className='product__description__discount-percentage'>-{(product.discountPercentage).toFixed(2)}%</span>
           </p>
           <div className="product__description__buttons">
-            <StylizedButton name='Add to cart' style='button_stylized button_stylized_brand' />
-            <StylizedButton name='Buy now' style='button_stylized button_stylized_additional' />
+            <StylizedButton
+              name='Add to cart'
+              style='button_stylized button_stylized_brand'
+              onClick={() => {
+                const productInfo: IProductInfo = { id: product.id, count: 1, price: product.price };
+                if (cart.find(obj => obj.id === product.id)) {
+                  cart.splice(cart.findIndex(obj => obj.id === product.id), 1);
+                } else {
+                  cart.push(productInfo);
+                }
+                setCart([...cart])
+                localStorage.setItem('onlineStore', JSON.stringify(cart));
+              }
+              }
+            />
+            <StylizedButton
+              name='Buy now'
+              style='button_stylized button_stylized_additional'
+            />
           </div>
         </div>
       </div>
