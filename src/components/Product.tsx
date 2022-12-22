@@ -16,6 +16,7 @@ interface IProductInfo{
 function Product({ id }: IProductID) {
   const product = data.products.filter(obj => obj.id === id)[0];
   const [thumbnail, setThumbnail] = useState(product.thumbnail);
+  const [addedToCart, setAddedToCart] = useState(false);
   let [cart, setCart] = useState<IProductInfo[]>(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
 
   return (
@@ -50,16 +51,18 @@ function Product({ id }: IProductID) {
           </p>
           <div className="product__description__buttons">
             <StylizedButton
-              name='Add to cart'
+              name={addedToCart ? 'Drop from cart' : 'Add to cart'}
               style='button_stylized button_stylized_brand'
               onClick={() => {
                 const productInfo: IProductInfo = { id: product.id, count: 1, price: product.price };
                 if (cart.find(obj => obj.id === product.id)) {
                   cart.splice(cart.findIndex(obj => obj.id === product.id), 1);
+                  setAddedToCart(false)
                 } else {
                   cart.push(productInfo);
+                  setAddedToCart(true)
                 }
-                setCart([...cart])
+                setCart([...cart]);
                 localStorage.setItem('onlineStore', JSON.stringify(cart));
               }
               }
