@@ -14,16 +14,12 @@ const Products = () => {
     setValue(event.target.value);
     if (event.target.value === "price-ASC") {
       setProductsToShow(productsToShow.sort((a, b) => a.price - b.price));
-      console.log("price-ASC");
     } else if (event.target.value === "price-DESC") {
       setProductsToShow(productsToShow.sort((a, b) => b.price - a.price));
-      console.log("price-DESC");
     } else if (event.target.value === "rating-ASC") {
       setProductsToShow(productsToShow.sort((a, b) => a.rating - b.rating));
-      console.log("rating-ASC");
     } else if (event.target.value === "rating-DESC") {
       setProductsToShow(productsToShow.sort((a, b) => b.rating - a.rating));
-      console.log("rating-DESC");
     }
   }
 
