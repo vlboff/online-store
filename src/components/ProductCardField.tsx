@@ -5,9 +5,7 @@ import SvgSelector from "./UI/SvgSelector";
 
 interface IData {
   products: IProducts[];
-  total?: number;
-  skip?: number;
-  limit?: number;
+  viewMode: boolean;
 }
 
 interface IProducts {
@@ -43,7 +41,7 @@ const ProductCardField = (products: IData) => {
         rating={item.rating}
         stock={item.stock}
         background={item.thumbnail}
-
+        viewMode={viewMode}
         key={item.id}
       />
     );
