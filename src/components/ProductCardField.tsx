@@ -22,12 +22,12 @@ interface IProducts {
   images: string[];
 }
 
-const ProductCardField = (products: IData) => {
-  const [searchedValue, setSearchedValue] = useState('')
-  
-  let searchedProducts = products.products.filter((product) => {
+const ProductCardField = ({ products, viewMode }: IData) => {
+  const [searchedValue, setSearchedValue] = useState("");
+
+  let searchedProducts = products.filter((product) => {
     return product.title.toLowerCase().includes(searchedValue.toLowerCase());
-  })
+  });
 
   const cardField = searchedProducts.map((item) => {
     return (
@@ -46,22 +46,26 @@ const ProductCardField = (products: IData) => {
       />
     );
   });
-  console.log(cardField)
+  console.log(cardField);
   return (
     <>
-      <div className='search-bar'>
-        <label >
-          <SvgSelector id='magnifier' />
-          <input type="text" placeholder='Search on OnlineStore' onChange={(event) => setSearchedValue(event.target.value)} />
+      <div className="search-bar">
+        <label>
+          <SvgSelector id="magnifier" />
+          <input
+            type="text"
+            placeholder="Search on OnlineStore"
+            onChange={(event) => setSearchedValue(event.target.value)}
+          />
         </label>
       </div>
-      {
-        cardField.length > 0 
-          ? <div className="product-card_field">{cardField}</div>
-          : <NotFoundProducts />
-      }
+      {cardField.length > 0 ? (
+        <div className="product-card_field">{cardField}</div>
+      ) : (
+        <NotFoundProducts />
+      )}
     </>
-  )
+  );
 };
 
 export default ProductCardField;
