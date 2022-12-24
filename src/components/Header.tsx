@@ -12,11 +12,6 @@ function Header({ isSearchBar }: Props) {
   return (
     <header className='header wrapper'>
       <Link to='/' className='link_unstressed'><TextLogo /></Link>
-      {
-        isSearchBar
-          ? <SearchBar />
-          : ''
-      }
       <Link to='/cart' className='link_unstressed'><ShoppingCartIcon /></Link>
     </header>
   )

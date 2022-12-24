@@ -16,8 +16,8 @@ interface IProductInfo{
 function Product({ id }: IProductID) {
   const product = data.products.filter(obj => obj.id === id)[0];
   const [thumbnail, setThumbnail] = useState(product.thumbnail);
-  const [addedToCart, setAddedToCart] = useState(false);
   let [cart, setCart] = useState<IProductInfo[]>(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
+  const [addedToCart, setAddedToCart] = useState(Boolean(cart.find(obj => obj.id === product.id)));
 
   return (
     <div className='product wrapper'>
@@ -57,12 +57,11 @@ function Product({ id }: IProductID) {
                 const productInfo: IProductInfo = { id: product.id, count: 1, price: product.price };
                 if (cart.find(obj => obj.id === product.id)) {
                   cart.splice(cart.findIndex(obj => obj.id === product.id), 1);
-                  setAddedToCart(false)
+                  setAddedToCart(!addedToCart)
                 } else {
                   cart.push(productInfo);
-                  setAddedToCart(true)
+                  setAddedToCart(!addedToCart)
                 }
-                setCart([...cart]);
                 localStorage.setItem('onlineStore', JSON.stringify(cart));
               }
               }
