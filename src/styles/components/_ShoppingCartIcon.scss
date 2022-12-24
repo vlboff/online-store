@@ -9,7 +9,25 @@
   cursor: pointer;
 }
 
-.shopping-cart-icon__amount{
+.shopping-cart-icon__cost{
+  width: fit-content;
   font-size: 20px;
   user-select: none;
+  white-space: nowrap;
+  transition: width .3s;
+}
+
+.shopping-cart-icon__numder-of-products {
+  position: absolute;
+  margin-left: 16px;
+  margin-bottom: 28px;
+  width: 25px;
+  height: 25px;
+  background-color: $brand-color;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
 }

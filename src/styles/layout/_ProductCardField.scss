@@ -3,3 +3,17 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+.product-card_field_not-found {
+  text-align: center;
+  margin-top: 20px;
+
+  svg {
+    width: 150px;
+    height: 150px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}
