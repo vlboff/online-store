@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import NotFoundProducts from "./NotFoundProducts";
 import ProductCard from "./ProductCard";
+import SvgSelector from "./UI/SvgSelector";
 
 interface IData {
   products: IProducts[];
@@ -23,7 +25,13 @@ interface IProducts {
 }
 
 const ProductCardField = (products: IData) => {
-  const cardField = products.products.map((item) => {
+  const [searchedValue, setSearchedValue] = useState('')
+  
+  let searchedProducts = products.products.filter((product) => {
+    return product.title.toLowerCase().includes(searchedValue.toLowerCase());
+  })
+
+  const cardField = searchedProducts.map((item) => {
     return (
       <ProductCard
         id={item.id}
@@ -40,8 +48,22 @@ const ProductCardField = (products: IData) => {
       />
     );
   });
-
-  return <div className="product-card_field">{cardField}</div>;
+  console.log(cardField)
+  return (
+    <>
+      <div className='search-bar'>
+        <label >
+          <SvgSelector id='magnifier' />
+          <input type="text" placeholder='Search on OnlineStore' onChange={(event) => setSearchedValue(event.target.value)} />
+        </label>
+      </div>
+      {
+        cardField.length > 0 
+          ? <div className="product-card_field">{cardField}</div>
+          : <NotFoundProducts />
+      }
+    </>
+  )
 };
 
 export default ProductCardField;

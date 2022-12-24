@@ -7,17 +7,24 @@ interface IProductID {
   id: number;
 }
 
+interface IProductInfo{
+  id: number; 
+  count: number; 
+  price: number
+}
+
 function Product({ id }: IProductID) {
   const product = data.products.filter(obj => obj.id === id)[0];
-
   const [thumbnail, setThumbnail] = useState(product.thumbnail);
+  let [cart, setCart] = useState<IProductInfo[]>(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
+  const [addedToCart, setAddedToCart] = useState(Boolean(cart.find(obj => obj.id === product.id)));
 
   return (
     <div className='product wrapper'>
       <div className="product__header">
         <p><span>{product.category}</span> &gt; <span>{product.brand}</span> &gt; <span>{product.title}</span></p>
         <h2>{product.title}</h2>
-        <div className='product__header__rating'><SvgSelector id={"star"} /> {product.rating}<span className='product__header__stock'>In stock: {product.stock}</span></div>
+        <div className='product__header__rating'><SvgSelector id={"star"} /> {product.rating}</div>
       </div>
       <div className='product__container'>
         <div
@@ -31,19 +38,38 @@ function Product({ id }: IProductID) {
           <div className="product__gallery">
             {product.images.map(img => {
               return (
-                <div className='product__gallery__img' style={{ background: `url(${img}) 0% center / cover`}} onClick={() => setThumbnail(img)}></div>
+                <div className='product__gallery__img' style={{ background: `url(${img}) 0% center / cover` }} onClick={() => setThumbnail(img)}></div>
               )
             })}
           </div>
           <h2>{product.description}</h2>
+          <p className='product__header__stock'>In stock: {product.stock}</p>
           <h2 className='product__description__price'>€{product.price}</h2>
           <p className='product__description__discount'>
             <span className='product__description__old-price'>€{((product.price * 100) / (100 - product.discountPercentage)).toFixed(2)}</span>
             <span className='product__description__discount-percentage'>-{(product.discountPercentage).toFixed(2)}%</span>
           </p>
           <div className="product__description__buttons">
-            <StylizedButton name='Add to cart' style='button_stylized button_stylized_brand' />
-            <StylizedButton name='Buy now' style='button_stylized button_stylized_additional' />
+            <StylizedButton
+              name={addedToCart ? 'Drop from cart' : 'Add to cart'}
+              style='button_stylized button_stylized_brand'
+              onClick={() => {
+                const productInfo: IProductInfo = { id: product.id, count: 1, price: product.price };
+                if (cart.find(obj => obj.id === product.id)) {
+                  cart.splice(cart.findIndex(obj => obj.id === product.id), 1);
+                  setAddedToCart(!addedToCart)
+                } else {
+                  cart.push(productInfo);
+                  setAddedToCart(!addedToCart)
+                }
+                localStorage.setItem('onlineStore', JSON.stringify(cart));
+              }
+              }
+            />
+            <StylizedButton
+              name='Buy now'
+              style='button_stylized button_stylized_additional'
+            />
           </div>
         </div>
       </div>
