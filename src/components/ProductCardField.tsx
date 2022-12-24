@@ -3,9 +3,7 @@ import ProductCard from "./ProductCard";
 
 interface IData {
   products: IProducts[];
-  total?: number;
-  skip?: number;
-  limit?: number;
+  viewMode: boolean;
 }
 
 interface IProducts {
@@ -22,8 +20,8 @@ interface IProducts {
   images: string[];
 }
 
-const ProductCardField = (products: IData) => {
-  const cardField = products.products.map((item) => {
+const ProductCardField = ({ products, viewMode }: IData) => {
+  const cardField = products.map((item) => {
     return (
       <ProductCard
         id={item.id}
@@ -35,7 +33,7 @@ const ProductCardField = (products: IData) => {
         rating={item.rating}
         stock={item.stock}
         background={item.thumbnail}
-
+        viewMode={viewMode}
         key={item.id}
       />
     );

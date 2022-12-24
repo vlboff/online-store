@@ -23,10 +23,19 @@ const Products = () => {
     }
   }
 
+  const [bigViewMode, setBigViewMode] = useState(true);
+  function isBigViewMode() {
+    setBigViewMode((current) => !current);
+  }
+
   return (
     <div className="products">
-      <SortProducts amount={100} sortValue={chengeSelect} />
-      <ProductCardField products={productsToShow} />
+      <SortProducts
+        amount={100}
+        sortValue={chengeSelect}
+        isBigViewMode={isBigViewMode}
+      />
+      <ProductCardField products={productsToShow} viewMode={bigViewMode} />
     </div>
   );
 };
