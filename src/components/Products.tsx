@@ -1,24 +1,34 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SortProducts from "./SortProducts";
 import ProductCardField from "./ProductCardField";
+import { Options } from "./ViewOptions";
 import data from "../data/data.json";
 
 const products = data.products;
 
 const Products = () => {
-  const [value, setValue] = useState("");
+  const [valueSort, setValueSort] = useState<string>("sort-options");
   const [productsToShow, setProductsToShow] = useState(products);
 
-  function chengeSelect(event: React.ChangeEvent<HTMLSelectElement>) {
-    setValue(event.target.value);
-    if (event.target.value === "price-ASC") {
+  console.log(productsToShow);
+
+  useEffect(() => {
+    chengeSelect();
+  }, [valueSort]);
+
+  function chengeSelect() {
+    if (valueSort === Options.priceASC) {
+      console.log(1);
       setProductsToShow(productsToShow.sort((a, b) => a.price - b.price));
-    } else if (event.target.value === "price-DESC") {
+    } else if (valueSort === Options.priceDESC) {
+      console.log(2);
       setProductsToShow(productsToShow.sort((a, b) => b.price - a.price));
-    } else if (event.target.value === "rating-ASC") {
+    } else if (valueSort === Options.ratingASC) {
+      console.log(3);
       setProductsToShow(productsToShow.sort((a, b) => a.rating - b.rating));
-    } else if (event.target.value === "rating-DESC") {
+    } else if (valueSort === Options.ratingDESC) {
+      console.log(4);
       setProductsToShow(productsToShow.sort((a, b) => b.rating - a.rating));
     }
   }
@@ -32,7 +42,8 @@ const Products = () => {
     <div className="products">
       <SortProducts
         amount={100}
-        sortValue={chengeSelect}
+        chengeSelect={(sort) => setValueSort(sort)}
+        valueSort={valueSort}
         isBigViewMode={isBigViewMode}
       />
       <ProductCardField products={productsToShow} viewMode={bigViewMode} />

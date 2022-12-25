@@ -46,7 +46,7 @@ const ProductCardField = ({ products, viewMode }: IData) => {
       />
     );
   });
-  console.log(cardField);
+
   return (
     <>
       <div className="search-bar">
