@@ -9,17 +9,17 @@ export enum Options {
 
 interface IViewOptions {
   valueSort: string;
-  chengeSelect: React.Dispatch<React.SetStateAction<string>>;
+  setValueSort: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ViewOptions = ({ valueSort, chengeSelect }: IViewOptions) => {
+const ViewOptions = ({ valueSort, setValueSort }: IViewOptions) => {
   return (
     <select
       className="sort-bar"
       name="sort"
       id="sort"
       value={valueSort}
-      onChange={(event) => chengeSelect(event.target.value)}
+      onChange={(event) => setValueSort(event.target.value)}
     >
       <option disabled value="sort-options">
         Sort options:

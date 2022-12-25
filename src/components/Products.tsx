@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import SortProducts from "./SortProducts";
 import ProductCardField from "./ProductCardField";
 import { Options } from "./ViewOptions";
@@ -13,25 +13,26 @@ const Products = () => {
 
   console.log(productsToShow);
 
+  const chengeSelect = useCallback(() => {
+    switch (valueSort) {
+      case Options.priceASC:
+        setProductsToShow(productsToShow.sort((a, b) => a.price - b.price));
+        break;
+      case Options.priceDESC:
+        setProductsToShow(productsToShow.sort((a, b) => b.price - a.price));
+        break;
+      case Options.ratingASC:
+        setProductsToShow(productsToShow.sort((a, b) => a.rating - b.rating));
+        break;
+      case Options.ratingDESC:
+        setProductsToShow(productsToShow.sort((a, b) => b.rating - a.rating));
+        break;
+    }
+  }, [productsToShow, valueSort]);
+
   useEffect(() => {
     chengeSelect();
-  }, [valueSort]);
-
-  function chengeSelect() {
-    if (valueSort === Options.priceASC) {
-      console.log(1);
-      setProductsToShow(productsToShow.sort((a, b) => a.price - b.price));
-    } else if (valueSort === Options.priceDESC) {
-      console.log(2);
-      setProductsToShow(productsToShow.sort((a, b) => b.price - a.price));
-    } else if (valueSort === Options.ratingASC) {
-      console.log(3);
-      setProductsToShow(productsToShow.sort((a, b) => a.rating - b.rating));
-    } else if (valueSort === Options.ratingDESC) {
-      console.log(4);
-      setProductsToShow(productsToShow.sort((a, b) => b.rating - a.rating));
-    }
-  }
+  }, [chengeSelect, productsToShow, valueSort]);
 
   const [bigViewMode, setBigViewMode] = useState(true);
   function isBigViewMode() {
@@ -42,7 +43,7 @@ const Products = () => {
     <div className="products">
       <SortProducts
         amount={100}
-        chengeSelect={(sort) => setValueSort(sort)}
+        setValueSort={setValueSort}
         valueSort={valueSort}
         isBigViewMode={isBigViewMode}
       />

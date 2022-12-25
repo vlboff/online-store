@@ -4,14 +4,14 @@ import { useState, useRef } from "react";
 
 interface ISortProducts {
   amount: number;
-  chengeSelect: React.Dispatch<React.SetStateAction<string>>;
+  setValueSort: React.Dispatch<React.SetStateAction<string>>;
   valueSort: string;
   isBigViewMode: () => void;
 }
 
 const SortProducts = ({
   amount,
-  chengeSelect,
+  setValueSort,
   valueSort,
   isBigViewMode,
 }: ISortProducts) => {
@@ -43,7 +43,7 @@ const SortProducts = ({
 
   return (
     <div className="sort-products">
-      <ViewOptions valueSort={valueSort} chengeSelect={chengeSelect} />
+      <ViewOptions valueSort={valueSort} setValueSort={setValueSort} />
       <div className="amount-products">Found: {amount}</div>
       <div className="view-mode">
         <div
