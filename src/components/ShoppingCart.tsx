@@ -49,11 +49,14 @@ function ShoppingCart() {
                       <div className="products-in-cart__product__description">
                         <p>{product?.title}</p>
                         <p>{product?.description}</p>
-                        <p>{product?.rating}</p>
                       </div>
-                      <div className="products-in-cart__product__price&amount">
+                      <div className="products-in-cart__product__price">
+                        <p>€ {((product!.price * 100) / (100 - product!.discountPercentage)).toFixed(2)}</p>
+                        <h3>€ {product?.price}</h3>
+                        <p>{product!.discountPercentage.toFixed(2)}%</p>
+                      </div>
+                      <div className="products-in-cart__product__amount">
                         <p>In stock: {product?.stock}</p>
-                        <h3>{product?.price}</h3>
                         <div className='product-amount-input'>
                           <input type="number" name="" id="" min={1} max={product?.stock}/>
                         </div>
