@@ -5,34 +5,64 @@ import ProductCardField from "./ProductCardField";
 import { Options } from "./ViewOptions";
 import data from "../data/data.json";
 
-const products = data.products;
+interface IData {
+  products: IProducts[];
+  total: number;
+  skip: number;
+  limit: number;
+}
+
+export interface IProducts {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
+}
+const dataFile: IData = data;
+
+const products = dataFile.products;
 
 const Products = () => {
   const [valueSort, setValueSort] = useState<string>("sort-options");
-  const [productsToShow, setProductsToShow] = useState(products);
+  const [productsToShow, setProductsToShow] = useState<IProducts[]>(products);
 
   console.log(productsToShow);
 
   const chengeSelect = useCallback(() => {
     switch (valueSort) {
       case Options.priceASC:
-        setProductsToShow(productsToShow.sort((a, b) => a.price - b.price));
+        setProductsToShow([
+          ...productsToShow.sort((a, b) => a.price - b.price),
+        ]);
         break;
       case Options.priceDESC:
-        setProductsToShow(productsToShow.sort((a, b) => b.price - a.price));
+        setProductsToShow([
+          ...productsToShow.sort((a, b) => b.price - a.price),
+        ]);
         break;
       case Options.ratingASC:
-        setProductsToShow(productsToShow.sort((a, b) => a.rating - b.rating));
+        setProductsToShow([
+          ...productsToShow.sort((a, b) => a.rating - b.rating),
+        ]);
         break;
       case Options.ratingDESC:
-        setProductsToShow(productsToShow.sort((a, b) => b.rating - a.rating));
+        setProductsToShow([
+          ...productsToShow.sort((a, b) => b.rating - a.rating),
+        ]);
         break;
     }
-  }, [productsToShow, valueSort]);
+  }, [valueSort]);
 
   useEffect(() => {
     chengeSelect();
-  }, [chengeSelect, productsToShow, valueSort]);
+  }, [chengeSelect, valueSort]);
 
   const [bigViewMode, setBigViewMode] = useState(true);
   function isBigViewMode() {
