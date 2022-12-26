@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface Props {
+interface SVGIdProps {
   id: string;
 }
 
-function SvgSelector({ id }: Props) {
+function SvgSelector({ id }: SVGIdProps) {
   switch (id) {
     case "shopping-cart-icon":
       return (

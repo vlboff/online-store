@@ -9,7 +9,7 @@ function ProductPage() {
   const params = useParams(); 
   return (
     <>
-      <Header isSearchBar={false} />
+      <Header />
       <Product id={Number(params.id)}/>
       <Footer />
     </>
