@@ -6,7 +6,7 @@ import Main from '../components/Main';
 function ProductsPage() {
   return (
     <>
-      <Header isSearchBar={true} />
+      <Header />
       <Main />
       <Footer />
     </>

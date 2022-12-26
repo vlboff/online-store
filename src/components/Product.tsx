@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import data from '../data/data.json';
 import StylizedButton from './UI/StylizedButton';
 import SvgSelector from './UI/SvgSelector';
@@ -7,16 +7,19 @@ interface IProductID {
   id: number;
 }
 
-interface IProductInfo{
-  id: number; 
-  count: number; 
+interface IProductInfo {
+  id: number;
+  count: number;
   price: number
 }
 
 function Product({ id }: IProductID) {
   const product = data.products.filter(obj => obj.id === id)[0];
   const [thumbnail, setThumbnail] = useState(product.thumbnail);
-  let [cart, setCart] = useState<IProductInfo[]>(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
+  const [cart, setCart] = useState<IProductInfo[]>([]);
+  useEffect(() => {
+      setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
+  }, []);
   const [addedToCart, setAddedToCart] = useState(Boolean(cart.find(obj => obj.id === product.id)));
 
   return (

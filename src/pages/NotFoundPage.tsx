@@ -6,7 +6,7 @@ import NotFound from '../components/NotFound';
 function NotFoundPage() {
   return (
     <>
-      <Header isSearchBar={false} />
+      <Header />
       <NotFound/>
       <Footer />
     </>

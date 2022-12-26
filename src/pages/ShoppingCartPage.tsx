@@ -6,7 +6,7 @@ import ShoppingCart from '../components/ShoppingCart';
 function ShoppingCartPage() {
   return (
     <>
-      <Header isSearchBar={false} />
+      <Header />
       <ShoppingCart />
       <Footer />
     </>
