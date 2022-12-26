@@ -2,27 +2,14 @@ import React, { useState } from "react";
 import NotFoundProducts from "./NotFoundProducts";
 import ProductCard from "./ProductCard";
 import SvgSelector from "./UI/SvgSelector";
+import { IProducts } from "./Products";
 
-interface IData {
+interface IProductCardField {
   products: IProducts[];
   viewMode: boolean;
 }
 
-interface IProducts {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
-}
-
-const ProductCardField = ({ products, viewMode }: IData) => {
+const ProductCardField = ({ products, viewMode }: IProductCardField) => {
   const [searchedValue, setSearchedValue] = useState("");
 
   let searchedProducts = products.filter((product) => {

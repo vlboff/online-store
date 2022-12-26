@@ -1,13 +1,20 @@
 import React from "react";
+import ViewOptions from "./ViewOptions";
 import { useState, useRef } from "react";
 
 interface ISortProducts {
   amount: number;
-  sortValue: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  setValueSort: React.Dispatch<React.SetStateAction<string>>;
+  valueSort: string;
   isBigViewMode: () => void;
 }
 
-const SortProducts = ({ amount, sortValue, isBigViewMode }: ISortProducts) => {
+const SortProducts = ({
+  amount,
+  setValueSort,
+  valueSort,
+  isBigViewMode,
+}: ISortProducts) => {
   const viewBig = useRef<HTMLDivElement>(null);
   const viewSmall = useRef<HTMLDivElement>(null);
 
@@ -36,21 +43,7 @@ const SortProducts = ({ amount, sortValue, isBigViewMode }: ISortProducts) => {
 
   return (
     <div className="sort-products">
-      <select
-        className="sort-bar"
-        name="sort"
-        id="sort"
-        defaultValue={"sort-options"}
-        onChange={sortValue}
-      >
-        <option disabled value="sort-options">
-          Sort options:
-        </option>
-        <option value="price-ASC">Sort by price ASC</option>
-        <option value="price-DESC">Sort by price DESC</option>
-        <option value="rating-ASC">Sort by rating ASC</option>
-        <option value="rating-DESC">Sort by rating DESC</option>
-      </select>
+      <ViewOptions valueSort={valueSort} setValueSort={setValueSort} />
       <div className="amount-products">Found: {amount}</div>
       <div className="view-mode">
         <div
