@@ -6,21 +6,23 @@ import { IProducts } from "./Products";
 
 interface IProductCardField {
   products: IProducts[];
-  viewMode: boolean;
+  activeMode: string;
 }
 
-const ProductCardField = ({ products, viewMode }: IProductCardField) => {
+const ProductCardField = ({ products, activeMode }: IProductCardField) => {
   const [searchedValue, setSearchedValue] = useState("");
 
   let searchedProducts = products.filter((product) => {
-    return product.title.toLowerCase().includes(searchedValue.toLowerCase())
-      || product.brand.toLowerCase().includes(searchedValue.toLowerCase())
-      || product.category.toLowerCase().includes(searchedValue.toLowerCase())
-      || product.description.toLowerCase().includes(searchedValue.toLowerCase())
-      || product.rating.toString().includes(searchedValue)
-      || product.price.toString().includes(searchedValue)
-      || product.stock.toString().includes(searchedValue)
-      || product.discountPercentage.toString().includes(searchedValue);
+    return (
+      product.title.toLowerCase().includes(searchedValue.toLowerCase()) ||
+      product.brand.toLowerCase().includes(searchedValue.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchedValue.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchedValue.toLowerCase()) ||
+      product.rating.toString().includes(searchedValue) ||
+      product.price.toString().includes(searchedValue) ||
+      product.stock.toString().includes(searchedValue) ||
+      product.discountPercentage.toString().includes(searchedValue)
+    );
   });
 
   const cardField = searchedProducts.map((item) => {
@@ -35,7 +37,7 @@ const ProductCardField = ({ products, viewMode }: IProductCardField) => {
         rating={item.rating}
         stock={item.stock}
         background={item.thumbnail}
-        viewMode={viewMode}
+        activeMode={activeMode}
         key={item.id}
       />
     );

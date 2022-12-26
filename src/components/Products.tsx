@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import SortProducts from "./SortProducts";
 import ProductCardField from "./ProductCardField";
 import { Options } from "./ViewOptions";
+import { ActiveMode } from "./SortProducts";
 import data from "../data/data.json";
 
 interface IData {
@@ -32,8 +33,7 @@ const products = dataFile.products;
 const Products = () => {
   const [valueSort, setValueSort] = useState<string>("sort-options");
   const [productsToShow, setProductsToShow] = useState<IProducts[]>(products);
-
-  console.log(productsToShow);
+  const [activeMode, setActiveMode] = useState(ActiveMode.big);
 
   const chengeSelect = useCallback(() => {
     switch (valueSort) {
@@ -64,20 +64,16 @@ const Products = () => {
     chengeSelect();
   }, [chengeSelect, valueSort]);
 
-  const [bigViewMode, setBigViewMode] = useState(true);
-  function isBigViewMode() {
-    setBigViewMode((current) => !current);
-  }
-
   return (
     <div className="products">
       <SortProducts
         amount={100}
         setValueSort={setValueSort}
         valueSort={valueSort}
-        isBigViewMode={isBigViewMode}
+        activeMode={activeMode}
+        setActiveMode={setActiveMode}
       />
-      <ProductCardField products={productsToShow} viewMode={bigViewMode} />
+      <ProductCardField products={productsToShow} activeMode={activeMode} />
     </div>
   );
 };
