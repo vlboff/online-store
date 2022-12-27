@@ -4,10 +4,16 @@
   background-color: #f0f0f0;
 }
 
+.shopping-cart__empty-cart-message {
+  text-align: center;
+  padding-top: 20px;
+}
+
 .shopping-cart__container {
   display: flex;
   column-gap: 30px;
   align-items: flex-start;
+  padding-bottom: 20px;
 }
 
 .products-in-cart {

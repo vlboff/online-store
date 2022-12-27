@@ -1,24 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import SvgSelector from './SvgSelector';
 
-interface IProductInfo{
-  id: number; 
-  count: number; 
+interface IProductInfo {
+  id: number;
+  count: number;
   price: number
 }
 
-let products = JSON.parse(localStorage.getItem('onlineStore') || '[]');
-
 function ShoppingCartIcon() {
-  const [numberOfProducts, setNumberOfProducts] = useState(products.length);
-  const [cost, setCost] = useState(products?.reduce((acc: number, product: IProductInfo) => acc + (product.price * product.count), 0));
+  const localStorageData = window.localStorage.getItem('onlineStore');
+  const [productsAmount, setProductsAmount] = useState(0);
+
+  useEffect(() => {
+      const productsAmount = JSON.parse(localStorage.getItem('onlineStore') || '[]').length;
+      if (productsAmount) {
+        setProductsAmount(productsAmount);
+      }
+    }, [localStorageData]);
+
+  const [cost, setCost] = useState(0);
+
+  useEffect(() => {
+    const totalCost = JSON.parse(localStorage.getItem('onlineStore') || '[]')
+      .reduce((acc: number, product: IProductInfo) => acc + (product.price * product.count), 0);
+    if (totalCost) {
+      setCost(totalCost);
+    }
+  }, [localStorageData]);
 
   return (
     <div className='shopping-cart-icon'>
       <SvgSelector id='shopping-cart-icon' />
       {
-        numberOfProducts
-          ? <div className="shopping-cart-icon__numder-of-products">{numberOfProducts}</div>
+        productsAmount
+          ? <div className="shopping-cart-icon__numder-of-products">{productsAmount}</div>
           : ''
       }
       {
