@@ -9,35 +9,46 @@ interface IProductInfo {
 
 function ShoppingCartIcon() {
   const [productsAmount, setProductsAmount] = useState(0);
+  const [totalCost, setTotalCost] = useState(0);
 
   useEffect(() => {
-      const productsAmount = JSON.parse(localStorage.getItem('onlineStore') || '[]').length;
-      if (productsAmount) {
-        setProductsAmount(productsAmount);
-      }
-    }, [localStorage.getItem('onlineStore')]);
-
-  const [cost, setCost] = useState(0);
-
-  useEffect(() => {
+    const productsAmount = JSON.parse(localStorage.getItem('onlineStore') || '[]').length;
     const totalCost = JSON.parse(localStorage.getItem('onlineStore') || '[]')
       .reduce((acc: number, product: IProductInfo) => acc + (product.price * product.count), 0);
+    if (productsAmount) {
+      setProductsAmount(productsAmount);
+    };
     if (totalCost) {
-      setCost(totalCost);
-    }
-  }, [localStorage.getItem('onlineStore')]);
+      setTotalCost(totalCost);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('storage', () => {
+      const productsAmount = JSON.parse(localStorage.getItem('onlineStore') || '[]').length;
+      setProductsAmount(productsAmount);
+    })
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('storage', () => {
+      const totalCost = JSON.parse(localStorage.getItem('onlineStore') || '[]')
+        .reduce((acc: number, product: IProductInfo) => acc + (product.price * product.count), 0);
+      setTotalCost(totalCost);
+    })
+  }, []);
 
   return (
     <div className='shopping-cart-icon'>
       <SvgSelector id='shopping-cart-icon' />
       {
-        productsAmount
+        (productsAmount != 0)
           ? <div className="shopping-cart-icon__numder-of-products">{productsAmount}</div>
           : ''
       }
       {
-        cost
-          ? <span className='shopping-cart-icon__cost'>: €{cost}</span>
+        totalCost
+          ? <span className='shopping-cart-icon__cost'>: €{totalCost}</span>
           : <span className='shopping-cart-icon__cost'></span>
       }
     </div>

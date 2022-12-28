@@ -66,6 +66,7 @@ function Product({ id }: IProductID) {
                   setAddedToCart(!addedToCart)
                 }
                 localStorage.setItem('onlineStore', JSON.stringify(cart));
+                window.dispatchEvent(new Event("storage"));
               }
               }
             />
