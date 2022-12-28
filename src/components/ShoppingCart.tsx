@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import data from '../data/data.json';
+import ProductInCart from './ProductInCart';
 import StylizedButton from './UI/StylizedButton';
 import SvgSelector from './UI/SvgSelector';
 
@@ -26,8 +27,27 @@ function ShoppingCart() {
   }
 
   const [products, setProducts] = useState<IProductData[]>([]);
+  const [cost, setCost] = useState(0);
+  const [cart, setCart] = useState<IProductInCart[]>([]);
 
   useEffect(() => {
+    const products = JSON.parse(localStorage.getItem('onlineStore') || '[]');
+    const productsWithData = products.map((product: IProductInCart) => {
+      return data.products.find(dataProd => product.id === dataProd.id)
+    });
+    const totalCost: number = JSON.parse(localStorage.getItem('onlineStore') || '[]')
+      .reduce((acc: number, product: IProductInCart) => acc + (product.price * product.count), 0);
+    if (productsWithData) {
+      setProducts(productsWithData);
+    };
+    if (totalCost) {
+      setCost(totalCost);
+    };
+    setCart(products);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('storage', () => {
       const products = JSON.parse(localStorage.getItem('onlineStore') || '[]');
       const productsWithData = products.map((product: IProductInCart) => {
         return data.products.find(dataProd => product.id === dataProd.id)
@@ -35,42 +55,28 @@ function ShoppingCart() {
       if (productsWithData) {
         setProducts(productsWithData);
       };
-  }, [localStorage.getItem('onlineStore')]);
-
-  const [cost, setCost] = useState(0);
-
-  useEffect(() => {
-    const totalCost: number = JSON.parse(localStorage.getItem('onlineStore') || '[]')
-      .reduce((acc: number, product: IProductInCart) => acc + (product.price * product.count), 0);
-    if (totalCost) {
-      setCost(totalCost);
-    }
-  }, [localStorage.getItem('onlineStore')]);
-
-  const [cart, setCart] = useState<IProductInCart[]>([]);
+    })
+  }, []);
 
   useEffect(() => {
-    setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
+    window.addEventListener('storage', () => {
+      const totalCost: number = JSON.parse(localStorage.getItem('onlineStore') || '[]')
+        .reduce((acc: number, product: IProductInCart) => acc + (product.price * product.count), 0);
+      if (totalCost) {
+        setCost(totalCost);
+      }
+    })
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('storage', () => {
+      setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
+    })
   }, []);
 
   useEffect(() => {
     localStorage.setItem('onlineStore', JSON.stringify(cart));
   }, [cart]);
-
-  function handleClickInc(product: IProductData | undefined) {
-    (cart.find(el => product!.id === el.id))!.count++;
-    localStorage.setItem('onlineStore', JSON.stringify(cart));
-  }
-
-  function handleClickDec(product: IProductData | undefined) {
-    if ((cart.find(el => product!.id === el.id))!.count <= 1) {
-      cart.splice(cart.findIndex(el => product!.id === el.id), 1);
-      localStorage.setItem('onlineStore', JSON.stringify(cart));
-    } else {
-      (cart.find(el => product!.id === el.id))!.count--;
-      localStorage.setItem('onlineStore', JSON.stringify(cart));
-    }
-  }
 
   return (
     <div className='shopping-cart'>
@@ -83,32 +89,9 @@ function ShoppingCart() {
               <div className="products-in-cart__header">Products in cart ({products.length})</div>
               <div className="products-in-cart__products">
                 {
-                  products.map((product: IProductData, i: number) => {
-                    return (
-                      <div className="products-in-cart__product">
-                        <div className="products-in-cart__product__index">{i + 1}</div>
-                        <div className="products-in-cart__product__thumbnail"><img src={product?.thumbnail} alt={product?.title} /></div>
-                        <div className="products-in-cart__product__description">
-                          <p>{product?.title}</p>
-                          <p>{product?.description}</p>
-                          <p><SvgSelector id={"star"} />{product?.rating}</p>
-                        </div>
-                        <div className="products-in-cart__product__price">
-                          <p>€ {((product!.price * 100) / (100 - product!.discountPercentage)).toFixed(2)}</p>
-                          <h3>€ {product?.price}</h3>
-                          <p>-{product!.discountPercentage.toFixed(0)}%</p>
-                        </div>
-                        <div className="products-in-cart__product__amount">
-                          <p>In stock: {product?.stock}</p>
-                          <div className='product-amount-input'>
-                            <button className='product-amount-input__btn' onClick={() => handleClickDec(product)}>–</button>
-                            <input id="amountOfProduct" defaultValue='1' />
-                            <button className='product-amount-input__btn' onClick={() => handleClickInc(product)}>+</button>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })
+                  products.map((product: IProductData, i: number) => 
+                    <ProductInCart product={product} cart={cart} i={i} key={product.id}/>
+                  )
                 }
               </div>
             </div>
