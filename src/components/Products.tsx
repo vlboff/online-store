@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useCallback } from "react";
 import SortProducts from "./SortProducts";
 import ProductCardField from "./ProductCardField";
-import { Options } from "./ViewOptions";
+import { Options } from "./SortOptions";
 import { ActiveMode } from "./SortProducts";
 import data from "../data/data.json";
 
@@ -14,6 +14,7 @@ interface IData {
 }
 
 export interface IProducts {
+  [key: string]: number | string | string[];
   id: number;
   title: string;
   description: string;
@@ -26,14 +27,23 @@ export interface IProducts {
   thumbnail: string;
   images: string[];
 }
+
+interface ISetData {
+  setDataArr: React.Dispatch<React.SetStateAction<IProducts[]>>;
+}
+
 const dataFile: IData = data;
 
 const products = dataFile.products;
 
-const Products = () => {
+const Products = ({ setDataArr }: ISetData) => {
   const [valueSort, setValueSort] = useState<string>("sort-options");
   const [productsToShow, setProductsToShow] = useState<IProducts[]>(products);
   const [activeMode, setActiveMode] = useState(ActiveMode.big);
+
+  useEffect(() => {
+    setDataArr(productsToShow);
+  }, [setDataArr, productsToShow]);
 
   const chengeSelect = useCallback(() => {
     switch (valueSort) {
@@ -58,6 +68,7 @@ const Products = () => {
         ]);
         break;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valueSort]);
 
   useEffect(() => {

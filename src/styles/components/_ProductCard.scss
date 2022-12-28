@@ -8,12 +8,20 @@
   color: $font-color-main;
 }
 
+.small_card {
+  width: 210px;
+}
+
 .product-card_img {
   width: 100%;
   height: 250px;
   border-radius: 10px;
   z-index: 1;
   cursor: pointer;
+}
+
+.small_img {
+  height: 175px;
 }
 
 .product-card_blackout {
