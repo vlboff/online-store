@@ -2,6 +2,7 @@ import React from "react";
 import Button from "./UI/Button";
 import SvgSelector from "./UI/SvgSelector";
 import { useNavigate } from "react-router-dom";
+import { ActiveMode } from "./SortProducts";
 
 interface IStyle {
   width: string;
@@ -20,7 +21,7 @@ interface IProductCard {
   stock: number;
   background: string;
 
-  viewMode: boolean;
+  activeMode: string;
 }
 
 const ProductCard = ({
@@ -33,14 +34,14 @@ const ProductCard = ({
   rating,
   stock,
   background,
-  viewMode,
+  activeMode,
 }: IProductCard) => {
   let navigate = useNavigate();
 
   let styleImj: IStyle;
   let styleCard: IStyle;
 
-  if (viewMode) {
+  if (activeMode === ActiveMode.big) {
     styleCard = { width: "300px" };
     styleImj = {
       width: "100%",
