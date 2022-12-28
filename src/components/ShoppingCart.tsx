@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import data from '../data/data.json';
 import ProductInCart from './ProductInCart';
+import Pagination from './UI/Pagination';
 import StylizedButton from './UI/StylizedButton';
 import SvgSelector from './UI/SvgSelector';
 
@@ -29,6 +30,16 @@ function ShoppingCart() {
   const [products, setProducts] = useState<IProductData[]>([]);
   const [cost, setCost] = useState(0);
   const [cart, setCart] = useState<IProductInCart[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(3);
+
+  const lastProductIndex = currentPage * productsPerPage;
+  const firstProductIndex = lastProductIndex - productsPerPage;
+  const currentProduct = products.slice(firstProductIndex, lastProductIndex);
+
+  function paginate(pageNumber: number) {
+    setCurrentPage(pageNumber);
+  }
 
   useEffect(() => {
     const products = JSON.parse(localStorage.getItem('onlineStore') || '[]');
@@ -86,11 +97,18 @@ function ShoppingCart() {
           :
           <div className="shopping-cart__container">
             <div className="products-in-cart">
-              <div className="products-in-cart__header">Products in cart ({products.length})</div>
+              <div className="products-in-cart__header">
+                <span>Products in cart ({products.length})</span>
+                <Pagination
+                  itemsPerPage={productsPerPage}
+                  totalItems={cart.length}
+                  paginate={paginate}
+                />
+              </div>
               <div className="products-in-cart__products">
-                {
-                  products.map((product: IProductData, i: number) => 
-                    <ProductInCart product={product} cart={cart} i={i} key={product.id}/>
+                { 
+                  currentProduct.map((product: IProductData, i: number) => 
+                    <ProductInCart product={product} cart={cart} i={currentPage === 1 ? i : i + (currentPage - 1) * productsPerPage} key={product.id}/>
                   )
                 }
               </div>
