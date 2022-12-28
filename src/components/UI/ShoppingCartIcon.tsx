@@ -8,7 +8,6 @@ interface IProductInfo {
 }
 
 function ShoppingCartIcon() {
-  const localStorageData = window.localStorage.getItem('onlineStore');
   const [productsAmount, setProductsAmount] = useState(0);
 
   useEffect(() => {
@@ -16,7 +15,7 @@ function ShoppingCartIcon() {
       if (productsAmount) {
         setProductsAmount(productsAmount);
       }
-    }, [localStorageData]);
+    }, [localStorage.getItem('onlineStore')]);
 
   const [cost, setCost] = useState(0);
 
@@ -26,7 +25,7 @@ function ShoppingCartIcon() {
     if (totalCost) {
       setCost(totalCost);
     }
-  }, [localStorageData]);
+  }, [localStorage.getItem('onlineStore')]);
 
   return (
     <div className='shopping-cart-icon'>

@@ -28,14 +28,14 @@ function ShoppingCart() {
   const [products, setProducts] = useState<IProductData[]>([]);
 
   useEffect(() => {
-    const products = JSON.parse(localStorage.getItem('onlineStore') || '[]');
-    const productsWithData = products.map((product: IProductInCart) => {
-      return data.products.find(dataProd => product.id === dataProd.id)
-    });
-    if (productsWithData) {
-      setProducts(productsWithData);
-    }
-  }, []);
+      const products = JSON.parse(localStorage.getItem('onlineStore') || '[]');
+      const productsWithData = products.map((product: IProductInCart) => {
+        return data.products.find(dataProd => product.id === dataProd.id)
+      });
+      if (productsWithData) {
+        setProducts(productsWithData);
+      };
+  }, [localStorage.getItem('onlineStore')]);
 
   const [cost, setCost] = useState(0);
 
@@ -45,7 +45,7 @@ function ShoppingCart() {
     if (totalCost) {
       setCost(totalCost);
     }
-  }, []);
+  }, [localStorage.getItem('onlineStore')]);
 
   const [cart, setCart] = useState<IProductInCart[]>([]);
 
@@ -64,8 +64,8 @@ function ShoppingCart() {
 
   function handleClickDec(product: IProductData | undefined) {
     if ((cart.find(el => product!.id === el.id))!.count <= 1) {
-        cart.splice(cart.findIndex(el => product!.id === el.id), 1);
-        localStorage.setItem('onlineStore', JSON.stringify(cart));
+      cart.splice(cart.findIndex(el => product!.id === el.id), 1);
+      localStorage.setItem('onlineStore', JSON.stringify(cart));
     } else {
       (cart.find(el => product!.id === el.id))!.count--;
       localStorage.setItem('onlineStore', JSON.stringify(cart));
