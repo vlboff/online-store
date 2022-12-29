@@ -46,11 +46,9 @@ function ShoppingCartIcon() {
           ? <div className="shopping-cart-icon__numder-of-products">{productsAmount}</div>
           : ''
       }
-      {
-        totalCost
-          ? <span className='shopping-cart-icon__cost'>: €{totalCost}</span>
-          : <span className='shopping-cart-icon__cost'></span>
-      }
+      <div className='shopping-cart-icon__modal'>
+        <span className='shopping-cart-icon__modal__cost'>Total cost: <span>€{totalCost}</span></span>
+      </div>
     </div>
   )
 }
