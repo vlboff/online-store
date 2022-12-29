@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IProductData, IPropsForProductInCart } from "../interfaces";
 import SvgSelector from "./UI/SvgSelector";
 
 function ProductInCart({product, cart, i}: IPropsForProductInCart) {
   
-  function handleClickInc(product: IProductData) {
-    if ((cart.find(el => product.id === el.id))?.count || 0 < product.stock) {
-      (cart.find(el => product.id === el.id))!.count++;
+  const [currentAmount, setCurrentAmount] = useState(cart[i].count);
+
+  useEffect(() => {
+    window.addEventListener('storage', () => {
+      setCurrentAmount(cart[i].count);
+    });
+  }, [localStorage.getItem('onlineStore')])
+
+  function increaseAmount(product: IProductData) {
+    if (cart[i].count < product.stock) {
+      cart[i].count++;
       localStorage.setItem('onlineStore', JSON.stringify(cart));
       window.dispatchEvent(new Event("storage"));
     }
   }
 
-  function handleClickDec(product: IProductData) {
-    if ((cart.find(el => product!.id === el.id))!.count <= 1) {
-      cart.splice(cart.findIndex(el => product!.id === el.id), 1);
+  function decreaseAmount(product: IProductData) {
+    if (cart[i].count <= 1) {
+      cart.splice(cart.findIndex(el => product.id === el.id), 1);
       localStorage.setItem('onlineStore', JSON.stringify(cart));
     } else {
-      (cart.find(el => product!.id === el.id))!.count--;
+      cart[i].count -= 1;
       localStorage.setItem('onlineStore', JSON.stringify(cart));
     };
     window.dispatchEvent(new Event("storage"));
@@ -39,10 +47,10 @@ function ProductInCart({product, cart, i}: IPropsForProductInCart) {
       </div>
       <div className="products-in-cart__product__amount">
         <p>In stock: {product.stock}</p>
-        <div className='product-amount-input'>
-          <button className='product-amount-input__btn' onClick={() => handleClickDec(product)}>–</button>
-          <input id="amountOfProduct" defaultValue={cart.find(el => product!.id === el.id)?.count} disabled />
-          <button className='product-amount-input__btn' onClick={() => handleClickInc(product)}>+</button>
+        <div className='product-amount'>
+          <button className='product-amount__btn' onClick={() => decreaseAmount(product)}>–</button>
+          <p className='product-amount__value'>{currentAmount}</p>
+          <button className='product-amount__btn' onClick={() => increaseAmount(product)}>+</button>
         </div>
       </div>
     </div>

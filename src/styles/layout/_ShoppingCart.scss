@@ -134,12 +134,13 @@
   }
 }
 
-.product-amount-input {
-  input {
+.product-amount {
+  .product-amount__value {
+    display: inline-block;
+    text-align: center;
     width: 45px;
     border: none;
     outline: none;
-    padding: 0;
     margin: 0;
     background-color: transparent;
     font-size: 14px;
@@ -149,7 +150,7 @@
     color: #2e9cc3;
   }
 
-  .product-amount-input__btn {
+  .product-amount__btn {
     border-radius: 50% !important;
     border: none;
     background: #f2f2f2;
@@ -163,7 +164,7 @@
     }
   }
 
-  .product-amount-input__btn:disabled {
+  .product-amount__btn:disabled {
     opacity: 0.6;
   }
 }
@@ -189,7 +190,7 @@
     justify-content: space-between;
     margin: 15px 0 25px;
 
-    input {
+   input {
       max-width: 100px;
       border: none;
       outline: none;
