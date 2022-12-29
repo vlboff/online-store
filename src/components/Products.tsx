@@ -20,7 +20,9 @@ const products = dataFile.products;
 
 const Products = () => {
   const [valueSort, setValueSort] = useState<string>("sort-options");
+
   const [productsToShow, setProductsToShow] = useState<IProductData[]>(products);
+
   const [activeMode, setActiveMode] = useState(ActiveMode.big);
 
   const chengeSelect = useCallback(() => {
