@@ -1,31 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import data from '../data/data.json';
+import { IProductData, IProductInCart } from '../interfaces';
 import ProductInCart from './ProductInCart';
 import Pagination from './UI/Pagination';
 import StylizedButton from './UI/StylizedButton';
-import SvgSelector from './UI/SvgSelector';
 
 function ShoppingCart() {
-
-  interface IProductInCart {
-    id: number;
-    count: number;
-    price: number;
-  }
-
-  interface IProductData {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    discountPercentage: number;
-    rating: number;
-    stock: number;
-    brand: string;
-    category: string;
-    thumbnail: string;
-    images: string[];
-  }
 
   const [products, setProducts] = useState<IProductData[]>([]);
   const [cost, setCost] = useState(0);

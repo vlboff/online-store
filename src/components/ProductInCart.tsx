@@ -1,31 +1,6 @@
 import React from "react";
+import { IProductData, IPropsForProductInCart } from "../interfaces";
 import SvgSelector from "./UI/SvgSelector";
-
-interface IPropsForProductInCart {
-  product: IProductData;
-  cart: IProductInCart[];
-  i: number
-}
-
-interface IProductInCart {
-  id: number;
-  count: number;
-  price: number;
-}
-
-interface IProductData {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
-}
 
 function ProductInCart({product, cart, i}: IPropsForProductInCart) {
   

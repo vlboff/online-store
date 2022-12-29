@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import data from '../data/data.json';
+import { IProductInfoFromLocalStorage } from '../interfaces';
 import StylizedButton from './UI/StylizedButton';
 import SvgSelector from './UI/SvgSelector';
 
@@ -7,16 +8,10 @@ interface IProductID {
   id: number;
 }
 
-interface IProductInfo {
-  id: number;
-  count: number;
-  price: number
-}
-
 function Product({ id }: IProductID) {
   const product = data.products.filter(obj => obj.id === id)[0];
   const [thumbnail, setThumbnail] = useState(product.thumbnail);
-  const [cart, setCart] = useState<IProductInfo[]>([]);
+  const [cart, setCart] = useState<IProductInfoFromLocalStorage[]>([]);
   useEffect(() => {
       setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
   }, []);
@@ -57,7 +52,7 @@ function Product({ id }: IProductID) {
               name={addedToCart ? 'Drop from cart' : 'Add to cart'}
               style='button_stylized button_stylized_brand'
               onClick={() => {
-                const productInfo: IProductInfo = { id: product.id, count: 1, price: product.price };
+                const productInfo: IProductInfoFromLocalStorage = { id: product.id, count: 1, price: product.price };
                 if (cart.find(obj => obj.id === product.id)) {
                   cart.splice(cart.findIndex(obj => obj.id === product.id), 1);
                   setAddedToCart(!addedToCart)
