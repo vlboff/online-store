@@ -3,7 +3,6 @@ import { IProductData } from "../interfaces";
 import NotFoundProducts from "./NotFoundProducts";
 import ProductCard from "./ProductCard";
 import SvgSelector from "./UI/SvgSelector";
-import { IProducts } from "./Products";
 
 interface IProductCardField {
   products: IProductData[];
