@@ -4,15 +4,15 @@ import SvgSelector from "./UI/SvgSelector";
 
 function ProductInCart({product, cart, i}: IPropsForProductInCart) {
   
-  function handleClickInc(product: IProductData | undefined) {
-    if ((cart.find(el => product!.id === el.id))!.count < product!.stock) {
-      (cart.find(el => product!.id === el.id))!.count++;
+  function handleClickInc(product: IProductData) {
+    if ((cart.find(el => product.id === el.id))?.count || 0 < product.stock) {
+      (cart.find(el => product.id === el.id))!.count++;
       localStorage.setItem('onlineStore', JSON.stringify(cart));
       window.dispatchEvent(new Event("storage"));
     }
   }
 
-  function handleClickDec(product: IProductData | undefined) {
+  function handleClickDec(product: IProductData) {
     if ((cart.find(el => product!.id === el.id))!.count <= 1) {
       cart.splice(cart.findIndex(el => product!.id === el.id), 1);
       localStorage.setItem('onlineStore', JSON.stringify(cart));
