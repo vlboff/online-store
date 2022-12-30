@@ -10,9 +10,10 @@ interface IProductInfo {
 function ShoppingCartIcon() {
   const [productsAmount, setProductsAmount] = useState(0);
   const [totalCost, setTotalCost] = useState(0);
-
+  
   useEffect(() => {
-    const productsAmount = JSON.parse(localStorage.getItem('onlineStore') || '[]').length;
+    const productsAmount = JSON.parse(localStorage.getItem('onlineStore') || '[]')
+      .reduce((acc: number, product: IProductInfo) => acc + (1 * product.count), 0);
     const totalCost = JSON.parse(localStorage.getItem('onlineStore') || '[]')
       .reduce((acc: number, product: IProductInfo) => acc + (product.price * product.count), 0);
     if (productsAmount) {
@@ -25,7 +26,8 @@ function ShoppingCartIcon() {
 
   useEffect(() => {
     window.addEventListener('storage', () => {
-      const productsAmount = JSON.parse(localStorage.getItem('onlineStore') || '[]').length;
+      const productsAmount = JSON.parse(localStorage.getItem('onlineStore') || '[]')
+        .reduce((acc: number, product: IProductInfo) => acc + (1 * product.count), 0);
       setProductsAmount(productsAmount);
     })
   }, []);
