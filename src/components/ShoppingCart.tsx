@@ -94,7 +94,7 @@ function ShoppingCart() {
               </div>
             </div>
             <div className="summary">
-              <div className="summary__header">Summary</div>
+              <p className="summary__header">Summary</p>
               <div className='summary__order-amount'><span>Order amount:</span><span>€ {cost}</span></div>
               <div className='summary__payment'><span>For payment:</span><span>€ {cost}</span></div>
               <label htmlFor="promocode"><span>Promocode:</span><input type="text" name='promocode' placeholder='Enter your code' /></label>

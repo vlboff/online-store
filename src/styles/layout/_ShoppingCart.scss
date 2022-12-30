@@ -21,6 +21,7 @@
 }
 
 .products-in-cart__header {
+  height: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -182,6 +183,7 @@
   .summary__header {
     font-weight: 700;
     align-self: flex-start;
+    margin-top: 5px;
   }
 
   label {
@@ -217,7 +219,7 @@
   }
 
   .summary__order-amount {
-    margin-top: 60px;
+    margin-top: 50px;
     margin-bottom: 20px;
   }
 
