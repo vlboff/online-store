@@ -5,12 +5,12 @@ import Button from "./UI/Button";
 import { IProducts } from "./Products";
 
 interface IFilterBlock {
-  dataArr: IProducts[];
+  setProductsToShow: React.Dispatch<React.SetStateAction<IProducts[]>>;
 }
 
-const FilterBlock = ({ dataArr }: IFilterBlock) => {
-  const filters = ["category", "brand"];
-  const sliders = ["price", "stock"];
+const FilterBlock = ({ setProductsToShow }: IFilterBlock) => {
+  const filters: string[] = ["category", "brand"];
+  const sliders: string[] = ["price", "stock"];
 
   return (
     <div className="filters">
@@ -19,7 +19,11 @@ const FilterBlock = ({ dataArr }: IFilterBlock) => {
         <Button name="Copy Link" />
       </div>
       {filters.map((value, index) => (
-        <Filter key={index} name={value} />
+        <Filter
+          key={index}
+          name={value}
+          setProductsToShow={setProductsToShow}
+        />
       ))}
       {sliders.map((value, index) => (
         <SliderBlock key={index} name={value} />

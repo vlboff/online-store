@@ -7,16 +7,15 @@ const products: IProducts[] = data.products;
 
 interface IFilter {
   name: string;
+  setProductsToShow: React.Dispatch<React.SetStateAction<IProducts[]>>;
 }
 
 export interface IObject {
   [key: string]: number;
 }
 
-console.log(products);
-
-const Filter = ({ name }: IFilter) => {
-  const counter = products.reduce(function (o: IObject, i) {
+const Filter = ({ name, setProductsToShow }: IFilter) => {
+  const counter = products.reduce(function (o: IObject, i: IProducts) {
     if (!o.hasOwnProperty(i[name] as keyof IProducts)) {
       o[i[name] as keyof IProducts] = 0;
     }
@@ -27,7 +26,11 @@ const Filter = ({ name }: IFilter) => {
   return (
     <div className="filter_block">
       <h2>{name}</h2>
-      <FilterPoint counter={counter} />
+      <FilterPoint
+        counter={counter}
+        setProductsToShow={setProductsToShow}
+        name={name}
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, useCallback } from "react";
+import FilterBlock from "./FilterBlock";
 import SortProducts from "./SortProducts";
 import ProductCardField from "./ProductCardField";
 import { Options } from "./SortOptions";
@@ -28,22 +29,14 @@ export interface IProducts {
   images: string[];
 }
 
-interface ISetData {
-  setDataArr: React.Dispatch<React.SetStateAction<IProducts[]>>;
-}
-
 const dataFile: IData = data;
 
 const products = dataFile.products;
 
-const Products = ({ setDataArr }: ISetData) => {
+const Products = () => {
   const [valueSort, setValueSort] = useState<string>("sort-options");
   const [productsToShow, setProductsToShow] = useState<IProducts[]>(products);
   const [activeMode, setActiveMode] = useState(ActiveMode.big);
-
-  useEffect(() => {
-    setDataArr(productsToShow);
-  }, [setDataArr, productsToShow]);
 
   const chengeSelect = useCallback(() => {
     switch (valueSort) {
@@ -76,16 +69,21 @@ const Products = ({ setDataArr }: ISetData) => {
   }, [chengeSelect, valueSort]);
 
   return (
-    <div className="products">
-      <SortProducts
-        amount={100}
-        setValueSort={setValueSort}
-        valueSort={valueSort}
-        activeMode={activeMode}
-        setActiveMode={setActiveMode}
-      />
-      <ProductCardField products={productsToShow} activeMode={activeMode} />
-    </div>
+    <main>
+      <div className="wrapper main">
+        <FilterBlock setProductsToShow={setProductsToShow} />
+        <div className="products">
+          <SortProducts
+            amount={100}
+            setValueSort={setValueSort}
+            valueSort={valueSort}
+            activeMode={activeMode}
+            setActiveMode={setActiveMode}
+          />
+          <ProductCardField products={productsToShow} activeMode={activeMode} />
+        </div>
+      </div>
+    </main>
   );
 };
 
