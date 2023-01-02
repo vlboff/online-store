@@ -39,7 +39,7 @@ const BuyProductsForm = () => {
 
     if (!values.phone) {
       errors.phone = 'Required';
-    } else if (!/^\+([0-9]{9,})$/.test(values.phone) && values.phone.length < 9) {
+    } else if (!/^\+\d{9,}$/.test(values.phone)) {
       errors.phone = "Number must start with '+' and contain at least 9 digits";
     }
 
