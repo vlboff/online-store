@@ -1,5 +1,4 @@
 import React from "react";
-import StylizedButton from "./UI/StylizedButton";
 
 const BuyProductsForm = () => {
   return (
@@ -36,9 +35,8 @@ const BuyProductsForm = () => {
             </div>
           </div>
         </div>
-        <button type="submit">Confirm details</button>
+        <button type="submit" className="form__submit">Confirm details</button>
       </form>
-
     </div>
   );
 };
