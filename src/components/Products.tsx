@@ -5,34 +5,24 @@ import ProductCardField from "./ProductCardField";
 import { Options } from "./ViewOptions";
 import { ActiveMode } from "./SortProducts";
 import data from "../data/data.json";
+import { IProductData } from "../interfaces";
 
 interface IData {
-  products: IProducts[];
+  products: IProductData[];
   total: number;
   skip: number;
   limit: number;
 }
 
-export interface IProducts {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
-}
 const dataFile: IData = data;
 
 const products = dataFile.products;
 
 const Products = () => {
   const [valueSort, setValueSort] = useState<string>("sort-options");
-  const [productsToShow, setProductsToShow] = useState<IProducts[]>(products);
+
+  const [productsToShow, setProductsToShow] = useState<IProductData[]>(products);
+
   const [activeMode, setActiveMode] = useState(ActiveMode.big);
 
   const chengeSelect = useCallback(() => {
