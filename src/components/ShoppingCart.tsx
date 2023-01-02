@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import data from '../data/data.json';
 import { IProductData, IProductInCart } from '../interfaces';
+import BuyProductsForm from './BuyProductsForm';
 import ProductInCart from './ProductInCart';
+import ModalWindow from './UI/ModalWindow';
 import Pagination from './UI/Pagination';
 import StylizedButton from './UI/StylizedButton';
 
@@ -106,6 +108,9 @@ function ShoppingCart() {
           </div>
         }
       </div>
+      <ModalWindow>
+        <BuyProductsForm />
+      </ModalWindow>
     </div>
   )
 }
