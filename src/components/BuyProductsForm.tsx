@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 
 interface IFormInputs {
   name?: string;
@@ -12,6 +13,7 @@ interface IFormInputs {
 }
 
 const BuyProductsForm = () => {
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -24,11 +26,16 @@ const BuyProductsForm = () => {
       cvv: '',
     },
     validate,
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: _values => {
+      alert('Your order was placed successfully! You will be redirected to the main page');
+      setTimeout(() => {
+        navigate('/');
+        window.localStorage.setItem('onlineStore', '[]');
+        window.dispatchEvent(new Event("storage"));
+      }, 3000)
     },
   });
-  
+
   function validate(values: IFormInputs) {
     const errors: IFormInputs = {};
     if (!values.name) {
