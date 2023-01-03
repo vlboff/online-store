@@ -33,8 +33,8 @@ const BuyProductsForm = () => {
     const errors: IFormInputs = {};
     if (!values.name) {
       errors.name = 'Required';
-    } else if (values.name.length < 3) {
-      errors.name = 'Must be 15 characters or less';
+    } else if (!/\S{3,}\b.+?\S{3,}/.test(values.name)) {
+      errors.name = 'Invalid value';
     }
 
     if (!values.phone) {
@@ -45,32 +45,32 @@ const BuyProductsForm = () => {
 
     if (!values.address) {
       errors.address = 'Required';
-    } else if (values.address.length < 5) {
-      errors.address = 'Invalid email address';
+    } else if (!/\S{5,}\b.+?\S{5,}\b.+?\S{5,}/.test(values.address)) {
+      errors.address = 'Invalid value';
     }
 
     if (!values.email) {
       errors.email = 'Required';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = 'Invalid email address';
+      errors.email = 'Invalid value';
     }
 
     if (!values.cardNumber) {
       errors.cardNumber = 'Required';
-    } else if (values.cardNumber.length < 5) {
-      errors.cardNumber = 'Invalid email cardNumber';
+    } else if (!/^[0-9]{16}$/.test(values.cardNumber)) {
+      errors.cardNumber = 'Invalid value';
     }
 
     if (!values.validThru) {
       errors.validThru = 'Required';
-    } else if (values.validThru.length < 5) {
-      errors.validThru = 'Invalid email validThru';
+    } else if (!/^[0-9]{4}$/.test(values.validThru)) {
+      errors.validThru = 'Invalid value';
     }
 
     if (!values.cvv) {
       errors.cvv = 'Required';
-    } else if (values.cvv.length < 5) {
-      errors.cvv = 'Invalid email cvv';
+    } else if (!/^[0-9]{3}$/.test(values.cvv)) {
+      errors.cvv = 'Invalid value';
     }
 
     return errors;
