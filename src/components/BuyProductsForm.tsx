@@ -28,7 +28,7 @@ const BuyProductsForm = () => {
       alert(JSON.stringify(values, null, 2));
     },
   });
-
+  
   function validate(values: IFormInputs) {
     const errors: IFormInputs = {};
     if (!values.name) {
@@ -119,7 +119,13 @@ const BuyProductsForm = () => {
           <div className="form__credit-cards">
             <div className="form__credit-card__front">
               <div className="form__credit-card__front__logo">
-                <img src="https://i.guim.co.uk/img/media/b73cc57cb1d46ae742efd06b6c58805e8600d482/16_0_2443_1466/master/2443.jpg?width=700&quality=85&auto=format&fit=max&s=fb1dca6cdd4589cd9ef2fc941935de71" alt="credit card logo" />
+                <img 
+                src={
+                  (formik.values.cardNumber[0] == '5') ? "https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" 
+                  : (formik.values.cardNumber[0] == '4') ? "https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" 
+                  : "https://i.guim.co.uk/img/media/b73cc57cb1d46ae742efd06b6c58805e8600d482/16_0_2443_1466/master/2443.jpg?width=700&quality=85&auto=format&fit=max&s=fb1dca6cdd4589cd9ef2fc941935de71"
+                }
+                 alt="credit card logo" />
               </div>
               <input type="text" placeholder="CARD NUMBER" name="cardNumber"
                 onChange={formik.handleChange}
