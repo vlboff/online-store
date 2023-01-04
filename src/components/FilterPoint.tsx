@@ -7,21 +7,22 @@ const products: IProducts[] = data.products;
 
 interface IFilterPoint {
   counter: IObject;
-  setProductsToShow: React.Dispatch<React.SetStateAction<IProducts[]>>;
+  filterCounter: IObject;
   name: string;
+  setKeyFilterState: React.Dispatch<React.SetStateAction<string>>;
+  setValueFilterState: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-const FilterPoint = ({ counter, setProductsToShow, name }: IFilterPoint) => {
+const FilterPoint = ({
+  counter,
+  filterCounter,
+  name,
+  setKeyFilterState,
+  setValueFilterState,
+}: IFilterPoint) => {
   const [checkedState, setCheckedState] = useState(
     new Array(Object.keys(counter).length).fill(false)
   );
-
-  function handleOnChange(position: number) {
-    const updatedCheckedState = checkedState.map((item, index) =>
-      index === position ? !item : item
-    );
-    setCheckedState(updatedCheckedState);
-  }
 
   const tempValueArr = checkedState.map((item, i) => {
     if (item) {
@@ -35,15 +36,26 @@ const FilterPoint = ({ counter, setProductsToShow, name }: IFilterPoint) => {
     }
   });
 
-  useEffect(() => {
-    setProductsToShow(
-      products.filter((item) => {
-        if (valueArr.includes(item[name] as string) || valueArr.length < 1) {
-          return item;
-        }
-      })
+  function handleOnChange(position: number) {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
     );
+    setCheckedState(updatedCheckedState);
+  }
+
+  useEffect(() => {
+    setValueFilterState(valueArr as string[]);
+    setKeyFilterState(name);
   }, [checkedState]);
+
+  let fullFilterCounter = { ...counter };
+  for (let key in fullFilterCounter) {
+    if (filterCounter.hasOwnProperty(key)) {
+      fullFilterCounter[key] = filterCounter[key];
+    } else {
+      fullFilterCounter[key] = 0;
+    }
+  }
 
   const filterPoints = Object.entries(counter).map((item, i) => {
     return (
@@ -55,7 +67,7 @@ const FilterPoint = ({ counter, setProductsToShow, name }: IFilterPoint) => {
           onChange={() => handleOnChange(i)}
         />
         <label htmlFor={item[0]}>{item[0]}</label>
-        <span>{`(${item[1]}/${item[1]})`}</span>
+        <span>{`(${fullFilterCounter[item[0]]}/${item[1]})`}</span>
       </div>
     );
   });

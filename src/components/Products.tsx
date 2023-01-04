@@ -71,7 +71,10 @@ const Products = () => {
   return (
     <main>
       <div className="wrapper main">
-        <FilterBlock setProductsToShow={setProductsToShow} />
+        <FilterBlock
+          setProductsToShow={setProductsToShow}
+          productsToShow={productsToShow}
+        />
         <div className="products">
           <SortProducts
             amount={100}
