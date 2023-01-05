@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
+import * as Yup from 'yup';
 import { useNavigate } from "react-router-dom";
 
 interface IFormInputs {
@@ -11,6 +12,7 @@ interface IFormInputs {
   validThru?: string;
   cvv?: string;
 }
+
 
 const BuyProductsForm = () => {
   const navigate = useNavigate();
@@ -25,7 +27,72 @@ const BuyProductsForm = () => {
       validThru: '',
       cvv: '',
     },
-    validate,
+    validationSchema: Yup.object({
+      name: Yup.string()
+        .required()
+        .label('Full name')
+        .test('is-full-name', 'Please enter both your first and last name', function (value) {
+          if (value) {
+            const nameArr = value.split(" ");
+            return nameArr.length >= 2;
+          } else return false;
+        })
+        .test('is-more-than-3-characters', 'Each word must be at least 3 characters long', function (value) {
+          if (value) {
+            const nameArr = value.split(" ");
+            return nameArr.every(value => value.length >= 3);
+          } else return false;
+
+        }),
+      phone: Yup.string()
+        .required()
+        .label('Phone number')
+        .test('starts-with-+', 'Phone number must starts with "+"', function (value) {
+          return value ? value.startsWith('+') : false;
+        })
+        .test('is-digits', 'Phone number must be digits', function (value) {
+          return value ? value.slice(1).split('').every(value => parseInt(value)) : false;
+        })
+        .test('is-9-digits', 'Phone number must be at least 9 digits long', function (value) {
+          return value ? value.slice(1).split('').length > 8 : false;
+        }),
+      address: Yup.string()
+        .required()
+        .label('Address')
+        .test('is-full-address', 'Please enter valid address', function (value) {
+          if (value) {
+            const addressArr = value.split(" ");
+            return addressArr.length >= 3;
+          } else return false;
+        })
+        .test('is-more-than-5-characters', 'Each word must be at least 5 characters long', function (value) {
+          if (value) {
+            const nameArr = value.split(" ");
+            return nameArr.every(value => value.length >= 5);
+          } else return false;
+        }),
+      email: Yup.string()
+        .required()
+        .label('Email')
+        .email(),
+      cardNumber: Yup.string()
+        .required()
+        .label('Card number')
+        .test('is-digits', 'Card number must be digits', function (value) {
+          return value ? value.split('').every(value => parseInt(value)) : false;
+        })
+        .length(16, 'Card number must be 16 characters long'),
+      validThru: Yup.string()
+        .required()
+        .label('Valid thru')
+        .matches(/^[0-9]{4}$/, 'Valid thru must be 4 digits')
+        .test('is-correct-month', 'Invalid month value', function (value) {
+            return value ? ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'].includes(value.slice(0, 2)) : false;
+        }),
+      cvv: Yup.string()
+        .required('Required')
+        .matches(/^[0-9]{3}$/, 'CVV must be 3 digits')
+    }),
     onSubmit: _values => {
       alert('Your order was placed successfully! You will be redirected to the main page');
       setTimeout(() => {
@@ -36,60 +103,13 @@ const BuyProductsForm = () => {
     },
   });
 
-  function validate(values: IFormInputs) {
-    const errors: IFormInputs = {};
-    if (!values.name) {
-      errors.name = 'Required';
-    } else if (!/\S{3,}\b.+?\S{3,}/.test(values.name)) {
-      errors.name = 'Invalid value';
-    }
-
-    if (!values.phone) {
-      errors.phone = 'Required';
-    } else if (!/^\+\d{9,}$/.test(values.phone)) {
-      errors.phone = "Number must start with '+' and contain at least 9 digits";
-    }
-
-    if (!values.address) {
-      errors.address = 'Required';
-    } else if (!/\S{5,}\b.+?\S{5,}\b.+?\S{5,}/.test(values.address)) {
-      errors.address = 'Invalid value';
-    }
-
-    if (!values.email) {
-      errors.email = 'Required';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = 'Invalid value';
-    }
-
-    if (!values.cardNumber) {
-      errors.cardNumber = 'Required';
-    } else if (!/^[0-9]{16}$/.test(values.cardNumber)) {
-      errors.cardNumber = 'Invalid value';
-    }
-
-    if (!values.validThru) {
-      errors.validThru = 'Required';
-    } else if (!/^[0-9]{4}$/.test(values.validThru)) {
-      errors.validThru = 'Invalid value';
-    }
-
-    if (!values.cvv) {
-      errors.cvv = 'Required';
-    } else if (!/^[0-9]{3}$/.test(values.cvv)) {
-      errors.cvv = 'Invalid value';
-    }
-
-    return errors;
-  };
-
   return (
     <div className="buy-products-form">
       <form className="form" onSubmit={formik.handleSubmit}>
         <div className="form__container">
           <h2>Personal details</h2>
           <div className="form__item">
-            <input type="text" placeholder="Name" name="name"
+            <input type="text" placeholder="Full name" name="name"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.name}
@@ -126,13 +146,13 @@ const BuyProductsForm = () => {
           <div className="form__credit-cards">
             <div className="form__credit-card__front">
               <div className="form__credit-card__front__logo">
-                <img 
-                src={
-                  (formik.values.cardNumber[0] == '5') ? "https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" 
-                  : (formik.values.cardNumber[0] == '4') ? "https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" 
-                  : "https://i.guim.co.uk/img/media/b73cc57cb1d46ae742efd06b6c58805e8600d482/16_0_2443_1466/master/2443.jpg?width=700&quality=85&auto=format&fit=max&s=fb1dca6cdd4589cd9ef2fc941935de71"
-                }
-                 alt="credit card logo" />
+                <img
+                  src={
+                    (formik.values.cardNumber[0] === '5') ? "https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg"
+                      : (formik.values.cardNumber[0] === '4') ? "https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg"
+                        : "https://i.guim.co.uk/img/media/b73cc57cb1d46ae742efd06b6c58805e8600d482/16_0_2443_1466/master/2443.jpg?width=700&quality=85&auto=format&fit=max&s=fb1dca6cdd4589cd9ef2fc941935de71"
+                  }
+                  alt="credit card logo" />
               </div>
               <input type="text" placeholder="CARD NUMBER" name="cardNumber"
                 onChange={formik.handleChange}
@@ -141,7 +161,11 @@ const BuyProductsForm = () => {
                 className={formik.touched.cardNumber && formik.errors.cardNumber ? 'form__credit-card__front__card-number form__credit-card__front__card-number_invalid' : 'form__credit-card__front__card-number'} />
               {formik.touched.cardNumber && formik.errors.cardNumber ? <div className="form__credit-card__front__card-number_message">{formik.errors.cardNumber}</div> : null}
               <input type="text" placeholder="VALID THRU" name="validThru"
-                onChange={formik.handleChange}
+                onChange={(e) => {
+                  // if (e.target.value.length > 4) return e.target.value.slice(0, 4);
+                  if(e.target.value.length > 2) return e.target.value.split('').splice(1, 0, '/').join('');
+                  formik.handleChange(e);
+                }}
                 onBlur={formik.handleBlur}
                 value={formik.values.validThru}
                 className={formik.touched.validThru && formik.errors.validThru ? 'form__credit-card__front__valid-thru form__credit-card__front__valid-thru_invalid' : 'form__credit-card__front__valid-thru'} />
@@ -150,7 +174,10 @@ const BuyProductsForm = () => {
             <div className="form__credit-card__back">
               <div className="form__credit-card__back__line"></div>
               <input type="text" placeholder="CVV" name="cvv"
-                onChange={formik.handleChange}
+                onChange={(e) => {
+                  if (e.target.value.length > 3) return e.target.value.slice(0, 3);
+                  formik.handleChange(e);
+                }}
                 onBlur={formik.handleBlur}
                 value={formik.values.cvv}
                 className={formik.touched.cvv && formik.errors.cvv ? 'form__credit-card__back__cvv form__credit-card__back__cvv_invalid' : 'form__credit-card__back__cvv'} />
