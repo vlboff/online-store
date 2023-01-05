@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { IProductData } from "../interfaces";
 import NotFoundProducts from "./NotFoundProducts";
 import ProductCard from "./ProductCard";
 import SvgSelector from "./UI/SvgSelector";
-import { IProductData } from "../interfaces";
 
 interface IProductCardField {
   products: IProductData[];

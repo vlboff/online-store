@@ -1,4 +1,233 @@
 .shopping-cart {
   min-height: calc(100vh - 60px);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f0f0;
+}
+
+.shopping-cart__empty-cart-message {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.shopping-cart__container {
+  display: flex;
+  column-gap: 30px;
+  align-items: flex-start;
+  padding-bottom: 20px;
+}
+
+.products-in-cart {
+  width: 70%;
+}
+
+.products-in-cart__header {
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  font-weight: 700;
+}
+
+.products-in-cart__product {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.products-in-cart__product__index {
+  margin: 15px 15px 15px 0;
+}
+
+.products-in-cart__product__thumbnail {
+  overflow: hidden;
+
+  img {
+    max-width: 120px;
+    max-height: 100px;
+    border-radius: 4px;
+  }
+}
+
+.products-in-cart__product__description {
+  width: 300px;
+  margin-left: 20px;
+  align-self: baseline;
+  flex: 1;
+
+  p:first-child {
+    margin: 0;
+    margin-bottom: 5px;
+  }
+
+  p:nth-child(2) {
+    font-size: 12px;
+    margin: 0;
+    max-height: 40px;
+    overflow: hidden;
+  }
+
+  p:last-child {
+    display: flex;
+    align-items: flex-end;
+    margin: 5px 0;
+    font-size: 15px;
+
+    svg {
+      fill: $brand-color;
+      width: 20px;
+    }
+  }
+}
+
+.products-in-cart__product__price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+
+  p {
+    margin: 5px;
+  }
+
+  p:first-child {
+    text-decoration: line-through;
+    font-size: 12px;
+    color: $additional-color_dark;
+  }
+  p:last-child {
+    width: fit-content;
+    height: 16px;
+    padding: 0 4px;
+    margin: 4px 4px 0 0;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    background-color: $brand-color;
+    color: #fff;
+  }
+
+  h3 {
+    margin: 5px;
+  }
+}
+
+.products-in-cart__product__amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p:first-child {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+}
+
+.product-amount {
+  .product-amount__value {
+    display: inline-block;
+    text-align: center;
+    width: 45px;
+    border: none;
+    outline: none;
+    margin: 0;
+    background-color: transparent;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 400;
+    vertical-align: middle;
+    color: #2e9cc3;
+  }
+
+  .product-amount__btn {
+    border-radius: 50% !important;
+    border: none;
+    background: #f2f2f2;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .product-amount__btn:disabled {
+    opacity: 0.6;
+  }
+}
+
+.summary {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+
+  .summary__header {
+    font-weight: 700;
+    align-self: flex-start;
+    margin-top: 5px;
+  }
+
+  label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0 25px;
+
+   input {
+      max-width: 100px;
+      border: none;
+      outline: none;
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+      font-size: 14px;
+      text-align: center;
+      font-weight: 400;
+      vertical-align: middle;
+      color: $brand-color;
+
+      &::placeholder {
+        color: $brand-color;
+      }
+    }
+  }
+
+  .summary__order-amount,
+  .summary__payment {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .summary__order-amount {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  .summary__payment {
+    font-weight: 700;
+
+    span:last-child {
+      font-size: 24px;
+    }
+  }
 }
