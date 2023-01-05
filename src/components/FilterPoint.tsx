@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { IObject } from "./Filter";
-import { IProducts } from "./Products";
-import data from "../data/data.json";
-
-const products: IProducts[] = data.products;
+import { IObject } from "../interfaces";
 
 interface IFilterPoint {
   counter: IObject;
@@ -59,7 +55,7 @@ const FilterPoint = ({
 
   const filterPoints = Object.entries(counter).map((item, i) => {
     return (
-      <div key={i} className="filter_list_point">
+      <div key={item[0]} className="filter_list_point">
         <input
           type="checkbox"
           id={item[0]}

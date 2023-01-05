@@ -1,5 +1,5 @@
 import React from "react";
-import { ActiveMode } from "./SortProducts";
+import { ActiveMode } from "../interfaces";
 
 interface IViewOptions {
   activeMode: string;

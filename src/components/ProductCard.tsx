@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./UI/Button";
 import SvgSelector from "./UI/SvgSelector";
 import { useNavigate } from "react-router-dom";
-import { ActiveMode } from "./SortProducts";
+import { ActiveMode } from "../interfaces";
 
 interface IProductCard {
   id: number;

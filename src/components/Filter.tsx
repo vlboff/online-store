@@ -1,19 +1,14 @@
 import React from "react";
 import FilterPoint from "./FilterPoint";
-import { IProducts } from "./Products";
-import data from "../data/data.json";
-
-const products: IProducts[] = data.products;
+import { IProductData } from "../interfaces";
+import { products } from "./Products";
+import { IObject } from "../interfaces";
 
 interface IFilter {
   name: string;
   setKeyFilterState: React.Dispatch<React.SetStateAction<string>>;
   setValueFilterState: React.Dispatch<React.SetStateAction<string[]>>;
-  productsToShow: IProducts[];
-}
-
-export interface IObject {
-  [key: string]: number;
+  productsToShow: IProductData[];
 }
 
 const Filter = ({
@@ -22,22 +17,22 @@ const Filter = ({
   setValueFilterState,
   productsToShow,
 }: IFilter) => {
-  const counter = products.reduce(function (o: IObject, i: IProducts) {
-    if (!o.hasOwnProperty(i[name] as keyof IProducts)) {
-      o[i[name] as keyof IProducts] = 0;
+  const counter = products.reduce(function (o: IObject, i: IProductData) {
+    if (!o.hasOwnProperty(i[name] as keyof IProductData)) {
+      o[i[name] as keyof IProductData] = 0;
     }
-    o[i[name] as keyof IProducts]++;
+    o[i[name] as keyof IProductData]++;
     return o;
   }, {});
 
   const filterCounter = productsToShow.reduce(function (
     o: IObject,
-    i: IProducts
+    i: IProductData
   ) {
-    if (!o.hasOwnProperty(i[name] as keyof IProducts)) {
-      o[i[name] as keyof IProducts] = 0;
+    if (!o.hasOwnProperty(i[name] as keyof IProductData)) {
+      o[i[name] as keyof IProductData] = 0;
     }
-    o[i[name] as keyof IProducts]++;
+    o[i[name] as keyof IProductData]++;
     return o;
   },
   {});

@@ -2,19 +2,16 @@ import React, { useEffect, useState } from "react";
 import Filter from "./Filter";
 import SliderBlock from "./SliderBlock";
 import Button from "./UI/Button";
-import { IProducts } from "./Products";
-import { IObject } from "./Filter";
-import data from "../data/data.json";
-
-const products: IProducts[] = data.products;
+import { IProductData } from "../interfaces";
+import { products } from "./Products";
 
 interface IfiltersObj {
   [key: string]: string[];
 }
 
 interface IFilterBlock {
-  setProductsToShow: React.Dispatch<React.SetStateAction<IProducts[]>>;
-  productsToShow: IProducts[];
+  setProductsToShow: React.Dispatch<React.SetStateAction<IProductData[]>>;
+  productsToShow: IProductData[];
 }
 
 const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
@@ -37,7 +34,7 @@ const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
     const filterKeys = Object.keys(filterObj);
     const filterValues = Object.values(filterObj);
 
-    let filtredProducts = products;
+    let filtredProducts: IProductData[] = Object.assign(products);
 
     for (let i = 0; i < filterKeys.length; i++) {
       filtredProducts = filtredProducts.filter((item) => {
@@ -57,17 +54,17 @@ const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
         <Button name="Reset Filters" />
         <Button name="Copy Link" />
       </div>
-      {Object.keys(filters).map((value, index) => (
+      {Object.keys(filters).map((value) => (
         <Filter
-          key={index}
+          key={value}
           name={value}
           setKeyFilterState={setKeyFilterState}
           setValueFilterState={setValueFilterState}
           productsToShow={productsToShow}
         />
       ))}
-      {sliders.map((value, index) => (
-        <SliderBlock key={index} name={value} />
+      {sliders.map((value) => (
+        <SliderBlock key={value} name={value} />
       ))}
     </div>
   );

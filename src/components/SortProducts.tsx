@@ -1,11 +1,7 @@
 import React from "react";
 import SortOptions from "./SortOptions";
 import ViewOptions from "./ViewOptions";
-
-export enum ActiveMode {
-  big = "big",
-  small = "small",
-}
+import { ActiveMode } from "../interfaces";
 
 interface ISortProducts {
   amount: number;
