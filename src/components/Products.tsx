@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useEffect, useCallback } from "react";
+import FilterBlock from "./FilterBlock";
 import SortProducts from "./SortProducts";
 import ProductCardField from "./ProductCardField";
-import { Options } from "./ViewOptions";
-import { ActiveMode } from "./SortProducts";
+import { Options } from "../interfaces";
+import { ActiveMode } from "../interfaces";
+import { IProductData } from "../interfaces";
 import data from "../data/data.json";
 import { IProductData } from "../interfaces";
 
@@ -16,12 +18,13 @@ interface IData {
 
 const dataFile: IData = data;
 
-const products = dataFile.products;
+export const products = dataFile.products;
 
 const Products = () => {
   const [valueSort, setValueSort] = useState<string>("sort-options");
 
-  const [productsToShow, setProductsToShow] = useState<IProductData[]>(products);
+  const [productsToShow, setProductsToShow] =
+    useState<IProductData[]>(products);
 
   const [activeMode, setActiveMode] = useState(ActiveMode.big);
 
@@ -48,6 +51,7 @@ const Products = () => {
         ]);
         break;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valueSort]);
 
   useEffect(() => {
@@ -55,16 +59,24 @@ const Products = () => {
   }, [chengeSelect, valueSort]);
 
   return (
-    <div className="products">
-      <SortProducts
-        amount={100}
-        setValueSort={setValueSort}
-        valueSort={valueSort}
-        activeMode={activeMode}
-        setActiveMode={setActiveMode}
-      />
-      <ProductCardField products={productsToShow} activeMode={activeMode} />
-    </div>
+    <main>
+      <div className="wrapper main">
+        <FilterBlock
+          setProductsToShow={setProductsToShow}
+          productsToShow={productsToShow}
+        />
+        <div className="products">
+          <SortProducts
+            amount={100}
+            setValueSort={setValueSort}
+            valueSort={valueSort}
+            activeMode={activeMode}
+            setActiveMode={setActiveMode}
+          />
+          <ProductCardField products={productsToShow} activeMode={activeMode} />
+        </div>
+      </div>
+    </main>
   );
 };
 

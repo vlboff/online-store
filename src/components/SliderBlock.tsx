@@ -1,7 +1,5 @@
 import React from "react";
-import data from "../data/data.json";
-
-const products = data.products;
+import { products } from "./Products";
 
 interface ISliderBlock {
   name: string;

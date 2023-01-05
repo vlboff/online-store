@@ -1,34 +1,62 @@
 import React from "react";
-
-export enum Options {
-  priceASC = "price-ASC",
-  priceDESC = "price-DESC",
-  ratingASC = "rating-ASC",
-  ratingDESC = "rating-DESC",
-}
+import { ActiveMode } from "../interfaces";
 
 interface IViewOptions {
-  valueSort: string;
-  setValueSort: React.Dispatch<React.SetStateAction<string>>;
+  activeMode: string;
+  setActiveMode: React.Dispatch<React.SetStateAction<ActiveMode>>;
 }
 
-const ViewOptions = ({ valueSort, setValueSort }: IViewOptions) => {
+const ViewOptions = ({ activeMode, setActiveMode }: IViewOptions) => {
+  const handleClickModeBig = () => {
+    setActiveMode(ActiveMode.big);
+  };
+
+  const handleClickModeSmall = () => {
+    setActiveMode(ActiveMode.small);
+  };
+
   return (
-    <select
-      className="sort-bar"
-      name="sort"
-      id="sort"
-      value={valueSort}
-      onChange={(event) => setValueSort(event.target.value)}
-    >
-      <option disabled value="sort-options">
-        Sort options:
-      </option>
-      <option value={Options.priceASC}>Sort by price ASC</option>
-      <option value={Options.priceDESC}>Sort by price DESC</option>
-      <option value={Options.ratingASC}>Sort by rating ASC</option>
-      <option value={Options.ratingDESC}>Sort by rating DESC</option>
-    </select>
+    <div className="view-mode">
+      <div
+        className={`view-mode_big ${
+          activeMode === ActiveMode.big ? " active" : ""
+        }`}
+        onClick={handleClickModeBig}
+      >
+        <div className="view-mode_big-sqare"></div>
+        <div className="view-mode_big-sqare"></div>
+        <div className="view-mode_big-sqare"></div>
+        <div className="view-mode_big-sqare"></div>
+        <div className="view-mode_big-sqare"></div>
+        <div className="view-mode_big-sqare"></div>
+        <div className="view-mode_big-sqare"></div>
+        <div className="view-mode_big-sqare"></div>
+        <div className="view-mode_big-sqare"></div>
+      </div>
+      <div
+        className={`view-mode_small ${
+          activeMode === ActiveMode.small ? " active" : ""
+        }`}
+        onClick={handleClickModeSmall}
+      >
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+        <div className="view-mode_small-sqare"></div>
+      </div>
+    </div>
   );
 };
 

@@ -2,13 +2,7 @@ import React from "react";
 import Button from "./UI/Button";
 import SvgSelector from "./UI/SvgSelector";
 import { useNavigate } from "react-router-dom";
-import { ActiveMode } from "./SortProducts";
-
-interface IStyle {
-  width: string;
-  height?: string;
-  background?: string;
-}
+import { ActiveMode } from "../interfaces";
 
 interface IProductCard {
   id: number;
@@ -38,30 +32,17 @@ const ProductCard = ({
 }: IProductCard) => {
   let navigate = useNavigate();
 
-  let styleImj: IStyle;
-  let styleCard: IStyle;
-
-  if (activeMode === ActiveMode.big) {
-    styleCard = { width: "300px" };
-    styleImj = {
-      width: "100%",
-      height: "250px",
-      background: `url(${background}) 0% center / cover`,
-    };
-  } else {
-    styleCard = { width: "210px" };
-    styleImj = {
-      width: "100%",
-      height: "175px",
-      background: `url(${background}) 0% center / cover`,
-    };
-  }
-
   return (
-    <div className="product-card" style={styleCard}>
+    <div
+      className={`product-card ${
+        activeMode === ActiveMode.big ? "" : "small_card"
+      }`}
+    >
       <div
-        className="product-card_img"
-        style={styleImj}
+        className={`product-card_img ${
+          activeMode === ActiveMode.big ? "" : "small_img"
+        }`}
+        style={{ background: `url(${background}) 0% center / cover` }}
         onClick={() => navigate(`products/${id}`)}
       >
         <div className="product-card_blackout"></div>

@@ -1,10 +1,7 @@
 import React from "react";
+import SortOptions from "./SortOptions";
 import ViewOptions from "./ViewOptions";
-
-export enum ActiveMode {
-  big = "big",
-  small = "small",
-}
+import { ActiveMode } from "../interfaces";
 
 interface ISortProducts {
   amount: number;
@@ -21,59 +18,11 @@ const SortProducts = ({
   activeMode,
   setActiveMode,
 }: ISortProducts) => {
-  const handleClickModeBig = (event: React.MouseEvent<HTMLElement>) => {
-    setActiveMode(ActiveMode.big);
-  };
-
-  const handleClickModeSmall = (event: React.MouseEvent<HTMLElement>) => {
-    setActiveMode(ActiveMode.small);
-  };
-
   return (
     <div className="sort-products">
-      <ViewOptions valueSort={valueSort} setValueSort={setValueSort} />
+      <SortOptions valueSort={valueSort} setValueSort={setValueSort} />
       <div className="amount-products">Found: {amount}</div>
-      <div className="view-mode">
-        <div
-          className={`view-mode_big ${
-            activeMode === ActiveMode.big ? " active" : ""
-          }`}
-          onClick={handleClickModeBig}
-        >
-          <div className="view-mode_big-sqare"></div>
-          <div className="view-mode_big-sqare"></div>
-          <div className="view-mode_big-sqare"></div>
-          <div className="view-mode_big-sqare"></div>
-          <div className="view-mode_big-sqare"></div>
-          <div className="view-mode_big-sqare"></div>
-          <div className="view-mode_big-sqare"></div>
-          <div className="view-mode_big-sqare"></div>
-          <div className="view-mode_big-sqare"></div>
-        </div>
-        <div
-          className={`view-mode_small ${
-            activeMode === ActiveMode.small ? " active" : ""
-          }`}
-          onClick={handleClickModeSmall}
-        >
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-          <div className="view-mode_small-sqare"></div>
-        </div>
-      </div>
+      <ViewOptions activeMode={activeMode} setActiveMode={setActiveMode} />
     </div>
   );
 };
