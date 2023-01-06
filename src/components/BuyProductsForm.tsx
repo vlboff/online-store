@@ -3,19 +3,72 @@ import { useFormik } from "formik";
 import * as Yup from 'yup';
 import { useNavigate } from "react-router-dom";
 
-interface IFormInputs {
-  name?: string;
-  phone?: string;
-  address?: string;
-  email?: string;
-  cardNumber?: string;
-  validThru?: string;
-  cvv?: string;
-}
-
-
 const BuyProductsForm = () => {
   const navigate = useNavigate();
+
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .required()
+      .label('Full name')
+      .test('is-full-name', 'Please enter both your first and last name', function (value) {
+        if (value) {
+          const nameArr = value.split(" ");
+          return nameArr.length >= 2;
+        } else return false;
+      })
+      .test('is-more-than-3-characters', 'Each word must be at least 3 characters long', function (value) {
+        if (value) {
+          const nameArr = value.split(" ");
+          return nameArr.every(value => value.length >= 3);
+        } else return false;
+
+      }),
+    phone: Yup.string()
+      .required()
+      .label('Phone number')
+      .test('starts-with-plus', 'Phone number must starts with "+"', function (value) {
+        return value ? value.startsWith('+') : false;
+      })
+      .test('is-digits', 'Phone number must be digits', function (value) {
+        return value ? value.slice(1).split('').every(value => parseInt(value)) : false;
+      })
+      .test('is-9-digits', 'Phone number must be at least 9 digits long', function (value) {
+        return value ? value.slice(1).split('').length > 8 : false;
+      }),
+    address: Yup.string()
+      .required()
+      .label('Address')
+      .test('is-full-address', 'Please enter valid address', function (value) {
+        if (value) {
+          const addressArr = value.split(" ");
+          return addressArr.length >= 3;
+        } else return false;
+      })
+      .test('is-more-than-5-characters', 'Each word must be at least 5 characters long', function (value) {
+        if (value) {
+          const nameArr = value.split(" ");
+          return nameArr.every(value => value.length >= 5);
+        } else return false;
+      }),
+    email: Yup.string()
+      .required().label('Email').email(),
+    cardNumber: Yup.string()
+      .required()
+      .label('Card number')
+      .test('is-digits', 'Card number must be digits', function (value) {
+        return value ? value.split('').every(value => parseInt(value)) : false;
+      })
+      .length(16, 'Сard number must consist of 16 digits'),
+    validThru: Yup.string()
+      .required()
+      .label('Valid thru')
+      .matches(/^[0-9]{2}\/[0-9]{2}$/, 'Valid thru must be 4 digits')
+      .test('is-correct-month', 'Invalid month value', function (value) {
+        return value ? ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'].includes(value.slice(0, 2)) : false;
+      }),
+    cvv: Yup.string()
+      .required('Required').matches(/^[0-9]{3}$/, 'CVV must be 3 digits'),
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -27,72 +80,7 @@ const BuyProductsForm = () => {
       validThru: '',
       cvv: '',
     },
-    validationSchema: Yup.object({
-      name: Yup.string()
-        .required()
-        .label('Full name')
-        .test('is-full-name', 'Please enter both your first and last name', function (value) {
-          if (value) {
-            const nameArr = value.split(" ");
-            return nameArr.length >= 2;
-          } else return false;
-        })
-        .test('is-more-than-3-characters', 'Each word must be at least 3 characters long', function (value) {
-          if (value) {
-            const nameArr = value.split(" ");
-            return nameArr.every(value => value.length >= 3);
-          } else return false;
-
-        }),
-      phone: Yup.string()
-        .required()
-        .label('Phone number')
-        .test('starts-with-+', 'Phone number must starts with "+"', function (value) {
-          return value ? value.startsWith('+') : false;
-        })
-        .test('is-digits', 'Phone number must be digits', function (value) {
-          return value ? value.slice(1).split('').every(value => parseInt(value)) : false;
-        })
-        .test('is-9-digits', 'Phone number must be at least 9 digits long', function (value) {
-          return value ? value.slice(1).split('').length > 8 : false;
-        }),
-      address: Yup.string()
-        .required()
-        .label('Address')
-        .test('is-full-address', 'Please enter valid address', function (value) {
-          if (value) {
-            const addressArr = value.split(" ");
-            return addressArr.length >= 3;
-          } else return false;
-        })
-        .test('is-more-than-5-characters', 'Each word must be at least 5 characters long', function (value) {
-          if (value) {
-            const nameArr = value.split(" ");
-            return nameArr.every(value => value.length >= 5);
-          } else return false;
-        }),
-      email: Yup.string()
-        .required()
-        .label('Email')
-        .email(),
-      cardNumber: Yup.string()
-        .required()
-        .label('Card number')
-        .test('is-digits', 'Card number must be digits', function (value) {
-          return value ? value.split('').every(value => parseInt(value)) : false;
-        })
-        .length(16, 'Card number must be 16 characters long'),
-      validThru: Yup.string()
-        .required()
-        .label('Valid thru')
-        .matches(/^[0-9]{4}$/, 'Valid thru must be 4 digits')
-        .test('is-correct-month', 'Invalid month value', function (value) {
-            return value ? ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'].includes(value.slice(0, 2)) : false;
-        }),
-      cvv: Yup.string()
-        .required('Required')
-        .matches(/^[0-9]{3}$/, 'CVV must be 3 digits')
-    }),
+    validationSchema,
     onSubmit: _values => {
       alert('Your order was placed successfully! You will be redirected to the main page');
       setTimeout(() => {
@@ -102,6 +90,12 @@ const BuyProductsForm = () => {
       }, 3000)
     },
   });
+
+  function formatValidThru(value: string) {
+    if (value.length > 2) {
+      return value.replace(/\//g, "").substring(0, 2) + (value.length > 2 ? '/' : '') + value.replace(/\//g, "").substring(2, 4);
+    }
+  }
 
   return (
     <div className="buy-products-form">
@@ -155,19 +149,20 @@ const BuyProductsForm = () => {
                   alt="credit card logo" />
               </div>
               <input type="text" placeholder="CARD NUMBER" name="cardNumber"
-                onChange={formik.handleChange}
+                onChange={(e) => {
+                  if (e.target.value.length > 16) return;
+                  formik.handleChange(e);
+                }}
                 onBlur={formik.handleBlur}
                 value={formik.values.cardNumber}
                 className={formik.touched.cardNumber && formik.errors.cardNumber ? 'form__credit-card__front__card-number form__credit-card__front__card-number_invalid' : 'form__credit-card__front__card-number'} />
               {formik.touched.cardNumber && formik.errors.cardNumber ? <div className="form__credit-card__front__card-number_message">{formik.errors.cardNumber}</div> : null}
               <input type="text" placeholder="VALID THRU" name="validThru"
                 onChange={(e) => {
-                  // if (e.target.value.length > 4) return e.target.value.slice(0, 4);
-                  if(e.target.value.length > 2) return e.target.value.split('').splice(1, 0, '/').join('');
                   formik.handleChange(e);
                 }}
                 onBlur={formik.handleBlur}
-                value={formik.values.validThru}
+                value={formatValidThru(formik.values.validThru)}
                 className={formik.touched.validThru && formik.errors.validThru ? 'form__credit-card__front__valid-thru form__credit-card__front__valid-thru_invalid' : 'form__credit-card__front__valid-thru'} />
               {formik.touched.validThru && formik.errors.validThru ? <div className="form__credit-card__front__valid-thru_message">{formik.errors.validThru}</div> : null}
             </div>
@@ -175,7 +170,7 @@ const BuyProductsForm = () => {
               <div className="form__credit-card__back__line"></div>
               <input type="text" placeholder="CVV" name="cvv"
                 onChange={(e) => {
-                  if (e.target.value.length > 3) return e.target.value.slice(0, 3);
+                  if (e.target.value.length > 3) return;
                   formik.handleChange(e);
                 }}
                 onBlur={formik.handleBlur}
