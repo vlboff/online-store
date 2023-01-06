@@ -1,0 +1,198 @@
+.buy-products-form {
+  display: flex;
+  flex-direction: column;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+
+.form__submit {
+  height: 56px;
+  width: 100%;
+  max-width: unset;
+  padding: 0;
+  border-radius: 28px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: filter 0.3s;
+  background-color: $brand-color;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  h2 {
+    font-size: 16px;
+    margin: 0;
+  }
+}
+
+.form__item {
+  position: relative;
+}
+
+.form__item__input {
+  width: -webkit-fill-available;
+  border: 2px solid $font-color-main;
+  border-radius: 17px;
+  padding: 5px 15px;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.form__item__input_invalid {
+  border: 2px solid red;
+}
+
+.form__item__message_invalid {
+  position: absolute;
+  bottom: -15px;
+  left: 15px;
+  color: red;
+  font-size: 12px;
+}
+
+.form__credit-cards {
+  position: relative;
+  height: 200px;
+  min-width: 325px;
+}
+
+.form__credit-card__front {
+  position: absolute;
+  width: 250px;
+  height: 167.5px;
+  border-radius: 12px;
+  background-color: $additional-color;
+  z-index: 2;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.form__credit-card__back {
+  position: absolute;
+  top: 20px;
+  left: 75px;
+  width: 250px;
+  height: 167.5px;
+  border-radius: 12px;
+  background-color: $additional-color;
+  z-index: 1;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.form__credit-card__front__logo {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  img {
+    width: 50px;
+  }
+}
+
+.form__credit-card__front__card-number {
+  padding: 5px;
+  width: 205px;
+  font-size: 12px;
+  background-color: white;
+  border: 1px solid $additional-color_dark;
+  border-radius: 3px;
+  position: absolute;
+  top: 75px;
+  left: 15px;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.form__credit-card__front__card-number_invalid {
+  border: 1px solid red;
+}
+
+.form__credit-card__front__card-number_message {
+  position: absolute;
+  bottom: 51px;
+  left: 15px;
+  color: red;
+  font-size: 12px;
+}
+
+.form__credit-card__front__valid-thru {
+  padding: 5px;
+  font-size: 12px;
+  background-color: white;
+  border: 1px solid $additional-color_dark;
+  border-radius: 3px;
+  position: absolute;
+  width: 70px;
+  top: 120px;
+  left: 15px;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.form__credit-card__front__valid-thru_invalid {
+  border: 1px solid red;
+}
+
+.form__credit-card__front__valid-thru_message {
+  position: absolute;
+  bottom: 7px;
+  left: 15px;
+  color: red;
+  font-size: 12px;
+}
+
+.form__credit-card__back__line {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.form__credit-card__back__cvv {
+  position: absolute;
+  width: 30px;
+  top: 90px;
+  right: 15px;
+  padding: 5px;
+  font-size: 12px;
+  background-color: white;
+  border: 1px solid $additional-color_dark;
+  border-radius: 3px;
+  position: absolute;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.form__credit-card__back__cvv_invalid {
+  border: 1px solid red;
+}
+
+.form__credit-card__back__cvv_message {
+  position: absolute;
+  bottom: 36px;
+  width: 45px;
+  height: 15px;
+  right: 11px;
+  color: red;
+  font-size: 12px;
+}

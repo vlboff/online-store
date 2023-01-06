@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import data from '../data/data.json';
 import { IProductData, IProductInCart } from '../interfaces';
+import BuyProductsForm from './BuyProductsForm';
 import ProductInCart from './ProductInCart';
+import ModalWindow from './UI/ModalWindow';
 import Pagination from './UI/Pagination';
 import StylizedButton from './UI/StylizedButton';
 
@@ -12,6 +14,7 @@ function ShoppingCart() {
   const [cart, setCart] = useState<IProductInCart[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(3);
+  const [modalWindow, setModalWindow] = useState(false);
 
   const lastProductIndex = currentPage * productsPerPage;
   const firstProductIndex = lastProductIndex - productsPerPage;
@@ -101,11 +104,15 @@ function ShoppingCart() {
               <StylizedButton
                 name='Buy now'
                 style='button_stylized button_stylized_brand'
+                onClick={() => setModalWindow(true)}
               />
             </div>
           </div>
         }
       </div>
+      <ModalWindow visible={modalWindow} setVisible={setModalWindow}>
+        <BuyProductsForm />
+      </ModalWindow>
     </div>
   )
 }
