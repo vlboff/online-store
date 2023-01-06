@@ -11,17 +11,10 @@ const BuyProductsForm = () => {
       .required()
       .label('Full name')
       .test('is-full-name', 'Please enter both your first and last name', function (value) {
-        if (value) {
-          const nameArr = value.split(" ");
-          return nameArr.length >= 2;
-        } else return false;
+        return !!value && value.split(" ").length >= 2;
       })
       .test('is-more-than-3-characters', 'Each word must be at least 3 characters long', function (value) {
-        if (value) {
-          const nameArr = value.split(" ");
-          return nameArr.every(value => value.length >= 3);
-        } else return false;
-
+        return !!value && value.split(" ").every(value => value.length >= 3);
       }),
     phone: Yup.string()
       .required()
@@ -39,16 +32,10 @@ const BuyProductsForm = () => {
       .required()
       .label('Address')
       .test('is-full-address', 'Please enter valid address', function (value) {
-        if (value) {
-          const addressArr = value.split(" ");
-          return addressArr.length >= 3;
-        } else return false;
+        return !!value && value.split(" ").length >= 3;
       })
       .test('is-more-than-5-characters', 'Each word must be at least 5 characters long', function (value) {
-        if (value) {
-          const nameArr = value.split(" ");
-          return nameArr.every(value => value.length >= 5);
-        } else return false;
+        return !!value && value.split(" ").every(value => value.length >= 5);
       }),
     email: Yup.string()
       .required().label('Email').email(),
@@ -64,7 +51,8 @@ const BuyProductsForm = () => {
       .label('Valid thru')
       .matches(/^[0-9]{2}\/[0-9]{2}$/, 'Valid thru must be 4 digits')
       .test('is-correct-month', 'Invalid month value', function (value) {
-        return value ? ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'].includes(value.slice(0, 2)) : false;
+        const validMonths = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+        return value ? validMonths.includes(value.slice(0, 2)) : false;
       }),
     cvv: Yup.string()
       .required('Required').matches(/^[0-9]{3}$/, 'CVV must be 3 digits'),
@@ -107,7 +95,7 @@ const BuyProductsForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.name}
-              className={formik.touched.name && formik.errors.name ? 'form__item__input form__item__input_invalid' : 'form__item__input'} />
+              className={`form__item__input ${formik.touched.name && formik.errors.name ? 'form__item__input_invalid' : ''}`} />
             {formik.touched.name && formik.errors.name ? <div className="form__item__message_invalid">{formik.errors.name}</div> : null}
           </div>
           <div className="form__item">
@@ -115,7 +103,7 @@ const BuyProductsForm = () => {
               onChange={formik.handleChange}
               value={formik.values.phone}
               onBlur={formik.handleBlur}
-              className={formik.touched.phone && formik.errors.phone ? 'form__item__input form__item__input_invalid' : 'form__item__input'} />
+              className={`form__item__input ${formik.touched.phone && formik.errors.phone ? 'form__item__input_invalid' : ''}`} />
             {formik.touched.phone && formik.errors.phone ? <div className="form__item__message_invalid">{formik.errors.phone}</div> : null}
           </div>
           <div className="form__item">
@@ -123,7 +111,7 @@ const BuyProductsForm = () => {
               onChange={formik.handleChange}
               value={formik.values.address}
               onBlur={formik.handleBlur}
-              className={formik.touched.address && formik.errors.address ? 'form__item__input form__item__input_invalid' : 'form__item__input'} />
+              className={`form__item__input ${formik.touched.address && formik.errors.address ? 'form__item__input_invalid' : ''}`} />
             {formik.touched.address && formik.errors.address ? <div className="form__item__message_invalid">{formik.errors.address}</div> : null}
           </div>
           <div className="form__item">
@@ -131,7 +119,7 @@ const BuyProductsForm = () => {
               onChange={formik.handleChange}
               value={formik.values.email}
               onBlur={formik.handleBlur}
-              className={formik.touched.email && formik.errors.email ? 'form__item__input form__item__input_invalid' : 'form__item__input'} />
+              className={`form__item__input ${formik.touched.email && formik.errors.email ? 'form__item__input_invalid' : ''}`} />
             {formik.touched.email && formik.errors.email ? <div className="form__item__message_invalid">{formik.errors.email}</div> : null}
           </div>
         </div>
@@ -155,7 +143,7 @@ const BuyProductsForm = () => {
                 }}
                 onBlur={formik.handleBlur}
                 value={formik.values.cardNumber}
-                className={formik.touched.cardNumber && formik.errors.cardNumber ? 'form__credit-card__front__card-number form__credit-card__front__card-number_invalid' : 'form__credit-card__front__card-number'} />
+                className={`form__credit-card__front__card-number ${formik.touched.cardNumber && formik.errors.cardNumber ?  'form__credit-card__front__card-number_invalid' : ''}`} />
               {formik.touched.cardNumber && formik.errors.cardNumber ? <div className="form__credit-card__front__card-number_message">{formik.errors.cardNumber}</div> : null}
               <input type="text" placeholder="VALID THRU" name="validThru"
                 onChange={(e) => {
@@ -163,7 +151,7 @@ const BuyProductsForm = () => {
                 }}
                 onBlur={formik.handleBlur}
                 value={formatValidThru(formik.values.validThru)}
-                className={formik.touched.validThru && formik.errors.validThru ? 'form__credit-card__front__valid-thru form__credit-card__front__valid-thru_invalid' : 'form__credit-card__front__valid-thru'} />
+                className={`form__credit-card__front__valid-thru ${formik.touched.validThru && formik.errors.validThru ? 'form__credit-card__front__valid-thru_invalid' : ''}`} />
               {formik.touched.validThru && formik.errors.validThru ? <div className="form__credit-card__front__valid-thru_message">{formik.errors.validThru}</div> : null}
             </div>
             <div className="form__credit-card__back">
@@ -175,7 +163,7 @@ const BuyProductsForm = () => {
                 }}
                 onBlur={formik.handleBlur}
                 value={formik.values.cvv}
-                className={formik.touched.cvv && formik.errors.cvv ? 'form__credit-card__back__cvv form__credit-card__back__cvv_invalid' : 'form__credit-card__back__cvv'} />
+                className={`form__credit-card__back__cvv ${formik.touched.cvv && formik.errors.cvv ? 'form__credit-card__back__cvv_invalid' : ''}`} />
               {formik.touched.cvv && formik.errors.cvv ? <div className="form__credit-card__back__cvv_message">{formik.errors.cvv}</div> : null}
             </div>
           </div>
