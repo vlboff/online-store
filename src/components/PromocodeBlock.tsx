@@ -36,7 +36,7 @@ function PromocodeBlock() {
 
   return (
     <>
-      {usedPromocodes &&
+      {usedPromocodes.length !==0 &&
         <div className='promocode__container'>
           Applied codes:
           {usedPromocodes.map(promocode => {
@@ -55,7 +55,7 @@ function PromocodeBlock() {
         />
       </label>
       {!enteredPromocode ? '' : <div className='promocode__proposal'>{enteredPromocode.name} –{enteredPromocode.disc}%
-        {!usedPromocodes.includes(enteredPromocode) &&
+        {usedPromocodes.indexOf(enteredPromocode) === -1 &&
           <button
             className='promocode__btn'
             onClick={() => addPromocodeToLocalStorage(enteredPromocode)}

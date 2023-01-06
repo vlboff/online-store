@@ -111,7 +111,7 @@ function ShoppingCart() {
             </div>
             <div className="summary">
               <p className="summary__header">Summary</p>
-              <div className='summary__order-amount'><span>Order amount:</span><span style={!usedPromocodes ? {textDecoration: 'none'} : {textDecoration: 'line-through'}}>€ {cost}</span></div>
+              <div className='summary__order-amount'><span>Order amount:</span><span className={!usedPromocodes ? 'text-normal' : 'text-crossed'}>€ {cost}</span></div>
               <div className='summary__payment'><span>For payment:</span><span>€ {!usedPromocodes ? cost : (cost - cost * Number(usedPromocodes.reduce(((acc, cur) => acc + cur.disc), 0)) / 100)}</span></div>
               <PromocodeBlock />
               <StylizedButton
