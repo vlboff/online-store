@@ -7,7 +7,6 @@ import { Options } from "../interfaces";
 import { ActiveMode } from "../interfaces";
 import { IProductData } from "../interfaces";
 import data from "../data/data.json";
-import { IProductData } from "../interfaces";
 
 interface IData {
   products: IProductData[];
