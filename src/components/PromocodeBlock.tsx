@@ -36,17 +36,20 @@ function PromocodeBlock() {
 
   return (
     <>
-      {usedPromocodes.length !==0 &&
+      {usedPromocodes.length !== 0 &&
         <div className='promocode__container'>
           Applied codes:
           {usedPromocodes.map(promocode => {
             return (
-              <div className='promocode__applied' key={promocode.id}>{promocode.name} –{promocode.disc}% <button className='promocode__btn' onClick={() => removePromocodeFromLocalStorage(promocode)}>–</button></div>
+              <div className='promocode__applied' key={promocode.id}>{promocode.name} –{promocode.disc}%
+                <button className='promocode__btn' onClick={() => removePromocodeFromLocalStorage(promocode)}>–</button>
+              </div>
             )
           })}
         </div>
       }
-      <label htmlFor="promocode"><span>Promocode:</span>
+      <label htmlFor="promocode">
+        <span>Promocode:</span>
         <input type="text"
           name='promocode'
           placeholder='Enter your code'
@@ -54,13 +57,15 @@ function PromocodeBlock() {
           onChange={(e) => checkPromocode(e.target.value)}
         />
       </label>
-      {!enteredPromocode ? '' : <div className='promocode__proposal'>{enteredPromocode.name} –{enteredPromocode.disc}%
-        {usedPromocodes.indexOf(enteredPromocode) === -1 &&
-          <button
-            className='promocode__btn'
-            onClick={() => addPromocodeToLocalStorage(enteredPromocode)}
-          >+</button>}
-      </div>}
+      {enteredPromocode &&
+        <div className='promocode__proposal'>
+          {enteredPromocode.name} –{enteredPromocode.disc}%
+          {!usedPromocodes.find(promocode => promocode.id === enteredPromocode.id) &&
+            <button
+              className='promocode__btn'
+              onClick={() => addPromocodeToLocalStorage(enteredPromocode)}
+            >+</button>}
+        </div>}
     </>
   )
 }
