@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { products } from "./Products";
 import Range from "rc-slider";
 import "rc-slider/assets/index.css";
 
@@ -7,26 +6,25 @@ interface ISliderBlock {
   name: string;
   setKeySliderState: React.Dispatch<React.SetStateAction<string>>;
   setValueSliderState: React.Dispatch<React.SetStateAction<number[]>>;
+  findMin: (key: string) => number;
+  findMax: (key: string) => number;
+  findCurrentMin: (key: string) => number;
+  findCurrentMax: (key: string) => number;
 }
 
 const SliderBlock = ({
   name,
   setKeySliderState,
   setValueSliderState,
+  findMin,
+  findMax,
+  findCurrentMin,
+  findCurrentMax,
 }: ISliderBlock) => {
-  let min: number = 0;
-  let max: number = 0;
-
-  const tempArr: number[] = [];
-  products.map((item) => tempArr.push(item[name] as number));
-  min = Math.min(...tempArr);
-  max = Math.max(...tempArr);
-
-  const [sliderValue, setSliderValue] = useState([min, max]);
-
-  const handleChange = (sliderValue: React.SetStateAction<number[]>) => {
-    setSliderValue(sliderValue);
-  };
+  const [sliderValue, setSliderValue] = useState([
+    findMin(name),
+    findMax(name),
+  ]);
 
   useEffect(() => {
     setValueSliderState(() => sliderValue as number[]);
@@ -45,12 +43,13 @@ const SliderBlock = ({
         <Range
           range
           allowCross={false}
-          defaultValue={[min, max]}
-          min={min}
-          max={max}
+          defaultValue={[findMin(name), findMax(name)]}
+          min={findMin(name)}
+          max={findMax(name)}
           onChange={
-            handleChange as ((value: number | number[]) => void) | undefined
+            setSliderValue as ((value: number | number[]) => void) | undefined
           }
+          value={[findCurrentMin(name), findCurrentMax(name)]}
         ></Range>
       </div>
     </div>

@@ -18,9 +18,17 @@ interface IFilterBlock {
   productsToShow: IProductData[];
 }
 
+const findMin = (key: string): number =>
+  products.reduce((acc, v) => (acc[key] < v[key] ? acc : v))[key] as number;
+const findMax = (key: string): number =>
+  products.reduce((acc, v) => (acc[key] > v[key] ? acc : v))[key] as number;
+
 const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
   let filters: IFiltersObj = { category: [], brand: [] };
-  let sliders: ISliderObj = { price: [], stock: [] };
+  let sliders: ISliderObj = {
+    price: [findMin("price"), findMax("price")],
+    stock: [findMin("stock"), findMax("stock")],
+  };
 
   const [keyFilterState, setKeyFilterState] = useState<string>("");
   const [valueFilterState, setValueFilterState] = useState<string[]>([]);
@@ -29,8 +37,6 @@ const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
   const [keySliderState, setKeySliderState] = useState<string>("");
   const [valueSliderState, setValueSliderState] = useState<number[]>([]);
   const [sliderObj] = useState(sliders);
-
-  console.log(valueSliderState);
 
   useEffect(() => {
     for (let key in filterObj) {
@@ -54,7 +60,7 @@ const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
     const sliderKeys = Object.keys(sliderObj);
     const sliderValues = Object.values(sliderObj);
 
-    let filtredProducts: IProductData[] = Object.assign(products);
+    let filtredProducts: IProductData[] = [...products];
 
     for (let i = 0; i < filterKeys.length; i++) {
       filtredProducts = filtredProducts.filter((item) => {
@@ -77,8 +83,17 @@ const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
       });
     }
 
-    setProductsToShow(filtredProducts);
+    setProductsToShow(() => [...filtredProducts]);
   }, [valueFilterState, valueSliderState]);
+
+  const findCurrentMin = (key: string): number =>
+    productsToShow.reduce((acc, v) => (acc[key] < v[key] ? acc : v))[
+      key
+    ] as number;
+  const findCurrentMax = (key: string): number =>
+    productsToShow.reduce((acc, v) => (acc[key] > v[key] ? acc : v))[
+      key
+    ] as number;
 
   return (
     <div className="filters">
@@ -101,6 +116,10 @@ const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
           name={value}
           setKeySliderState={setKeySliderState}
           setValueSliderState={setValueSliderState}
+          findMin={findMin}
+          findMax={findMax}
+          findCurrentMin={findCurrentMin}
+          findCurrentMax={findCurrentMax}
         />
       ))}
     </div>

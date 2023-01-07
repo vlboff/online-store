@@ -57,6 +57,8 @@ const Products = () => {
     chengeSelect();
   }, [chengeSelect, valueSort]);
 
+  const amount = productsToShow.length;
+
   return (
     <main>
       <div className="wrapper main">
@@ -66,7 +68,7 @@ const Products = () => {
         />
         <div className="products">
           <SortProducts
-            amount={100}
+            amount={amount}
             setValueSort={setValueSort}
             valueSort={valueSort}
             activeMode={activeMode}
