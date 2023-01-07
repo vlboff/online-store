@@ -7,7 +7,6 @@ import { Options } from "../interfaces";
 import { ActiveMode } from "../interfaces";
 import { IProductData } from "../interfaces";
 import data from "../data/data.json";
-import { IProductData } from "../interfaces";
 
 interface IData {
   products: IProductData[];
@@ -58,6 +57,8 @@ const Products = () => {
     chengeSelect();
   }, [chengeSelect, valueSort]);
 
+  const amount = productsToShow.length;
+
   return (
     <main>
       <div className="wrapper main">
@@ -67,7 +68,7 @@ const Products = () => {
         />
         <div className="products">
           <SortProducts
-            amount={100}
+            amount={amount}
             setValueSort={setValueSort}
             valueSort={valueSort}
             activeMode={activeMode}

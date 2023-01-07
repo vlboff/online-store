@@ -36,7 +36,7 @@ const FilterPoint = ({
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
     );
-    setCheckedState(updatedCheckedState);
+    setCheckedState(() => updatedCheckedState);
   }
 
   useEffect(() => {
