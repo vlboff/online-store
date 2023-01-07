@@ -13,7 +13,7 @@ function ShoppingCart() {
   const [cost, setCost] = useState(0);
   const [cart, setCart] = useState<IProductInCart[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(3);
+  const [productsPerPage, setProductsPerPage] = useState(3);
   const [modalWindow, setModalWindow] = useState(false);
   const [usedPromocodes, setUsedPromocodes] = useState<IPromocode[]>([]);
 
@@ -96,12 +96,26 @@ function ShoppingCart() {
           <div className="shopping-cart__container">
             <div className="products-in-cart">
               <div className="products-in-cart__header">
-                <span>Products in cart ({products.length})</span>
+                <span className="products-in-cart__header__amount">Products in cart ({products.length})</span>
                 <Pagination
                   itemsPerPage={productsPerPage}
                   totalItems={cart.length}
                   paginate={paginate}
                 />
+                <label htmlFor="productsPerPage">
+                  Limit:
+                  <select
+                    name="productsPerPage"
+                    className='products-per-page'
+                    defaultValue={+productsPerPage}
+                    onChange={(e) => setProductsPerPage(+(e.target.value))}
+                  >
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </label>
               </div>
               <div className="products-in-cart__products">
                 {
