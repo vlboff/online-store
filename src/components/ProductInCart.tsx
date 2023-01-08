@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { IProductData, IPropsForProductInCart } from "../interfaces";
 import SvgSelector from "./UI/SvgSelector";
 
 function ProductInCart({product, cart, i}: IPropsForProductInCart) {
   
+  const navigate = useNavigate();
   const [currentAmount, setCurrentAmount] = useState(cart[i].count);
 
   useEffect(() => {
@@ -34,9 +36,11 @@ function ProductInCart({product, cart, i}: IPropsForProductInCart) {
   return (
     <div className="products-in-cart__product">
       <div className="products-in-cart__product__index">{i + 1}</div>
-      <div className="products-in-cart__product__thumbnail"><img src={product.thumbnail} alt={product.title} /></div>
+      <div className="products-in-cart__product__thumbnail">
+        <img src={product.thumbnail} alt={product.title} onClick={() => navigate(`/products/${product.id}`)}/>
+      </div>
       <div className="products-in-cart__product__description">
-        <p>{product.title}</p>
+        <p  onClick={() => navigate(`/products/${product.id}`)}>{product.title}</p>
         <p>{product.description}</p>
         <p><SvgSelector id={"star"} />{product.rating}</p>
       </div>
