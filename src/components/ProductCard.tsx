@@ -36,9 +36,7 @@ const ProductCard = ({
   useEffect(() => {
     window.addEventListener('storage', () => {
       setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
-    })
-  }, []);
-  useEffect(() => {
+    });
     setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
   }, []);
 

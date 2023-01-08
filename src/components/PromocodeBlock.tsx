@@ -9,10 +9,7 @@ function PromocodeBlock() {
   useEffect(() => {
     window.addEventListener('storage', () => {
       setUsedPromocodes(JSON.parse(localStorage.getItem('usedPromocodes') || '[]'));
-    })
-  }, []);
-
-  useEffect(() => {
+    });
     setUsedPromocodes(JSON.parse(localStorage.getItem('usedPromocodes') || '[]'));
   }, []);
 
@@ -30,7 +27,7 @@ function PromocodeBlock() {
   }
 
   function checkPromocode(value: string) {
-    const enteredPromocode = promocodes.find(promocode => promocode.id === value);
+    const enteredPromocode = promocodes.find(promocode => promocode.id.toLowerCase() === value.toLowerCase());
     setEnteredPromocode(enteredPromocode);
   }
 

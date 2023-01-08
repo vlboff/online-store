@@ -18,9 +18,7 @@ function Product({ id }: IProductID) {
   useEffect(() => {
     window.addEventListener('storage', () => {
       setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
-    })
-  }, []);
-  useEffect(() => {
+    });
     setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
   }, []);
 

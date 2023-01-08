@@ -32,15 +32,15 @@ function ShoppingCart() {
     });
     const totalCost: number = JSON.parse(localStorage.getItem('onlineStore') || '[]')
       .reduce((acc: number, product: IProductInCart) => acc + (product.price * product.count), 0);
-      if (productsWithData) {
-        setProducts(productsWithData);
+    if (productsWithData) {
+      setProducts(productsWithData);
     };
     if (totalCost) {
       setCost(totalCost);
     };
     setCart(products);
   }, []);
-  
+
   useEffect(() => {
     window.addEventListener('storage', () => {
       const products = JSON.parse(localStorage.getItem('onlineStore') || '[]');
@@ -56,30 +56,27 @@ function ShoppingCart() {
   useEffect(() => {
     window.addEventListener('storage', () => {
       const totalCost: number = JSON.parse(localStorage.getItem('onlineStore') || '[]')
-      .reduce((acc: number, product: IProductInCart) => acc + (product.price * product.count), 0);
+        .reduce((acc: number, product: IProductInCart) => acc + (product.price * product.count), 0);
       if (totalCost) {
         setCost(totalCost);
       }
     })
   }, []);
-  
+
   useEffect(() => {
     window.addEventListener('storage', () => {
       setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
     })
   }, []);
-  
+
   useEffect(() => {
     localStorage.setItem('onlineStore', JSON.stringify(cart));
   }, [cart]);
-  
+
   useEffect(() => {
     window.addEventListener('storage', () => {
       setUsedPromocodes(JSON.parse(localStorage.getItem('usedPromocodes') || '[]'));
-    })
-  }, []);
-
-  useEffect(() => {
+    });
     setUsedPromocodes(JSON.parse(localStorage.getItem('usedPromocodes') || '[]'));
   }, []);
 
