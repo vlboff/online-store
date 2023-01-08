@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./UI/Button";
 import SvgSelector from "./UI/SvgSelector";
 import { useNavigate } from "react-router-dom";
-import { ActiveMode } from "../interfaces";
+import { ActiveMode, IProductInfoFromLocalStorage } from "../interfaces";
 
 interface IProductCard {
   id: number;
@@ -30,18 +30,28 @@ const ProductCard = ({
   background,
   activeMode,
 }: IProductCard) => {
-  let navigate = useNavigate();
+
+  const [cart, setCart] = useState<IProductInfoFromLocalStorage[]>([]);
+
+  useEffect(() => {
+    window.addEventListener('storage', () => {
+      setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
+    })
+  }, []);
+  useEffect(() => {
+    setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
+  }, []);
+
+  const navigate = useNavigate();
 
   return (
     <div
-      className={`product-card ${
-        activeMode === ActiveMode.big ? "" : "small_card"
-      }`}
+      className={`product-card ${activeMode === ActiveMode.big ? "" : "small_card"
+        }`}
     >
       <div
-        className={`product-card_img ${
-          activeMode === ActiveMode.big ? "" : "small_img"
-        }`}
+        className={`product-card_img ${activeMode === ActiveMode.big ? "" : "small_img"
+          }`}
         style={{ background: `url(${background}) 0% center / cover` }}
         onClick={() => navigate(`products/${id}`)}
       >
@@ -63,8 +73,18 @@ const ProductCard = ({
         <p className="product-card_price">€{price}</p>
       </div>
       <div className="product-card_buttons">
-        <Button name="ADD TO CART" />
-        <Button name="DETAILS" />
+        <Button name={cart.find(prod => id === prod.id) ? 'Drop from cart' : 'Add to cart'}
+          onClick={() => {
+          const productInfo = { id: id, count: 1, price: price };
+          if (cart.find(obj => obj.id === id)) {
+            cart.splice(cart.findIndex(obj => obj.id === id), 1);
+          } else {
+            cart.push(productInfo);
+          }
+          localStorage.setItem('onlineStore', JSON.stringify(cart));
+          window.dispatchEvent(new Event("storage"));
+        }} />
+        <Button name="Details" onClick={() => navigate(`/products/${id}`)} />
       </div>
     </div>
   );
