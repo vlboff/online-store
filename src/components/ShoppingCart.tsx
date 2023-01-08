@@ -22,6 +22,10 @@ function ShoppingCart() {
   const currentProduct = products.slice(firstProductIndex, lastProductIndex);
 
   useEffect(() => {
+    setModalWindow((JSON.parse(localStorage.getItem('buyNow') || 'false')));
+  }, []);
+
+  useEffect(() => {
     const products = JSON.parse(localStorage.getItem('onlineStore') || '[]');
     const productsWithData = products.map((product: IProductInCart) => {
       return data.products.find(dataProd => product.id === dataProd.id)

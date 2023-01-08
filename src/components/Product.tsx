@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import data from '../data/data.json';
 import { IProductInfoFromLocalStorage } from '../interfaces';
 import StylizedButton from './UI/StylizedButton';
@@ -12,6 +13,7 @@ function Product({ id }: IProductID) {
   const product = data.products.filter(obj => obj.id === id)[0];
   const [thumbnail, setThumbnail] = useState(product.thumbnail);
   const [cart, setCart] = useState<IProductInfoFromLocalStorage[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.addEventListener('storage', () => {
@@ -70,6 +72,16 @@ function Product({ id }: IProductID) {
             <StylizedButton
               name='Buy now'
               style='button_stylized button_stylized_additional'
+              onClick={() => {
+                const productInfo: IProductInfoFromLocalStorage = { id: product.id, count: 1, price: product.price };
+                if (!cart.find(obj => obj.id === product.id)) {
+                  cart.push(productInfo);
+                }
+                navigate('/cart');
+                localStorage.setItem('buyNow', 'true');
+                localStorage.setItem('onlineStore', JSON.stringify(cart));
+                window.dispatchEvent(new Event("storage"));
+              }}
             />
           </div>
         </div>
