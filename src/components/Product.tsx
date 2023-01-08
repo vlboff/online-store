@@ -12,10 +12,15 @@ function Product({ id }: IProductID) {
   const product = data.products.filter(obj => obj.id === id)[0];
   const [thumbnail, setThumbnail] = useState(product.thumbnail);
   const [cart, setCart] = useState<IProductInfoFromLocalStorage[]>([]);
+
   useEffect(() => {
+    window.addEventListener('storage', () => {
       setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
+    })
   }, []);
-  const [addedToCart, setAddedToCart] = useState(Boolean(cart.find(obj => obj.id === product.id)));
+  useEffect(() => {
+    setCart(JSON.parse(localStorage.getItem('onlineStore') || '[]'));
+  }, []);
 
   return (
     <div className='product wrapper'>
@@ -49,21 +54,18 @@ function Product({ id }: IProductID) {
           </p>
           <div className="product__description__buttons">
             <StylizedButton
-              name={addedToCart ? 'Drop from cart' : 'Add to cart'}
+              name={cart.find(prod => product.id === prod.id) ? 'Drop from cart' : 'Add to cart'}
               style='button_stylized button_stylized_brand'
               onClick={() => {
                 const productInfo: IProductInfoFromLocalStorage = { id: product.id, count: 1, price: product.price };
                 if (cart.find(obj => obj.id === product.id)) {
                   cart.splice(cart.findIndex(obj => obj.id === product.id), 1);
-                  setAddedToCart(!addedToCart)
                 } else {
                   cart.push(productInfo);
-                  setAddedToCart(!addedToCart)
                 }
                 localStorage.setItem('onlineStore', JSON.stringify(cart));
                 window.dispatchEvent(new Event("storage"));
-              }
-              }
+              }}
             />
             <StylizedButton
               name='Buy now'
