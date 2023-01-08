@@ -31,6 +31,13 @@ const SliderBlock = ({
     setKeySliderState(() => name);
   }, [sliderValue]);
 
+  // const url = new URL(window.location.href);
+  // const params = new URLSearchParams();
+  // params.append(name, [findCurrentMin(name), findCurrentMax(name)].join(","));
+  // url.search = params.toString();
+  // window.history.pushState(null, "", `?${params.toString()}`);
+  // console.log(url.search);
+
   return (
     <div className="slider_block">
       <h2>{name}</h2>

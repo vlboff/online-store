@@ -7,10 +7,16 @@ import SvgSelector from "./UI/SvgSelector";
 interface IProductCardField {
   products: IProductData[];
   activeMode: string;
+  setValueSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ProductCardField = ({ products, activeMode }: IProductCardField) => {
+const ProductCardField = ({
+  products,
+  activeMode,
+  setValueSearch,
+}: IProductCardField) => {
   const [searchedValue, setSearchedValue] = useState("");
+  setValueSearch(searchedValue);
 
   let searchedProducts = products.filter((product) => {
     return (

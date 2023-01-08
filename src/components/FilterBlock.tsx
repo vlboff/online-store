@@ -16,6 +16,10 @@ interface ISliderObj {
 interface IFilterBlock {
   setProductsToShow: React.Dispatch<React.SetStateAction<IProductData[]>>;
   productsToShow: IProductData[];
+  setValueCategory: React.Dispatch<React.SetStateAction<string[]>>;
+  setValueBrand: React.Dispatch<React.SetStateAction<string[]>>;
+  setValuePrice: React.Dispatch<React.SetStateAction<number[]>>;
+  setValueStock: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
 const findMin = (key: string): number =>
@@ -23,7 +27,14 @@ const findMin = (key: string): number =>
 const findMax = (key: string): number =>
   products.reduce((acc, v) => (acc[key] > v[key] ? acc : v))[key] as number;
 
-const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
+const FilterBlock = ({
+  setProductsToShow,
+  productsToShow,
+  setValueCategory,
+  setValueBrand,
+  setValuePrice,
+  setValueStock,
+}: IFilterBlock) => {
   let filters: IFiltersObj = { category: [], brand: [] };
   let sliders: ISliderObj = {
     price: [findMin("price"), findMax("price")],
@@ -33,10 +44,14 @@ const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
   const [keyFilterState, setKeyFilterState] = useState<string>("");
   const [valueFilterState, setValueFilterState] = useState<string[]>([]);
   const [filterObj] = useState(filters);
+  setValueCategory(filterObj.category);
+  setValueBrand(filterObj.brand);
 
   const [keySliderState, setKeySliderState] = useState<string>("");
   const [valueSliderState, setValueSliderState] = useState<number[]>([]);
   const [sliderObj] = useState(sliders);
+  setValuePrice(sliderObj.price);
+  setValueStock(sliderObj.stock);
 
   useEffect(() => {
     for (let key in filterObj) {
