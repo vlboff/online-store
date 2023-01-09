@@ -24,12 +24,20 @@ const dataFile: IData = data;
 export const products = dataFile.products;
 
 const Products = () => {
+  const [searchedValue, setSearchedValue] = useState<string>(() => {
+    return (localStorage.getItem("searchedValue") as string) || "";
+  });
+
   const [valueCategory, setValueCategory] = useState<string[]>([]);
   const [valueBrand, setValueBrand] = useState<string[]>([]);
   const [valuePrice, setValuePrice] = useState<number[]>([]);
   const [valueStock, setValueStock] = useState<number[]>([]);
-  const [activeMode, setActiveMode] = useState(ActiveMode.big);
-  const [valueSort, setValueSort] = useState<string>("sort-options");
+  const [activeMode, setActiveMode] = useState<string>(() => {
+    return (localStorage.getItem("activeMode") as string) || ActiveMode.big;
+  });
+  const [valueSort, setValueSort] = useState<string>(() => {
+    return (localStorage.getItem("valueSort") as string) || Options.sortOptions;
+  });
   const [valueSearch, setValueSearch] = useState<string>("");
 
   const [query, setQuery] = useState<Iquery>({});
@@ -67,7 +75,8 @@ const Products = () => {
     "",
     `?${params.toString().replace(/%2C/g, "\u{2B0D}")}`
   );
-  console.log(params.toString());
+
+  const currentURL = url.href;
 
   const [productsToShow, setProductsToShow] =
     useState<IProductData[]>(products);
@@ -94,6 +103,9 @@ const Products = () => {
           ...productsToShow.sort((a, b) => b.rating - a.rating),
         ]);
         break;
+      case Options.sortOptions:
+        setProductsToShow([...productsToShow.sort((a, b) => a.id - b.id)]);
+        break;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valueSort]);
@@ -103,6 +115,16 @@ const Products = () => {
   }, [chengeSelect, valueSort]);
 
   const amount = productsToShow.length;
+
+  function setLocalStorage() {
+    localStorage.setItem("activeMode", activeMode);
+    localStorage.setItem("searchedValue", searchedValue);
+    localStorage.setItem("valueSort", valueSort);
+  }
+
+  useEffect(() => {
+    setLocalStorage();
+  }, [activeMode, searchedValue, valueSort]);
 
   return (
     <main>
@@ -114,6 +136,11 @@ const Products = () => {
           setValueBrand={setValueBrand}
           setValuePrice={setValuePrice}
           setValueStock={setValueStock}
+          setValueSearch={setValueSearch}
+          setValueSort={setValueSort}
+          setSearchedValue={setSearchedValue}
+          currentURL={currentURL}
+          searchedValue={searchedValue}
         />
         <div className="products">
           <SortProducts
@@ -126,7 +153,8 @@ const Products = () => {
           <ProductCardField
             products={productsToShow}
             activeMode={activeMode}
-            setValueSearch={setValueSearch}
+            searchedValue={searchedValue}
+            setSearchedValue={setSearchedValue}
           />
         </div>
       </div>

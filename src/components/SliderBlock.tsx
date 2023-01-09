@@ -31,20 +31,13 @@ const SliderBlock = ({
     setKeySliderState(() => name);
   }, [sliderValue]);
 
-  // const url = new URL(window.location.href);
-  // const params = new URLSearchParams();
-  // params.append(name, [findCurrentMin(name), findCurrentMax(name)].join(","));
-  // url.search = params.toString();
-  // window.history.pushState(null, "", `?${params.toString()}`);
-  // console.log(url.search);
-
   return (
     <div className="slider_block">
       <h2>{name}</h2>
       <div className="range_items">
-        <p>{sliderValue[0]}</p>
+        <p>{findCurrentMin(name)}</p>
         <p className="line"></p>
-        <p>{sliderValue[1]}</p>
+        <p>{findCurrentMax(name)}</p>
       </div>
       <div className="range_slider">
         <Range

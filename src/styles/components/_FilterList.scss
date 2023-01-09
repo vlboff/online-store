@@ -11,4 +11,23 @@
 .filter_list {
   height: 200px;
   overflow-y: auto;
+  padding-right: 5%;
+}
+
+.filter_list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.filter_list::-webkit-scrollbar-track {
+  background-color: $additional-color;
+}
+
+.filter_list::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: $brand-color;
+  transition: filter .3s;
+}
+
+.filter_list::-webkit-scrollbar-thumb:hover {
+  background-color: #e22d0d;
 }

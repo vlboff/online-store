@@ -45,4 +45,5 @@ export enum Options {
   priceDESC = "price-DESC",
   ratingASC = "rating-ASC",
   ratingDESC = "rating-DESC",
+  sortOptions = "sort-options",
 }
