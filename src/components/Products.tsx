@@ -68,7 +68,6 @@ const Products = () => {
         />
         <div className="products">
           <SortProducts
-            amount={amount}
             setValueSort={setValueSort}
             valueSort={valueSort}
             activeMode={activeMode}

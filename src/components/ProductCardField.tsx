@@ -45,6 +45,7 @@ const ProductCardField = ({ products, activeMode }: IProductCardField) => {
 
   return (
     <>
+    <div className="amount-products">Found: {cardField.length}</div>
       <div className="search-bar">
         <label>
           <SvgSelector id="magnifier" />
