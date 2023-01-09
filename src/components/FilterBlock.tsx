@@ -69,12 +69,8 @@ const FilterBlock = ({
   setValuePrice(sliderObj.price);
   setValueStock(sliderObj.stock);
 
-  function setLocalStorage() {
-    localStorage.setItem("filterObj", JSON.stringify(filterObj));
-    localStorage.setItem("sliderObj", JSON.stringify(sliderObj));
-  }
-
-  setLocalStorage();
+  localStorage.setItem("filterObj", JSON.stringify(filterObj));
+  localStorage.setItem("sliderObj", JSON.stringify(sliderObj));
 
   useEffect(() => {
     for (let key in filterObj) {
