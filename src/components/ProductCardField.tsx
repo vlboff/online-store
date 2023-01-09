@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IProductData } from "../interfaces";
 import NotFoundProducts from "./NotFoundProducts";
 import ProductCard from "./ProductCard";
@@ -7,25 +7,34 @@ import SvgSelector from "./UI/SvgSelector";
 interface IProductCardField {
   products: IProductData[];
   activeMode: string;
+  setSearchedValue: React.Dispatch<React.SetStateAction<string>>;
+  searchedValue: string;
 }
 
-const ProductCardField = ({ products, activeMode }: IProductCardField) => {
-  const [searchedValue, setSearchedValue] = useState("");
+const ProductCardField = ({
+  products,
+  activeMode,
+  setSearchedValue,
+  searchedValue,
+}: IProductCardField) => {
+  // const [searchedValue, setSearchedValue] = useState("");
 
-  let searchedProducts = products.filter((product) => {
-    return (
-      product.title.toLowerCase().includes(searchedValue.toLowerCase()) ||
-      product.brand.toLowerCase().includes(searchedValue.toLowerCase()) ||
-      product.category.toLowerCase().includes(searchedValue.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchedValue.toLowerCase()) ||
-      product.rating.toString().includes(searchedValue) ||
-      product.price.toString().includes(searchedValue) ||
-      product.stock.toString().includes(searchedValue) ||
-      product.discountPercentage.toString().includes(searchedValue)
-    );
-  });
+  // setValueSearch(searchedValue);
 
-  const cardField = searchedProducts.map((item) => {
+  // let searchedProducts = products.filter((product) => {
+  //   return (
+  //     product.title.toLowerCase().includes(searchedValue.toLowerCase()) ||
+  //     product.brand.toLowerCase().includes(searchedValue.toLowerCase()) ||
+  //     product.category.toLowerCase().includes(searchedValue.toLowerCase()) ||
+  //     product.description.toLowerCase().includes(searchedValue.toLowerCase()) ||
+  //     product.rating.toString().includes(searchedValue) ||
+  //     product.price.toString().includes(searchedValue) ||
+  //     product.stock.toString().includes(searchedValue) ||
+  //     product.discountPercentage.toString().includes(searchedValue)
+  //   );
+  // });
+
+  const cardField = products.map((item) => {
     return (
       <ProductCard
         id={item.id}
@@ -52,6 +61,7 @@ const ProductCardField = ({ products, activeMode }: IProductCardField) => {
           <input
             type="text"
             placeholder="Search on OnlineStore"
+            value={searchedValue}
             onChange={(event) => setSearchedValue(event.target.value)}
           />
         </label>

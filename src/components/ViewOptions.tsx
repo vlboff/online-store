@@ -3,7 +3,7 @@ import { ActiveMode } from "../interfaces";
 
 interface IViewOptions {
   activeMode: string;
-  setActiveMode: React.Dispatch<React.SetStateAction<ActiveMode>>;
+  setActiveMode: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const ViewOptions = ({ activeMode, setActiveMode }: IViewOptions) => {

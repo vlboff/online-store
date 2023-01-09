@@ -7,6 +7,7 @@ interface IFilterPoint {
   name: string;
   setKeyFilterState: React.Dispatch<React.SetStateAction<string>>;
   setValueFilterState: React.Dispatch<React.SetStateAction<string[]>>;
+  chackboxState: (key: string, counter: IObject) => boolean[];
 }
 
 const FilterPoint = ({
@@ -15,8 +16,9 @@ const FilterPoint = ({
   name,
   setKeyFilterState,
   setValueFilterState,
+  chackboxState,
 }: IFilterPoint) => {
-  const [checkedState, setCheckedState] = useState(
+  const [checkedState, setCheckedState] = useState<boolean[]>(
     new Array(Object.keys(counter).length).fill(false)
   );
 
@@ -53,6 +55,12 @@ const FilterPoint = ({
     }
   }
 
+  const chackboxStateArray = chackboxState(name, counter);
+
+  function isChecked(position: number) {
+    return chackboxStateArray[position];
+  }
+
   const filterPoints = Object.entries(counter).map((item, i) => {
     return (
       <div key={item[0]} className="filter_list_point">
@@ -61,6 +69,7 @@ const FilterPoint = ({
           id={item[0]}
           name={item[0]}
           onChange={() => handleOnChange(i)}
+          checked={isChecked(i)}
         />
         <label htmlFor={item[0]}>{item[0]}</label>
         <span>{`(${fullFilterCounter[item[0]]}/${item[1]})`}</span>

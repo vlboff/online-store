@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Filter from "./Filter";
 import SliderBlock from "./SliderBlock";
 import Button from "./UI/Button";
+import { Options } from "../interfaces";
+import { IObject } from "../interfaces";
 import { IProductData } from "../interfaces";
 import { products } from "./Products";
 
@@ -16,6 +18,15 @@ interface ISliderObj {
 interface IFilterBlock {
   setProductsToShow: React.Dispatch<React.SetStateAction<IProductData[]>>;
   productsToShow: IProductData[];
+  setValueCategory: React.Dispatch<React.SetStateAction<string[]>>;
+  setValueBrand: React.Dispatch<React.SetStateAction<string[]>>;
+  setValuePrice: React.Dispatch<React.SetStateAction<number[]>>;
+  setValueStock: React.Dispatch<React.SetStateAction<number[]>>;
+  setValueSearch: React.Dispatch<React.SetStateAction<string>>;
+  setValueSort: React.Dispatch<React.SetStateAction<string>>;
+  setSearchedValue: React.Dispatch<React.SetStateAction<string>>;
+  currentURL: string;
+  searchedValue: string;
 }
 
 const findMin = (key: string): number =>
@@ -23,7 +34,19 @@ const findMin = (key: string): number =>
 const findMax = (key: string): number =>
   products.reduce((acc, v) => (acc[key] > v[key] ? acc : v))[key] as number;
 
-const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
+const FilterBlock = ({
+  setProductsToShow,
+  productsToShow,
+  setValueCategory,
+  setValueBrand,
+  setValuePrice,
+  setValueStock,
+  setValueSearch,
+  setValueSort,
+  setSearchedValue,
+  currentURL,
+  searchedValue,
+}: IFilterBlock) => {
   let filters: IFiltersObj = { category: [], brand: [] };
   let sliders: ISliderObj = {
     price: [findMin("price"), findMax("price")],
@@ -32,11 +55,22 @@ const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
 
   const [keyFilterState, setKeyFilterState] = useState<string>("");
   const [valueFilterState, setValueFilterState] = useState<string[]>([]);
-  const [filterObj] = useState(filters);
+  const [filterObj, setFilterObj] = useState<IFiltersObj>(() => {
+    return JSON.parse(localStorage.getItem("filterObj") as string) || filters;
+  });
+  setValueCategory(filterObj.category);
+  setValueBrand(filterObj.brand);
 
   const [keySliderState, setKeySliderState] = useState<string>("");
   const [valueSliderState, setValueSliderState] = useState<number[]>([]);
-  const [sliderObj] = useState(sliders);
+  const [sliderObj, setSliderObj] = useState<ISliderObj>(() => {
+    return JSON.parse(localStorage.getItem("sliderObj") as string) || sliders;
+  });
+  setValuePrice(sliderObj.price);
+  setValueStock(sliderObj.stock);
+
+  localStorage.setItem("filterObj", JSON.stringify(filterObj));
+  localStorage.setItem("sliderObj", JSON.stringify(sliderObj));
 
   useEffect(() => {
     for (let key in filterObj) {
@@ -83,23 +117,83 @@ const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
       });
     }
 
-    setProductsToShow(() => [...filtredProducts]);
-  }, [valueFilterState, valueSliderState]);
+    setValueSearch(searchedValue);
 
-  const findCurrentMin = (key: string): number =>
-    productsToShow.reduce((acc, v) => (acc[key] < v[key] ? acc : v))[
-      key
-    ] as number;
-  const findCurrentMax = (key: string): number =>
-    productsToShow.reduce((acc, v) => (acc[key] > v[key] ? acc : v))[
-      key
-    ] as number;
+    filtredProducts = filtredProducts.filter((product) => {
+      return (
+        product.title.toLowerCase().includes(searchedValue.toLowerCase()) ||
+        product.brand.toLowerCase().includes(searchedValue.toLowerCase()) ||
+        product.category.toLowerCase().includes(searchedValue.toLowerCase()) ||
+        product.description
+          .toLowerCase()
+          .includes(searchedValue.toLowerCase()) ||
+        product.rating.toString().includes(searchedValue) ||
+        product.price.toString().includes(searchedValue) ||
+        product.stock.toString().includes(searchedValue) ||
+        product.discountPercentage.toString().includes(searchedValue)
+      );
+    });
+
+    setProductsToShow(() => [...filtredProducts]);
+  }, [valueFilterState, valueSliderState, searchedValue]);
+
+  const findCurrentMin = (key: string): number => {
+    if (productsToShow.length > 0) {
+      return productsToShow.reduce((acc, v) => (acc[key] < v[key] ? acc : v))[
+        key
+      ] as number;
+    } else {
+      return findMin(key);
+    }
+  };
+
+  const findCurrentMax = (key: string): number => {
+    if (productsToShow.length > 0) {
+      return productsToShow.reduce((acc, v) => (acc[key] > v[key] ? acc : v))[
+        key
+      ] as number;
+    } else {
+      return findMax(key);
+    }
+  };
+
+  const chackboxState = (key: string, counter: IObject): boolean[] => {
+    const filterItem = filterObj[key];
+    const chackboxStateArray = Object.keys(counter).map((item) => {
+      if (filterItem.includes(item)) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    return chackboxStateArray;
+  };
+
+  const copyURL = () => {
+    localStorage.setItem("onlineStoreURL", currentURL);
+    const tempElement = document.createElement("input"),
+      text = currentURL;
+    document.body.appendChild(tempElement);
+    tempElement.value = text;
+    tempElement.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempElement);
+  };
+
+  const reset = () => {
+    setProductsToShow(products);
+
+    setFilterObj(filters);
+    setSliderObj(sliders);
+    setValueSort(Options.sortOptions);
+    setSearchedValue("");
+  };
 
   return (
     <div className="filters">
       <div className="filter_buttons">
-        <Button name="Reset Filters" />
-        <Button name="Copy Link" />
+        <Button name="Reset Filters" onClick={reset} />
+        <Button name="Copy Link" onClick={copyURL} />
       </div>
       {Object.keys(filters).map((value) => (
         <Filter
@@ -108,6 +202,7 @@ const FilterBlock = ({ setProductsToShow, productsToShow }: IFilterBlock) => {
           setKeyFilterState={setKeyFilterState}
           setValueFilterState={setValueFilterState}
           productsToShow={productsToShow}
+          chackboxState={chackboxState}
         />
       ))}
       {Object.keys(sliders).map((value) => (

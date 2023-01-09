@@ -35,9 +35,9 @@ const SliderBlock = ({
     <div className="slider_block">
       <h2>{name}</h2>
       <div className="range_items">
-        <p>{sliderValue[0]}</p>
+        <p>{findCurrentMin(name)}</p>
         <p className="line"></p>
-        <p>{sliderValue[1]}</p>
+        <p>{findCurrentMax(name)}</p>
       </div>
       <div className="range_slider">
         <Range

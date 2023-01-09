@@ -1,13 +1,12 @@
 import React from "react";
 import SortOptions from "./SortOptions";
 import ViewOptions from "./ViewOptions";
-import { ActiveMode } from "../interfaces";
 
 interface ISortProducts {
   setValueSort: React.Dispatch<React.SetStateAction<string>>;
   valueSort: string;
   activeMode: string;
-  setActiveMode: React.Dispatch<React.SetStateAction<ActiveMode>>;
+  setActiveMode: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const SortProducts = ({
