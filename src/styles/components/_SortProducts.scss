@@ -13,10 +13,11 @@
 
 .amount-products {
   position: absolute;
+  width: 100px;
   left: 50%;
-  top: 28px;
   font-size: 20px;
-  transform: translateX(-50%);
+  margin-top: -49px;
+  transform: translateX(50%);
 }
 
 .view-mode {
