@@ -57,6 +57,8 @@ const Products = () => {
     chengeSelect();
   }, [chengeSelect, valueSort]);
 
+  const amount = productsToShow.length;
+
   return (
     <main>
       <div className="wrapper main">

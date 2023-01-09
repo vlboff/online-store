@@ -58,7 +58,7 @@ export enum Options {
   priceASC = "price-ASC",
   priceDESC = "price-DESC",
   ratingASC = "rating-ASC",
-  ratingDESC = "rating-DESC",
+  ratingDESC = "rating-DESC"
 }
 
 export interface IPromocode {
