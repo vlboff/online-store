@@ -26,11 +26,16 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  column-gap: 15px;
   margin-top: 20px;
   background-color: #fff;
   border-radius: 8px;
   padding: 20px;
   font-weight: 700;
+}
+
+.products-in-cart__header__amount {
+  flex: 1;
 }
 
 .products-in-cart__product {
@@ -55,6 +60,7 @@
     max-width: 120px;
     max-height: 100px;
     border-radius: 4px;
+    cursor: pointer;
   }
 }
 
@@ -67,6 +73,11 @@
   p:first-child {
     margin: 0;
     margin-bottom: 5px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   p:nth-child(2) {
@@ -230,4 +241,8 @@
       font-size: 24px;
     }
   }
+}
+
+.summary__order-amount_crossed {
+  text-decoration: line-through;
 }

@@ -6,7 +6,12 @@ interface IButtonProps {
 }
 
 const Button = ({ name, onClick }: IButtonProps) => {
-  return <button onClick={onClick}>{name}</button>;
+
+  return <button
+    className={name === 'Details' ? 'product-card_buttons_dark' : ''}
+    onClick={onClick}
+  > {name}
+  </button>;
 };
 
 export default Button;
