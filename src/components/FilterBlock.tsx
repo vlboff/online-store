@@ -53,6 +53,8 @@ const FilterBlock = ({
     stock: [findMin("stock"), findMax("stock")],
   };
 
+  const [buttonName, setButtonName] = useState("Copy Link");
+
   const [keyFilterState, setKeyFilterState] = useState<string>("");
   const [valueFilterState, setValueFilterState] = useState<string[]>([]);
   const [filterObj, setFilterObj] = useState<IFiltersObj>(() => {
@@ -178,6 +180,9 @@ const FilterBlock = ({
     tempElement.select();
     document.execCommand("copy");
     document.body.removeChild(tempElement);
+
+    setButtonName("Copied!");
+    setTimeout(() => setButtonName("Copy Link"), 500);
   };
 
   const reset = () => {
@@ -193,7 +198,7 @@ const FilterBlock = ({
     <div className="filters">
       <div className="filter_buttons">
         <Button name="Reset Filters" onClick={reset} />
-        <Button name="Copy Link" onClick={copyURL} />
+        <Button name={buttonName} onClick={copyURL} />
       </div>
       {Object.keys(filters).map((value) => (
         <Filter
