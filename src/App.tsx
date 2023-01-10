@@ -10,6 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<ProductsPage />} />
+      <Route path='?modal=true' element={<ProductsPage />} />
       <Route path='/cart' element={<ShoppingCartPage />} />
       <Route path="*" element={<NotFoundPage />} />
       <Route path="/products/:id" element={<ProductPage />} />
