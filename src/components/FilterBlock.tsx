@@ -53,6 +53,7 @@ const FilterBlock = ({
     stock: [findMin("stock"), findMax("stock")],
   };
 
+  const [isReset, setIsReset] = useState(false);
   const [buttonName, setButtonName] = useState("Copy Link");
 
   const [keyFilterState, setKeyFilterState] = useState<string>("");
@@ -192,6 +193,8 @@ const FilterBlock = ({
     setSliderObj(sliders);
     setValueSort(Options.sortOptions);
     setSearchedValue("");
+
+    setIsReset(true);
   };
 
   return (
@@ -208,6 +211,8 @@ const FilterBlock = ({
           setValueFilterState={setValueFilterState}
           productsToShow={productsToShow}
           chackboxState={chackboxState}
+          isReset={isReset}
+          setIsReset={setIsReset}
         />
       ))}
       {Object.keys(sliders).map((value) => (
