@@ -8,6 +8,8 @@ interface IFilterPoint {
   setKeyFilterState: React.Dispatch<React.SetStateAction<string>>;
   setValueFilterState: React.Dispatch<React.SetStateAction<string[]>>;
   chackboxState: (key: string, counter: IObject) => boolean[];
+  isReset: boolean;
+  setIsReset: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const FilterPoint = ({
@@ -17,6 +19,8 @@ const FilterPoint = ({
   setKeyFilterState,
   setValueFilterState,
   chackboxState,
+  isReset,
+  setIsReset,
 }: IFilterPoint) => {
   const [checkedState, setCheckedState] = useState<boolean[]>(
     new Array(Object.keys(counter).length).fill(false)
@@ -45,6 +49,12 @@ const FilterPoint = ({
     setValueFilterState(valueArr as string[]);
     setKeyFilterState(name);
   }, [checkedState]);
+
+  useEffect(() => {
+    setCheckedState(new Array(Object.keys(counter).length).fill(false));
+    setValueFilterState([]);
+    setIsReset(false);
+  }, [isReset]);
 
   let fullFilterCounter = { ...counter };
   for (let key in fullFilterCounter) {

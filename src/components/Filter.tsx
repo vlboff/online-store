@@ -10,6 +10,8 @@ interface IFilter {
   setValueFilterState: React.Dispatch<React.SetStateAction<string[]>>;
   productsToShow: IProductData[];
   chackboxState: (key: string, counter: IObject) => boolean[];
+  isReset: boolean;
+  setIsReset: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Filter = ({
@@ -18,6 +20,8 @@ const Filter = ({
   setValueFilterState,
   productsToShow,
   chackboxState,
+  isReset,
+  setIsReset,
 }: IFilter) => {
   const counter = products.reduce(function (o: IObject, i: IProductData) {
     if (!o.hasOwnProperty(i[name] as keyof IProductData)) {
@@ -49,6 +53,8 @@ const Filter = ({
         setKeyFilterState={setKeyFilterState}
         setValueFilterState={setValueFilterState}
         chackboxState={chackboxState}
+        isReset={isReset}
+        setIsReset={setIsReset}
       />
     </div>
   );
