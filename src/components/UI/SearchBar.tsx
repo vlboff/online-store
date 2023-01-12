@@ -1,15 +1,15 @@
-import React from 'react';
-import SvgSelector from './SvgSelector';
+import React from "react";
+import { Magnifier } from "../../icons";
 
 function SearchBar() {
   return (
-    <div className='search-bar'>
-      <label >
-        <SvgSelector id='magnifier' />
-        <input type="text" placeholder='Search on OnlineStore' />
+    <div className="search-bar">
+      <label>
+        <Magnifier />
+        <input type="text" placeholder="Search on OnlineStore" />
       </label>
     </div>
-  )
+  );
 }
 
 export default SearchBar;
