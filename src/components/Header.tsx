@@ -8,7 +8,7 @@ function Header() {
       <Link to='/' className='link_unstressed'>
         <div className='text-logo'>OnlineStore</div>
       </Link>
-      <Link to='/cart' className='link_unstressed'><ShoppingCartIcon /></Link>
+      <ShoppingCartIcon />
     </header>
   )
 }
