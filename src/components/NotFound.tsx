@@ -1,14 +1,14 @@
 import React from "react";
-import SvgSelector from "./UI/SvgSelector";
+import { SadFace } from "../icons";
 
 function NotFound() {
   return (
     <div className="not-found wrapper">
-      <SvgSelector id='sad-face' />
+      <SadFace />
       <h2>Page not found</h2>
       <h2>404</h2>
     </div>
   );
-};
+}
 
 export default NotFound;

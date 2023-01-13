@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IProductData } from "../interfaces";
 import NotFoundProducts from "./NotFoundProducts";
 import ProductCard from "./ProductCard";
-import SvgSelector from "./UI/SvgSelector";
+import { Magnifier } from "../icons";
 
 interface IProductCardField {
   products: IProductData[];
@@ -17,23 +17,6 @@ const ProductCardField = ({
   setSearchedValue,
   searchedValue,
 }: IProductCardField) => {
-  // const [searchedValue, setSearchedValue] = useState("");
-
-  // setValueSearch(searchedValue);
-
-  // let searchedProducts = products.filter((product) => {
-  //   return (
-  //     product.title.toLowerCase().includes(searchedValue.toLowerCase()) ||
-  //     product.brand.toLowerCase().includes(searchedValue.toLowerCase()) ||
-  //     product.category.toLowerCase().includes(searchedValue.toLowerCase()) ||
-  //     product.description.toLowerCase().includes(searchedValue.toLowerCase()) ||
-  //     product.rating.toString().includes(searchedValue) ||
-  //     product.price.toString().includes(searchedValue) ||
-  //     product.stock.toString().includes(searchedValue) ||
-  //     product.discountPercentage.toString().includes(searchedValue)
-  //   );
-  // });
-
   const cardField = products.map((item) => {
     return (
       <ProductCard
@@ -54,10 +37,10 @@ const ProductCardField = ({
 
   return (
     <>
-    <div className="amount-products">Found: {cardField.length}</div>
+      <div className="amount-products">Found: {cardField.length}</div>
       <div className="search-bar">
         <label>
-          <SvgSelector id="magnifier" />
+          <Magnifier />
           <input
             type="text"
             placeholder="Search on OnlineStore"
