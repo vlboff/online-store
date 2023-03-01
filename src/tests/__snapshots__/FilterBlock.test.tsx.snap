@@ -1,0 +1,3712 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterBlock tests Filter snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="filters"
+      >
+        <div
+          class="filter_buttons"
+        >
+          <button
+            class=""
+          >
+             
+            Reset Filters
+          </button>
+          <button
+            class=""
+          >
+             
+            Copy Link
+          </button>
+        </div>
+        <div
+          class="filter_block"
+        >
+          <h2>
+            category
+          </h2>
+          <div
+            class="filter_list"
+          >
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="smartphones"
+                name="smartphones"
+                type="checkbox"
+              />
+              <label
+                for="smartphones"
+              >
+                smartphones
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="laptops"
+                name="laptops"
+                type="checkbox"
+              />
+              <label
+                for="laptops"
+              >
+                laptops
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="fragrances"
+                name="fragrances"
+                type="checkbox"
+              />
+              <label
+                for="fragrances"
+              >
+                fragrances
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="skincare"
+                name="skincare"
+                type="checkbox"
+              />
+              <label
+                for="skincare"
+              >
+                skincare
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="groceries"
+                name="groceries"
+                type="checkbox"
+              />
+              <label
+                for="groceries"
+              >
+                groceries
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="home-decoration"
+                name="home-decoration"
+                type="checkbox"
+              />
+              <label
+                for="home-decoration"
+              >
+                home-decoration
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="furniture"
+                name="furniture"
+                type="checkbox"
+              />
+              <label
+                for="furniture"
+              >
+                furniture
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="tops"
+                name="tops"
+                type="checkbox"
+              />
+              <label
+                for="tops"
+              >
+                tops
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="womens-dresses"
+                name="womens-dresses"
+                type="checkbox"
+              />
+              <label
+                for="womens-dresses"
+              >
+                womens-dresses
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="womens-shoes"
+                name="womens-shoes"
+                type="checkbox"
+              />
+              <label
+                for="womens-shoes"
+              >
+                womens-shoes
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="mens-shirts"
+                name="mens-shirts"
+                type="checkbox"
+              />
+              <label
+                for="mens-shirts"
+              >
+                mens-shirts
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="mens-shoes"
+                name="mens-shoes"
+                type="checkbox"
+              />
+              <label
+                for="mens-shoes"
+              >
+                mens-shoes
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="mens-watches"
+                name="mens-watches"
+                type="checkbox"
+              />
+              <label
+                for="mens-watches"
+              >
+                mens-watches
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="womens-watches"
+                name="womens-watches"
+                type="checkbox"
+              />
+              <label
+                for="womens-watches"
+              >
+                womens-watches
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="womens-bags"
+                name="womens-bags"
+                type="checkbox"
+              />
+              <label
+                for="womens-bags"
+              >
+                womens-bags
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="womens-jewellery"
+                name="womens-jewellery"
+                type="checkbox"
+              />
+              <label
+                for="womens-jewellery"
+              >
+                womens-jewellery
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="sunglasses"
+                name="sunglasses"
+                type="checkbox"
+              />
+              <label
+                for="sunglasses"
+              >
+                sunglasses
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="automotive"
+                name="automotive"
+                type="checkbox"
+              />
+              <label
+                for="automotive"
+              >
+                automotive
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="motorcycle"
+                name="motorcycle"
+                type="checkbox"
+              />
+              <label
+                for="motorcycle"
+              >
+                motorcycle
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="lighting"
+                name="lighting"
+                type="checkbox"
+              />
+              <label
+                for="lighting"
+              >
+                lighting
+              </label>
+              <span>
+                (0/5)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="filter_block"
+        >
+          <h2>
+            brand
+          </h2>
+          <div
+            class="filter_list"
+          >
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Apple"
+                name="Apple"
+                type="checkbox"
+              />
+              <label
+                for="Apple"
+              >
+                Apple
+              </label>
+              <span>
+                (0/3)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Samsung"
+                name="Samsung"
+                type="checkbox"
+              />
+              <label
+                for="Samsung"
+              >
+                Samsung
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="OPPO"
+                name="OPPO"
+                type="checkbox"
+              />
+              <label
+                for="OPPO"
+              >
+                OPPO
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Huawei"
+                name="Huawei"
+                type="checkbox"
+              />
+              <label
+                for="Huawei"
+              >
+                Huawei
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Microsoft Surface"
+                name="Microsoft Surface"
+                type="checkbox"
+              />
+              <label
+                for="Microsoft Surface"
+              >
+                Microsoft Surface
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Infinix"
+                name="Infinix"
+                type="checkbox"
+              />
+              <label
+                for="Infinix"
+              >
+                Infinix
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="HP Pavilion"
+                name="HP Pavilion"
+                type="checkbox"
+              />
+              <label
+                for="HP Pavilion"
+              >
+                HP Pavilion
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Impression of Acqua Di Gio"
+                name="Impression of Acqua Di Gio"
+                type="checkbox"
+              />
+              <label
+                for="Impression of Acqua Di Gio"
+              >
+                Impression of Acqua Di Gio
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Royal_Mirage"
+                name="Royal_Mirage"
+                type="checkbox"
+              />
+              <label
+                for="Royal_Mirage"
+              >
+                Royal_Mirage
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Fog Scent Xpressio"
+                name="Fog Scent Xpressio"
+                type="checkbox"
+              />
+              <label
+                for="Fog Scent Xpressio"
+              >
+                Fog Scent Xpressio
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Al Munakh"
+                name="Al Munakh"
+                type="checkbox"
+              />
+              <label
+                for="Al Munakh"
+              >
+                Al Munakh
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Lord - Al-Rehab"
+                name="Lord - Al-Rehab"
+                type="checkbox"
+              />
+              <label
+                for="Lord - Al-Rehab"
+              >
+                Lord - Al-Rehab
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="L'Oreal Paris"
+                name="L'Oreal Paris"
+                type="checkbox"
+              />
+              <label
+                for="L'Oreal Paris"
+              >
+                L'Oreal Paris
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Hemani Tea"
+                name="Hemani Tea"
+                type="checkbox"
+              />
+              <label
+                for="Hemani Tea"
+              >
+                Hemani Tea
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Dermive"
+                name="Dermive"
+                type="checkbox"
+              />
+              <label
+                for="Dermive"
+              >
+                Dermive
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="ROREC White Rice"
+                name="ROREC White Rice"
+                type="checkbox"
+              />
+              <label
+                for="ROREC White Rice"
+              >
+                ROREC White Rice
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Fair & Clear"
+                name="Fair & Clear"
+                type="checkbox"
+              />
+              <label
+                for="Fair & Clear"
+              >
+                Fair & Clear
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Saaf & Khaas"
+                name="Saaf & Khaas"
+                type="checkbox"
+              />
+              <label
+                for="Saaf & Khaas"
+              >
+                Saaf & Khaas
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Bake Parlor Big"
+                name="Bake Parlor Big"
+                type="checkbox"
+              />
+              <label
+                for="Bake Parlor Big"
+              >
+                Bake Parlor Big
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Baking Food Items"
+                name="Baking Food Items"
+                type="checkbox"
+              />
+              <label
+                for="Baking Food Items"
+              >
+                Baking Food Items
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="fauji"
+                name="fauji"
+                type="checkbox"
+              />
+              <label
+                for="fauji"
+              >
+                fauji
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Dry Rose"
+                name="Dry Rose"
+                type="checkbox"
+              />
+              <label
+                for="Dry Rose"
+              >
+                Dry Rose
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Boho Decor"
+                name="Boho Decor"
+                type="checkbox"
+              />
+              <label
+                for="Boho Decor"
+              >
+                Boho Decor
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Flying Wooden"
+                name="Flying Wooden"
+                type="checkbox"
+              />
+              <label
+                for="Flying Wooden"
+              >
+                Flying Wooden
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="LED Lights"
+                name="LED Lights"
+                type="checkbox"
+              />
+              <label
+                for="LED Lights"
+              >
+                LED Lights
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="luxury palace"
+                name="luxury palace"
+                type="checkbox"
+              />
+              <label
+                for="luxury palace"
+              >
+                luxury palace
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Golden"
+                name="Golden"
+                type="checkbox"
+              />
+              <label
+                for="Golden"
+              >
+                Golden
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Furniture Bed Set"
+                name="Furniture Bed Set"
+                type="checkbox"
+              />
+              <label
+                for="Furniture Bed Set"
+              >
+                Furniture Bed Set
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Ratttan Outdoor"
+                name="Ratttan Outdoor"
+                type="checkbox"
+              />
+              <label
+                for="Ratttan Outdoor"
+              >
+                Ratttan Outdoor
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Kitchen Shelf"
+                name="Kitchen Shelf"
+                type="checkbox"
+              />
+              <label
+                for="Kitchen Shelf"
+              >
+                Kitchen Shelf
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Multi Purpose"
+                name="Multi Purpose"
+                type="checkbox"
+              />
+              <label
+                for="Multi Purpose"
+              >
+                Multi Purpose
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="AmnaMart"
+                name="AmnaMart"
+                type="checkbox"
+              />
+              <label
+                for="AmnaMart"
+              >
+                AmnaMart
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Professional Wear"
+                name="Professional Wear"
+                type="checkbox"
+              />
+              <label
+                for="Professional Wear"
+              >
+                Professional Wear
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Soft Cotton"
+                name="Soft Cotton"
+                type="checkbox"
+              />
+              <label
+                for="Soft Cotton"
+              >
+                Soft Cotton
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Top Sweater"
+                name="Top Sweater"
+                type="checkbox"
+              />
+              <label
+                for="Top Sweater"
+              >
+                Top Sweater
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="RED MICKY MOUSE.."
+                name="RED MICKY MOUSE.."
+                type="checkbox"
+              />
+              <label
+                for="RED MICKY MOUSE.."
+              >
+                RED MICKY MOUSE..
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Digital Printed"
+                name="Digital Printed"
+                type="checkbox"
+              />
+              <label
+                for="Digital Printed"
+              >
+                Digital Printed
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Ghazi Fabric"
+                name="Ghazi Fabric"
+                type="checkbox"
+              />
+              <label
+                for="Ghazi Fabric"
+              >
+                Ghazi Fabric
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="IELGY"
+                name="IELGY"
+                type="checkbox"
+              />
+              <label
+                for="IELGY"
+              >
+                IELGY
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="IELGY fashion"
+                name="IELGY fashion"
+                type="checkbox"
+              />
+              <label
+                for="IELGY fashion"
+              >
+                IELGY fashion
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Synthetic Leather"
+                name="Synthetic Leather"
+                type="checkbox"
+              />
+              <label
+                for="Synthetic Leather"
+              >
+                Synthetic Leather
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Sandals Flip Flops"
+                name="Sandals Flip Flops"
+                type="checkbox"
+              />
+              <label
+                for="Sandals Flip Flops"
+              >
+                Sandals Flip Flops
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Maasai Sandals"
+                name="Maasai Sandals"
+                type="checkbox"
+              />
+              <label
+                for="Maasai Sandals"
+              >
+                Maasai Sandals
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Arrivals Genuine"
+                name="Arrivals Genuine"
+                type="checkbox"
+              />
+              <label
+                for="Arrivals Genuine"
+              >
+                Arrivals Genuine
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Vintage Apparel"
+                name="Vintage Apparel"
+                type="checkbox"
+              />
+              <label
+                for="Vintage Apparel"
+              >
+                Vintage Apparel
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="FREE FIRE"
+                name="FREE FIRE"
+                type="checkbox"
+              />
+              <label
+                for="FREE FIRE"
+              >
+                FREE FIRE
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="The Warehouse"
+                name="The Warehouse"
+                type="checkbox"
+              />
+              <label
+                for="The Warehouse"
+              >
+                The Warehouse
+              </label>
+              <span>
+                (0/3)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Sneakers"
+                name="Sneakers"
+                type="checkbox"
+              />
+              <label
+                for="Sneakers"
+              >
+                Sneakers
+              </label>
+              <span>
+                (0/3)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Rubber"
+                name="Rubber"
+                type="checkbox"
+              />
+              <label
+                for="Rubber"
+              >
+                Rubber
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Naviforce"
+                name="Naviforce"
+                type="checkbox"
+              />
+              <label
+                for="Naviforce"
+              >
+                Naviforce
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="SKMEI 9117"
+                name="SKMEI 9117"
+                type="checkbox"
+              />
+              <label
+                for="SKMEI 9117"
+              >
+                SKMEI 9117
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Strap Skeleton"
+                name="Strap Skeleton"
+                type="checkbox"
+              />
+              <label
+                for="Strap Skeleton"
+              >
+                Strap Skeleton
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Stainless"
+                name="Stainless"
+                type="checkbox"
+              />
+              <label
+                for="Stainless"
+              >
+                Stainless
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Eastern Watches"
+                name="Eastern Watches"
+                type="checkbox"
+              />
+              <label
+                for="Eastern Watches"
+              >
+                Eastern Watches
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Luxury Digital"
+                name="Luxury Digital"
+                type="checkbox"
+              />
+              <label
+                for="Luxury Digital"
+              >
+                Luxury Digital
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Watch Pearls"
+                name="Watch Pearls"
+                type="checkbox"
+              />
+              <label
+                for="Watch Pearls"
+              >
+                Watch Pearls
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Bracelet"
+                name="Bracelet"
+                type="checkbox"
+              />
+              <label
+                for="Bracelet"
+              >
+                Bracelet
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="LouisWill"
+                name="LouisWill"
+                type="checkbox"
+              />
+              <label
+                for="LouisWill"
+              >
+                LouisWill
+              </label>
+              <span>
+                (0/3)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Copenhagen Luxe"
+                name="Copenhagen Luxe"
+                type="checkbox"
+              />
+              <label
+                for="Copenhagen Luxe"
+              >
+                Copenhagen Luxe
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Steal Frame"
+                name="Steal Frame"
+                type="checkbox"
+              />
+              <label
+                for="Steal Frame"
+              >
+                Steal Frame
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Darojay"
+                name="Darojay"
+                type="checkbox"
+              />
+              <label
+                for="Darojay"
+              >
+                Darojay
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Fashion Jewellery"
+                name="Fashion Jewellery"
+                type="checkbox"
+              />
+              <label
+                for="Fashion Jewellery"
+              >
+                Fashion Jewellery
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Cuff Butterfly"
+                name="Cuff Butterfly"
+                type="checkbox"
+              />
+              <label
+                for="Cuff Butterfly"
+              >
+                Cuff Butterfly
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Designer Sun Glasses"
+                name="Designer Sun Glasses"
+                type="checkbox"
+              />
+              <label
+                for="Designer Sun Glasses"
+              >
+                Designer Sun Glasses
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="mastar watch"
+                name="mastar watch"
+                type="checkbox"
+              />
+              <label
+                for="mastar watch"
+              >
+                mastar watch
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Car Aux"
+                name="Car Aux"
+                type="checkbox"
+              />
+              <label
+                for="Car Aux"
+              >
+                Car Aux
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="W1209 DC12V"
+                name="W1209 DC12V"
+                type="checkbox"
+              />
+              <label
+                for="W1209 DC12V"
+              >
+                W1209 DC12V
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="TC Reusable"
+                name="TC Reusable"
+                type="checkbox"
+              />
+              <label
+                for="TC Reusable"
+              >
+                TC Reusable
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Neon LED Light"
+                name="Neon LED Light"
+                type="checkbox"
+              />
+              <label
+                for="Neon LED Light"
+              >
+                Neon LED Light
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="METRO 70cc Motorcycle - MR70"
+                name="METRO 70cc Motorcycle - MR70"
+                type="checkbox"
+              />
+              <label
+                for="METRO 70cc Motorcycle - MR70"
+              >
+                METRO 70cc Motorcycle - MR70
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="BRAVE BULL"
+                name="BRAVE BULL"
+                type="checkbox"
+              />
+              <label
+                for="BRAVE BULL"
+              >
+                BRAVE BULL
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="shock absorber"
+                name="shock absorber"
+                type="checkbox"
+              />
+              <label
+                for="shock absorber"
+              >
+                shock absorber
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="JIEPOLLY"
+                name="JIEPOLLY"
+                type="checkbox"
+              />
+              <label
+                for="JIEPOLLY"
+              >
+                JIEPOLLY
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Xiangle"
+                name="Xiangle"
+                type="checkbox"
+              />
+              <label
+                for="Xiangle"
+              >
+                Xiangle
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="lightingbrilliance"
+                name="lightingbrilliance"
+                type="checkbox"
+              />
+              <label
+                for="lightingbrilliance"
+              >
+                lightingbrilliance
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="Ifei Home"
+                name="Ifei Home"
+                type="checkbox"
+              />
+              <label
+                for="Ifei Home"
+              >
+                Ifei Home
+              </label>
+              <span>
+                (0/2)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="DADAWU"
+                name="DADAWU"
+                type="checkbox"
+              />
+              <label
+                for="DADAWU"
+              >
+                DADAWU
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+            <div
+              class="filter_list_point"
+            >
+              <input
+                id="YIOSI"
+                name="YIOSI"
+                type="checkbox"
+              />
+              <label
+                for="YIOSI"
+              >
+                YIOSI
+              </label>
+              <span>
+                (0/1)
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="slider_block"
+        >
+          <h2>
+            price
+          </h2>
+          <div
+            class="range_items"
+          >
+            <p>
+              10
+            </p>
+            <p
+              class="line"
+            />
+            <p>
+              1749
+            </p>
+          </div>
+          <div
+            class="range_slider"
+          >
+            <div
+              class="rc-slider rc-slider-horizontal"
+            >
+              <div
+                class="rc-slider-rail"
+              />
+              <div
+                class="rc-slider-track rc-slider-track-1"
+                style="left: 0%; width: 100%;"
+              />
+              <div
+                class="rc-slider-step"
+              />
+              <div
+                aria-disabled="false"
+                aria-valuemax="1749"
+                aria-valuemin="10"
+                aria-valuenow="10"
+                class="rc-slider-handle rc-slider-handle-1"
+                role="slider"
+                style="left: 0%; transform: translateX(-50%);"
+                tabindex="0"
+              />
+              <div
+                aria-disabled="false"
+                aria-valuemax="1749"
+                aria-valuemin="10"
+                aria-valuenow="1749"
+                class="rc-slider-handle rc-slider-handle-2"
+                role="slider"
+                style="left: 100%; transform: translateX(-50%);"
+                tabindex="0"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="slider_block"
+        >
+          <h2>
+            stock
+          </h2>
+          <div
+            class="range_items"
+          >
+            <p>
+              2
+            </p>
+            <p
+              class="line"
+            />
+            <p>
+              150
+            </p>
+          </div>
+          <div
+            class="range_slider"
+          >
+            <div
+              class="rc-slider rc-slider-horizontal"
+            >
+              <div
+                class="rc-slider-rail"
+              />
+              <div
+                class="rc-slider-track rc-slider-track-1"
+                style="left: 0%; width: 100%;"
+              />
+              <div
+                class="rc-slider-step"
+              />
+              <div
+                aria-disabled="false"
+                aria-valuemax="150"
+                aria-valuemin="2"
+                aria-valuenow="2"
+                class="rc-slider-handle rc-slider-handle-1"
+                role="slider"
+                style="left: 0%; transform: translateX(-50%);"
+                tabindex="0"
+              />
+              <div
+                aria-disabled="false"
+                aria-valuemax="150"
+                aria-valuemin="2"
+                aria-valuenow="150"
+                class="rc-slider-handle rc-slider-handle-2"
+                role="slider"
+                style="left: 100%; transform: translateX(-50%);"
+                tabindex="0"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="filters"
+    >
+      <div
+        class="filter_buttons"
+      >
+        <button
+          class=""
+        >
+           
+          Reset Filters
+        </button>
+        <button
+          class=""
+        >
+           
+          Copy Link
+        </button>
+      </div>
+      <div
+        class="filter_block"
+      >
+        <h2>
+          category
+        </h2>
+        <div
+          class="filter_list"
+        >
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="smartphones"
+              name="smartphones"
+              type="checkbox"
+            />
+            <label
+              for="smartphones"
+            >
+              smartphones
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="laptops"
+              name="laptops"
+              type="checkbox"
+            />
+            <label
+              for="laptops"
+            >
+              laptops
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="fragrances"
+              name="fragrances"
+              type="checkbox"
+            />
+            <label
+              for="fragrances"
+            >
+              fragrances
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="skincare"
+              name="skincare"
+              type="checkbox"
+            />
+            <label
+              for="skincare"
+            >
+              skincare
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="groceries"
+              name="groceries"
+              type="checkbox"
+            />
+            <label
+              for="groceries"
+            >
+              groceries
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="home-decoration"
+              name="home-decoration"
+              type="checkbox"
+            />
+            <label
+              for="home-decoration"
+            >
+              home-decoration
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="furniture"
+              name="furniture"
+              type="checkbox"
+            />
+            <label
+              for="furniture"
+            >
+              furniture
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="tops"
+              name="tops"
+              type="checkbox"
+            />
+            <label
+              for="tops"
+            >
+              tops
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="womens-dresses"
+              name="womens-dresses"
+              type="checkbox"
+            />
+            <label
+              for="womens-dresses"
+            >
+              womens-dresses
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="womens-shoes"
+              name="womens-shoes"
+              type="checkbox"
+            />
+            <label
+              for="womens-shoes"
+            >
+              womens-shoes
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="mens-shirts"
+              name="mens-shirts"
+              type="checkbox"
+            />
+            <label
+              for="mens-shirts"
+            >
+              mens-shirts
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="mens-shoes"
+              name="mens-shoes"
+              type="checkbox"
+            />
+            <label
+              for="mens-shoes"
+            >
+              mens-shoes
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="mens-watches"
+              name="mens-watches"
+              type="checkbox"
+            />
+            <label
+              for="mens-watches"
+            >
+              mens-watches
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="womens-watches"
+              name="womens-watches"
+              type="checkbox"
+            />
+            <label
+              for="womens-watches"
+            >
+              womens-watches
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="womens-bags"
+              name="womens-bags"
+              type="checkbox"
+            />
+            <label
+              for="womens-bags"
+            >
+              womens-bags
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="womens-jewellery"
+              name="womens-jewellery"
+              type="checkbox"
+            />
+            <label
+              for="womens-jewellery"
+            >
+              womens-jewellery
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="sunglasses"
+              name="sunglasses"
+              type="checkbox"
+            />
+            <label
+              for="sunglasses"
+            >
+              sunglasses
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="automotive"
+              name="automotive"
+              type="checkbox"
+            />
+            <label
+              for="automotive"
+            >
+              automotive
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="motorcycle"
+              name="motorcycle"
+              type="checkbox"
+            />
+            <label
+              for="motorcycle"
+            >
+              motorcycle
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="lighting"
+              name="lighting"
+              type="checkbox"
+            />
+            <label
+              for="lighting"
+            >
+              lighting
+            </label>
+            <span>
+              (0/5)
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="filter_block"
+      >
+        <h2>
+          brand
+        </h2>
+        <div
+          class="filter_list"
+        >
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Apple"
+              name="Apple"
+              type="checkbox"
+            />
+            <label
+              for="Apple"
+            >
+              Apple
+            </label>
+            <span>
+              (0/3)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Samsung"
+              name="Samsung"
+              type="checkbox"
+            />
+            <label
+              for="Samsung"
+            >
+              Samsung
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="OPPO"
+              name="OPPO"
+              type="checkbox"
+            />
+            <label
+              for="OPPO"
+            >
+              OPPO
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Huawei"
+              name="Huawei"
+              type="checkbox"
+            />
+            <label
+              for="Huawei"
+            >
+              Huawei
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Microsoft Surface"
+              name="Microsoft Surface"
+              type="checkbox"
+            />
+            <label
+              for="Microsoft Surface"
+            >
+              Microsoft Surface
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Infinix"
+              name="Infinix"
+              type="checkbox"
+            />
+            <label
+              for="Infinix"
+            >
+              Infinix
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="HP Pavilion"
+              name="HP Pavilion"
+              type="checkbox"
+            />
+            <label
+              for="HP Pavilion"
+            >
+              HP Pavilion
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Impression of Acqua Di Gio"
+              name="Impression of Acqua Di Gio"
+              type="checkbox"
+            />
+            <label
+              for="Impression of Acqua Di Gio"
+            >
+              Impression of Acqua Di Gio
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Royal_Mirage"
+              name="Royal_Mirage"
+              type="checkbox"
+            />
+            <label
+              for="Royal_Mirage"
+            >
+              Royal_Mirage
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Fog Scent Xpressio"
+              name="Fog Scent Xpressio"
+              type="checkbox"
+            />
+            <label
+              for="Fog Scent Xpressio"
+            >
+              Fog Scent Xpressio
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Al Munakh"
+              name="Al Munakh"
+              type="checkbox"
+            />
+            <label
+              for="Al Munakh"
+            >
+              Al Munakh
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Lord - Al-Rehab"
+              name="Lord - Al-Rehab"
+              type="checkbox"
+            />
+            <label
+              for="Lord - Al-Rehab"
+            >
+              Lord - Al-Rehab
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="L'Oreal Paris"
+              name="L'Oreal Paris"
+              type="checkbox"
+            />
+            <label
+              for="L'Oreal Paris"
+            >
+              L'Oreal Paris
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Hemani Tea"
+              name="Hemani Tea"
+              type="checkbox"
+            />
+            <label
+              for="Hemani Tea"
+            >
+              Hemani Tea
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Dermive"
+              name="Dermive"
+              type="checkbox"
+            />
+            <label
+              for="Dermive"
+            >
+              Dermive
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="ROREC White Rice"
+              name="ROREC White Rice"
+              type="checkbox"
+            />
+            <label
+              for="ROREC White Rice"
+            >
+              ROREC White Rice
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Fair & Clear"
+              name="Fair & Clear"
+              type="checkbox"
+            />
+            <label
+              for="Fair & Clear"
+            >
+              Fair & Clear
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Saaf & Khaas"
+              name="Saaf & Khaas"
+              type="checkbox"
+            />
+            <label
+              for="Saaf & Khaas"
+            >
+              Saaf & Khaas
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Bake Parlor Big"
+              name="Bake Parlor Big"
+              type="checkbox"
+            />
+            <label
+              for="Bake Parlor Big"
+            >
+              Bake Parlor Big
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Baking Food Items"
+              name="Baking Food Items"
+              type="checkbox"
+            />
+            <label
+              for="Baking Food Items"
+            >
+              Baking Food Items
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="fauji"
+              name="fauji"
+              type="checkbox"
+            />
+            <label
+              for="fauji"
+            >
+              fauji
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Dry Rose"
+              name="Dry Rose"
+              type="checkbox"
+            />
+            <label
+              for="Dry Rose"
+            >
+              Dry Rose
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Boho Decor"
+              name="Boho Decor"
+              type="checkbox"
+            />
+            <label
+              for="Boho Decor"
+            >
+              Boho Decor
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Flying Wooden"
+              name="Flying Wooden"
+              type="checkbox"
+            />
+            <label
+              for="Flying Wooden"
+            >
+              Flying Wooden
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="LED Lights"
+              name="LED Lights"
+              type="checkbox"
+            />
+            <label
+              for="LED Lights"
+            >
+              LED Lights
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="luxury palace"
+              name="luxury palace"
+              type="checkbox"
+            />
+            <label
+              for="luxury palace"
+            >
+              luxury palace
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Golden"
+              name="Golden"
+              type="checkbox"
+            />
+            <label
+              for="Golden"
+            >
+              Golden
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Furniture Bed Set"
+              name="Furniture Bed Set"
+              type="checkbox"
+            />
+            <label
+              for="Furniture Bed Set"
+            >
+              Furniture Bed Set
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Ratttan Outdoor"
+              name="Ratttan Outdoor"
+              type="checkbox"
+            />
+            <label
+              for="Ratttan Outdoor"
+            >
+              Ratttan Outdoor
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Kitchen Shelf"
+              name="Kitchen Shelf"
+              type="checkbox"
+            />
+            <label
+              for="Kitchen Shelf"
+            >
+              Kitchen Shelf
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Multi Purpose"
+              name="Multi Purpose"
+              type="checkbox"
+            />
+            <label
+              for="Multi Purpose"
+            >
+              Multi Purpose
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="AmnaMart"
+              name="AmnaMart"
+              type="checkbox"
+            />
+            <label
+              for="AmnaMart"
+            >
+              AmnaMart
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Professional Wear"
+              name="Professional Wear"
+              type="checkbox"
+            />
+            <label
+              for="Professional Wear"
+            >
+              Professional Wear
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Soft Cotton"
+              name="Soft Cotton"
+              type="checkbox"
+            />
+            <label
+              for="Soft Cotton"
+            >
+              Soft Cotton
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Top Sweater"
+              name="Top Sweater"
+              type="checkbox"
+            />
+            <label
+              for="Top Sweater"
+            >
+              Top Sweater
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="RED MICKY MOUSE.."
+              name="RED MICKY MOUSE.."
+              type="checkbox"
+            />
+            <label
+              for="RED MICKY MOUSE.."
+            >
+              RED MICKY MOUSE..
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Digital Printed"
+              name="Digital Printed"
+              type="checkbox"
+            />
+            <label
+              for="Digital Printed"
+            >
+              Digital Printed
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Ghazi Fabric"
+              name="Ghazi Fabric"
+              type="checkbox"
+            />
+            <label
+              for="Ghazi Fabric"
+            >
+              Ghazi Fabric
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="IELGY"
+              name="IELGY"
+              type="checkbox"
+            />
+            <label
+              for="IELGY"
+            >
+              IELGY
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="IELGY fashion"
+              name="IELGY fashion"
+              type="checkbox"
+            />
+            <label
+              for="IELGY fashion"
+            >
+              IELGY fashion
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Synthetic Leather"
+              name="Synthetic Leather"
+              type="checkbox"
+            />
+            <label
+              for="Synthetic Leather"
+            >
+              Synthetic Leather
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Sandals Flip Flops"
+              name="Sandals Flip Flops"
+              type="checkbox"
+            />
+            <label
+              for="Sandals Flip Flops"
+            >
+              Sandals Flip Flops
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Maasai Sandals"
+              name="Maasai Sandals"
+              type="checkbox"
+            />
+            <label
+              for="Maasai Sandals"
+            >
+              Maasai Sandals
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Arrivals Genuine"
+              name="Arrivals Genuine"
+              type="checkbox"
+            />
+            <label
+              for="Arrivals Genuine"
+            >
+              Arrivals Genuine
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Vintage Apparel"
+              name="Vintage Apparel"
+              type="checkbox"
+            />
+            <label
+              for="Vintage Apparel"
+            >
+              Vintage Apparel
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="FREE FIRE"
+              name="FREE FIRE"
+              type="checkbox"
+            />
+            <label
+              for="FREE FIRE"
+            >
+              FREE FIRE
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="The Warehouse"
+              name="The Warehouse"
+              type="checkbox"
+            />
+            <label
+              for="The Warehouse"
+            >
+              The Warehouse
+            </label>
+            <span>
+              (0/3)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Sneakers"
+              name="Sneakers"
+              type="checkbox"
+            />
+            <label
+              for="Sneakers"
+            >
+              Sneakers
+            </label>
+            <span>
+              (0/3)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Rubber"
+              name="Rubber"
+              type="checkbox"
+            />
+            <label
+              for="Rubber"
+            >
+              Rubber
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Naviforce"
+              name="Naviforce"
+              type="checkbox"
+            />
+            <label
+              for="Naviforce"
+            >
+              Naviforce
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="SKMEI 9117"
+              name="SKMEI 9117"
+              type="checkbox"
+            />
+            <label
+              for="SKMEI 9117"
+            >
+              SKMEI 9117
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Strap Skeleton"
+              name="Strap Skeleton"
+              type="checkbox"
+            />
+            <label
+              for="Strap Skeleton"
+            >
+              Strap Skeleton
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Stainless"
+              name="Stainless"
+              type="checkbox"
+            />
+            <label
+              for="Stainless"
+            >
+              Stainless
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Eastern Watches"
+              name="Eastern Watches"
+              type="checkbox"
+            />
+            <label
+              for="Eastern Watches"
+            >
+              Eastern Watches
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Luxury Digital"
+              name="Luxury Digital"
+              type="checkbox"
+            />
+            <label
+              for="Luxury Digital"
+            >
+              Luxury Digital
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Watch Pearls"
+              name="Watch Pearls"
+              type="checkbox"
+            />
+            <label
+              for="Watch Pearls"
+            >
+              Watch Pearls
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Bracelet"
+              name="Bracelet"
+              type="checkbox"
+            />
+            <label
+              for="Bracelet"
+            >
+              Bracelet
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="LouisWill"
+              name="LouisWill"
+              type="checkbox"
+            />
+            <label
+              for="LouisWill"
+            >
+              LouisWill
+            </label>
+            <span>
+              (0/3)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Copenhagen Luxe"
+              name="Copenhagen Luxe"
+              type="checkbox"
+            />
+            <label
+              for="Copenhagen Luxe"
+            >
+              Copenhagen Luxe
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Steal Frame"
+              name="Steal Frame"
+              type="checkbox"
+            />
+            <label
+              for="Steal Frame"
+            >
+              Steal Frame
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Darojay"
+              name="Darojay"
+              type="checkbox"
+            />
+            <label
+              for="Darojay"
+            >
+              Darojay
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Fashion Jewellery"
+              name="Fashion Jewellery"
+              type="checkbox"
+            />
+            <label
+              for="Fashion Jewellery"
+            >
+              Fashion Jewellery
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Cuff Butterfly"
+              name="Cuff Butterfly"
+              type="checkbox"
+            />
+            <label
+              for="Cuff Butterfly"
+            >
+              Cuff Butterfly
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Designer Sun Glasses"
+              name="Designer Sun Glasses"
+              type="checkbox"
+            />
+            <label
+              for="Designer Sun Glasses"
+            >
+              Designer Sun Glasses
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="mastar watch"
+              name="mastar watch"
+              type="checkbox"
+            />
+            <label
+              for="mastar watch"
+            >
+              mastar watch
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Car Aux"
+              name="Car Aux"
+              type="checkbox"
+            />
+            <label
+              for="Car Aux"
+            >
+              Car Aux
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="W1209 DC12V"
+              name="W1209 DC12V"
+              type="checkbox"
+            />
+            <label
+              for="W1209 DC12V"
+            >
+              W1209 DC12V
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="TC Reusable"
+              name="TC Reusable"
+              type="checkbox"
+            />
+            <label
+              for="TC Reusable"
+            >
+              TC Reusable
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Neon LED Light"
+              name="Neon LED Light"
+              type="checkbox"
+            />
+            <label
+              for="Neon LED Light"
+            >
+              Neon LED Light
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="METRO 70cc Motorcycle - MR70"
+              name="METRO 70cc Motorcycle - MR70"
+              type="checkbox"
+            />
+            <label
+              for="METRO 70cc Motorcycle - MR70"
+            >
+              METRO 70cc Motorcycle - MR70
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="BRAVE BULL"
+              name="BRAVE BULL"
+              type="checkbox"
+            />
+            <label
+              for="BRAVE BULL"
+            >
+              BRAVE BULL
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="shock absorber"
+              name="shock absorber"
+              type="checkbox"
+            />
+            <label
+              for="shock absorber"
+            >
+              shock absorber
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="JIEPOLLY"
+              name="JIEPOLLY"
+              type="checkbox"
+            />
+            <label
+              for="JIEPOLLY"
+            >
+              JIEPOLLY
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Xiangle"
+              name="Xiangle"
+              type="checkbox"
+            />
+            <label
+              for="Xiangle"
+            >
+              Xiangle
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="lightingbrilliance"
+              name="lightingbrilliance"
+              type="checkbox"
+            />
+            <label
+              for="lightingbrilliance"
+            >
+              lightingbrilliance
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="Ifei Home"
+              name="Ifei Home"
+              type="checkbox"
+            />
+            <label
+              for="Ifei Home"
+            >
+              Ifei Home
+            </label>
+            <span>
+              (0/2)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="DADAWU"
+              name="DADAWU"
+              type="checkbox"
+            />
+            <label
+              for="DADAWU"
+            >
+              DADAWU
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+          <div
+            class="filter_list_point"
+          >
+            <input
+              id="YIOSI"
+              name="YIOSI"
+              type="checkbox"
+            />
+            <label
+              for="YIOSI"
+            >
+              YIOSI
+            </label>
+            <span>
+              (0/1)
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="slider_block"
+      >
+        <h2>
+          price
+        </h2>
+        <div
+          class="range_items"
+        >
+          <p>
+            10
+          </p>
+          <p
+            class="line"
+          />
+          <p>
+            1749
+          </p>
+        </div>
+        <div
+          class="range_slider"
+        >
+          <div
+            class="rc-slider rc-slider-horizontal"
+          >
+            <div
+              class="rc-slider-rail"
+            />
+            <div
+              class="rc-slider-track rc-slider-track-1"
+              style="left: 0%; width: 100%;"
+            />
+            <div
+              class="rc-slider-step"
+            />
+            <div
+              aria-disabled="false"
+              aria-valuemax="1749"
+              aria-valuemin="10"
+              aria-valuenow="10"
+              class="rc-slider-handle rc-slider-handle-1"
+              role="slider"
+              style="left: 0%; transform: translateX(-50%);"
+              tabindex="0"
+            />
+            <div
+              aria-disabled="false"
+              aria-valuemax="1749"
+              aria-valuemin="10"
+              aria-valuenow="1749"
+              class="rc-slider-handle rc-slider-handle-2"
+              role="slider"
+              style="left: 100%; transform: translateX(-50%);"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="slider_block"
+      >
+        <h2>
+          stock
+        </h2>
+        <div
+          class="range_items"
+        >
+          <p>
+            2
+          </p>
+          <p
+            class="line"
+          />
+          <p>
+            150
+          </p>
+        </div>
+        <div
+          class="range_slider"
+        >
+          <div
+            class="rc-slider rc-slider-horizontal"
+          >
+            <div
+              class="rc-slider-rail"
+            />
+            <div
+              class="rc-slider-track rc-slider-track-1"
+              style="left: 0%; width: 100%;"
+            />
+            <div
+              class="rc-slider-step"
+            />
+            <div
+              aria-disabled="false"
+              aria-valuemax="150"
+              aria-valuemin="2"
+              aria-valuenow="2"
+              class="rc-slider-handle rc-slider-handle-1"
+              role="slider"
+              style="left: 0%; transform: translateX(-50%);"
+              tabindex="0"
+            />
+            <div
+              aria-disabled="false"
+              aria-valuemax="150"
+              aria-valuemin="2"
+              aria-valuenow="150"
+              class="rc-slider-handle rc-slider-handle-2"
+              role="slider"
+              style="left: 100%; transform: translateX(-50%);"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

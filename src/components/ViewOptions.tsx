@@ -34,6 +34,7 @@ const ViewOptions = ({ activeMode, setActiveMode }: IViewOptions) => {
         <div className="view-mode_big-sqare"></div>
       </div>
       <div
+        role={"button"}
         className={`view-mode_small ${
           activeMode === ActiveMode.small ? " active" : ""
         }`}
