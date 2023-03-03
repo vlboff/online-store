@@ -141,6 +141,7 @@ function ShoppingCart() {
                 name='Buy now'
                 style='button_stylized button_stylized_brand'
                 onClick={() => setModalWindow(true)}
+                data-testid="buy-now-button"
               />
             </div>
           </div>

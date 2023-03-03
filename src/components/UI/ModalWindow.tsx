@@ -13,7 +13,7 @@ const ModalWindow = ({ children, visible, setVisible }: IModalChildren) => {
   }
 
   return (
-    <div className={rootClasses.join(' ')} onClick={() => {
+    <div className={rootClasses.join(' ')} data-testid="modal-window" onClick={() => {
       setVisible(false);
       window.localStorage.setItem('buyNow', 'false');
     }}>
